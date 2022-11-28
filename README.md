@@ -8,11 +8,11 @@
   <p>
     ● Herencia <br>● Polimorfismo <br>● Agregación / Composición
   </p>
-    </li>
+    <!--</li>
     <li>
       <h3></h3>
       <p></p>
-    </li>
+    </li> -->
     <li>
       <h3>MODELO DE DATOS</h3> <br> SQL Server <br>
       <p>
