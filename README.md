@@ -1,9 +1,25 @@
 # SystemBackOffice
 <div class="row">
-  <h3>
+  <ul>
+    <li>
+      <h3>
     MODELO DE CLASES
   </h3> 
   <p>
-    que incluya: ● Herencia ● Polimorfismo ● Agregación / Composición
+    ● Herencia <br>● Polimorfismo <br>● Agregación / Composición
   </p>
+    </li>
+    <li>
+      <h3></h3>
+      <p></p>
+    </li>
+    <li>
+      <h3>MODELO DE DATOS</h3> <br> SQL Server <br>
+      <p>
+        ● Relaciones y restricciones de integridad referencial <br>
+        ● Uso de procedimientos almacenados <br>
+        ● Uso Vistas
+      </p>
+    </li>
+  </ul>
 </div>
