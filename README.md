@@ -3,11 +3,11 @@
   <ul>
     <li>
       <h3>
-    MODELO DE CLASES
-  </h3> 
-  <p>
-    ● Herencia <br>● Polimorfismo <br>● Agregación / Composición
-  </p>
+        MODELO DE CLASES
+      </h3> 
+      <p>
+        ● Herencia <br>● Polimorfismo <br>● Agregación / Composición
+      </p>
     <!--</li>
     <li>
       <h3></h3>
