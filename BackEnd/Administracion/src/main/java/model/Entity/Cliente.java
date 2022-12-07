@@ -1,4 +1,4 @@
-package Entity;
+package model.Entity;
 
 import java.io.Serializable;
 import javax.persistence.Column;

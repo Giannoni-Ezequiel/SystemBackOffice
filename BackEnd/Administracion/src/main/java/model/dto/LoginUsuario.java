@@ -1,4 +1,4 @@
-package dto;
+package model.dto;
 
 import javax.validation.constraints.NotBlank;
 
