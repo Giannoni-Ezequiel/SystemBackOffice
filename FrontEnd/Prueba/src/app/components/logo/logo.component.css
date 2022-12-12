@@ -1,0 +1,21 @@
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    }
+
+button {
+    border-width: medium;
+
+    }
+
+/*/--Celular--/
+@media (max-width: 575px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .boton .button {
+        justify-content: space-evenly;
+    }
+}*/

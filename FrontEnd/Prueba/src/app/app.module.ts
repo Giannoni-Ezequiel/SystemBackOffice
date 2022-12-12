@@ -3,10 +3,14 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ClienteComponent } from './cliente/cliente.component';
-import { BienComponent } from './bien/bien.component';
-import { PedidoComponent } from './pedido/pedido.component';
-import { LoginComponent } from './login/login.component';
+import { ClienteComponent } from './components/cliente/cliente.component';
+import { BienComponent } from './components/bien/bien.component';
+import { PedidoComponent } from './components/pedido/pedido.component';
+import { LoginComponent } from './components/login/login.component';
+import { ProyectoComponent } from './components/proyecto/proyecto.component';
+import { HeaderComponent } from './components/header/header.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { LogoComponent } from './components/logo/logo.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +18,11 @@ import { LoginComponent } from './login/login.component';
     ClienteComponent,
     BienComponent,
     PedidoComponent,
-    LoginComponent
+    LoginComponent,
+    ProyectoComponent,
+    HeaderComponent,
+    FooterComponent,
+    LogoComponent
   ],
   imports: [
     BrowserModule,
