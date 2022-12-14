@@ -1,13 +1,15 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { LoginComponent } from './components/login/login.component';
-import { ProyectoComponent } from './components/proyecto/proyecto.component';
+import { LoginComponent } from './vistas/login/login.component';
+import { ProyectoComponent } from './vistas/proyecto/proyecto.component';
 
 const routes: Routes =
 [
-  {path:'', component: ProyectoComponent},
+  {path: '', redirectTo: 'login', pathMatch:'full'},
   {path:'login', component: LoginComponent},
-  {path: '', redirectTo: 'login', pathMatch:'full'}
+  {path:'proyecto', component: ProyectoComponent}
+
+
 ];
 
 @NgModule({
@@ -15,3 +17,4 @@ const routes: Routes =
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
+export const RoutingComponents = [LoginComponent, ProyectoComponent]

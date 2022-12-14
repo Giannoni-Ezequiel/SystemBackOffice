@@ -1,16 +1,15 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
-import { AppRoutingModule } from './app-routing.module';
+import { AppRoutingModule, RoutingComponents } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ClienteComponent } from './components/cliente/cliente.component';
-import { BienComponent } from './components/bien/bien.component';
-import { PedidoComponent } from './components/pedido/pedido.component';
-import { LoginComponent } from './components/login/login.component';
-import { ProyectoComponent } from './components/proyecto/proyecto.component';
-import { HeaderComponent } from './components/header/header.component';
-import { FooterComponent } from './components/footer/footer.component';
-import { LogoComponent } from './components/logo/logo.component';
+import { ClienteComponent } from './vistas/cliente/cliente.component';
+import { BienComponent } from './vistas/bien/bien.component';
+import { PedidoComponent } from './vistas/pedido/pedido.component';
+import { HeaderComponent } from './vistas/header/header.component';
+import { FooterComponent } from './vistas/footer/footer.component';
+import { LogoComponent } from './vistas/logo/logo.component';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -18,8 +17,7 @@ import { LogoComponent } from './components/logo/logo.component';
     ClienteComponent,
     BienComponent,
     PedidoComponent,
-    LoginComponent,
-    ProyectoComponent,
+    RoutingComponents,
     HeaderComponent,
     FooterComponent,
     LogoComponent
@@ -27,7 +25,8 @@ import { LogoComponent } from './components/logo/logo.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule, FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

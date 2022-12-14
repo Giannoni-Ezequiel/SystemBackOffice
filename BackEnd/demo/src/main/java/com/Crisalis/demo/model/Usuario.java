@@ -4,6 +4,8 @@ import com.Crisalis.demo.model.DTO.UserDTO;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import javax.persistence.*;
 
 
@@ -11,6 +13,7 @@ import javax.persistence.*;
 @Table(name = "Usuario")
 @Data
 @AllArgsConstructor
+@NoArgsConstructor
 @Builder
 public class Usuario {
 
