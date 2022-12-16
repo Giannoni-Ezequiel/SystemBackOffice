@@ -6,9 +6,10 @@ import com.Crisalis.demo.exception.custom.UnauthorizedException;
 import com.Crisalis.demo.model.DTO.UserDTO;
 import com.Crisalis.demo.model.Usuario;
 import com.Crisalis.demo.repository.UsuarioRepository;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.util.StringUtils;
+
 
 
 @Service
@@ -35,7 +36,7 @@ public class UsuarioService {
                                 .build()
                         , Boolean.TRUE)
         ){
-            this.usuarioRepository.findByUsernameAndPassword(username, password)
+          return  this.usuarioRepository.findByUsernameAndPassword(username, password)
                     .orElseThrow(
                             () -> new UnauthorizedException("Invalid credentials")
                     ).toDTO();

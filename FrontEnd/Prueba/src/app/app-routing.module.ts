@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './vistas/login/login.component';
 import { ProyectoComponent } from './vistas/proyecto/proyecto.component';
+                //api
 
 const routes: Routes =
 [
