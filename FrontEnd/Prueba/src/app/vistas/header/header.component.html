@@ -1,3 +1,70 @@
-<div class="row">
-    <app-logo></app-logo>
+
+  <div class="row">
+    <div class="container">
+      <app-logo></app-logo>
+      <div class="home">
+        <ul class="nav justify-content">
+          <li class="nav-item">
+            <a class="nav-link active" href="/proyecto">HOME</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="dropdown show">
+        <a class="btn btn-secondary dropdown-toggle" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+        (click)="cliente()">
+          Clientes
+        </a>
+      </div>
+      <div class="dropdown show">
+        <a class="btn btn-secondary dropdown-toggle" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+        (click)="servicio()">
+          Servicios
+        </a>
+
+      </div>
+      <div class="dropdown show">
+        <a class="btn btn-secondary dropdown-toggle" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Productos
+        </a>
+
+      </div>
+      <div class="dropdown show">
+        <a class="btn btn-secondary dropdown-toggle" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Pedidos
+        </a>
+
+      </div>
+      <div class="dropdown show">
+        <a class="btn btn-secondary dropdown-toggle"  role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Impuestos
+        </a>
+
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+          <a class="dropdown-item" href="#">Lista</a>
+          <a class="dropdown-item" href="#">Another action</a>
+          <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+      </div>
+      <div class="dropdown show">
+        <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Usuarios
+        </a>
+
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+          <a class="dropdown-item" href="#" >Lista</a>
+          <a class="dropdown-item" href="#">Another action</a>
+          <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+      </div>
+
+  <div class="boton">
+      <div>
+
+          <button type="button" class="btn btn-outline-light" (click)="login()"><!---->
+                  INGRESAR
+              </button>
+          </div>
+      </div>
+  </div>
 </div>

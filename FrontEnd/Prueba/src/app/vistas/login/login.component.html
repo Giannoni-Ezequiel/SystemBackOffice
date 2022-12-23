@@ -10,7 +10,7 @@
       <img src="assets/goLogo.svg" id="icon">
     </div>
     <div class="form">
-      <form [formGroup]="loginForm"(ngSubmit)="onLogin()" novalidate>
+      <form [formGroup]="loginForm"> <!--(ngSubmit)=onLogin()-->
         <!-- Email input -->
         <div class="form-outline mb-4">
           <input type="email" id="login" class="form-control" placeholder="login" formControlName="usuario" [(ngModel)]="nombreUsuario" required/>

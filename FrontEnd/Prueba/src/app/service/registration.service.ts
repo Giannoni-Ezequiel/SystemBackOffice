@@ -19,4 +19,6 @@ export class RegistrationService {
   {
     return this.httpClient.post<ResponseI>(this.url + 'usuario/login', loginUsuario);
   }
+
+
 }

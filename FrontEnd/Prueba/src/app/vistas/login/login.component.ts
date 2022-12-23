@@ -37,7 +37,7 @@ export class LoginComponent implements OnInit {
         this.router.navigate(['proyecto'])
       }
     });
-    this.registrationService
+    //this.registrationService.loginByEmail
   }
 
 }
