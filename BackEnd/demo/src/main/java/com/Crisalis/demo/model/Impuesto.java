@@ -8,23 +8,19 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "Cliente")
+@Table(name = "Impuesto")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class Cliente {
+public class Impuesto {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
-    private Integer id;
-    @Column(name = "nombre")
-    private String nombre;
-    @Column(name = "direccion")
-    private String direccion;
-    @Column(name = "telefono")
-    private String telefono;
+    @Column(name = "ID")
+    private Integer imp_ID;
+    @Column(name = "Porcentaje")
+    private float imp_Porcentaje;
+    @Column(name = "Nombre")
+    private String imp_Nombre;
 }
-
-//

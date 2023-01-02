@@ -9,15 +9,14 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "Empresa")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Builder
+//@Builder
 public class Empresa extends Cliente{
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+
+
     @Column(name = "CUIT")
     private Integer CUIT;
     @Column(name = "razon_social")

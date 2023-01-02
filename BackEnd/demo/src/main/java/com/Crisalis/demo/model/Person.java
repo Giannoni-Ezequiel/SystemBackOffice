@@ -8,16 +8,14 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
+
 @Entity
-@Table(name = "PersonaFisica")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Builder
+//@Builder
 public class Person extends Cliente{
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "DNI")
     private Integer DNI;
     @Column(name = "nombre")
@@ -33,7 +31,6 @@ public class Person extends Cliente{
         this.apellido = personDTO.getApellido();
         this.email = personDTO.getEmail();
     }
-
     public PersonDTO toDTO(){
         return
                 PersonDTO
