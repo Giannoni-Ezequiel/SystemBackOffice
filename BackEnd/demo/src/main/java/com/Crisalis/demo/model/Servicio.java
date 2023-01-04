@@ -13,9 +13,9 @@ import javax.persistence.Entity;
 @NoArgsConstructor
 public class Servicio extends Bien{
 
-    @Column(name = "ID")
+    @Column(name = "ID Servicio")
     private Integer serv_ID;
-    @Column(name = "Nombre")
+    @Column(name = "Nombre Servicio")
     private Integer serv_Nombre;
     @Column(name = "Tipo de servicio")
     private Integer serv_TipoDeServicio;

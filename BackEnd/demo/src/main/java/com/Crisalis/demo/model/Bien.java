@@ -4,15 +4,15 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "Bienes")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Builder
+
 public class Bien {
 
     @Id
@@ -20,18 +20,21 @@ public class Bien {
     @Column(name = "ID")
     private Integer bien_ID;
     @Column(name = "Nombre")
-    private float bien_Nombre;
-    @ManyToOne
-    @JoinColumn(name = "tipoBien_ID")
-    private Integer tipoBien_ID;
+    private Float bien_Nombre;
+    @OneToOne
+    //@JoinColumn(name = "tipoBien_ID")
+    private Bien_Tipo bienTipo;
     @Column(name = "Costo")
-    private float bien_Costo;
+    private Float bien_Costo;
     @Column(name = "Cargo Soporte")
-    private float bien_CargoSoporte;
+    private Float bien_CargoSoporte;
     @Column(name = "¿Es especial?")
-    private boolean bien_EsEspecial;
+    private Boolean bien_EsEspecial;
     @Column(name = "Porcentaje de cargo")
-    private float bien_PorcentajCarg;
+    private Float bien_PorcentajCarg;
+    @ManyToMany
+    //@JoinColumn(name = "imp_ID")
+    private List<Impuesto> Impuestos;
 
 
 }

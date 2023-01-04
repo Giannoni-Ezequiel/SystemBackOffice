@@ -12,7 +12,7 @@ import javax.persistence.*;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Builder
+
 public class Pedido {
 
     @Id
@@ -24,14 +24,16 @@ public class Pedido {
     @Column(name = "Fecha")
     private String ord_fecha;
     @Column(name = "Total del Pedido")
-    private float ord_TotalPedido;
+    private Float ord_TotalPedido;
     @Column(name = "Empresa Emisora")
     private String ord_NomEmpEmisora;
-    @ManyToOne
-    @JoinColumn(name = "stat_ID")
-    private Integer stat_ID;
     @Column(name = "Descuento Porcentaje")
-    private float DescuentoPorcent;
+    private Float DescuentoPorcent;
     @Column(name = "Descuento Total")
-    private float DescuentoTotal;
+    private Float DescuentoTotal;
+    @OneToOne
+    //@Column(name = "stat_ID")
+    private Estado estado;
+    @OneToOne
+    private Pedido_detalle pedido_detalle;
 }

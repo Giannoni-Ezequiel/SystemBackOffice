@@ -12,13 +12,13 @@ import javax.persistence.*;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Builder
+
 public class tipo_cliente {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "ID")
+    @Column(name = "ID Tipo")
     private Integer tipoCliente_ID;
-    @Column(name = "Nombre")
+    @Column(name = "Nombre Tipo")
     private String tipoCliente_Nombre;
 }

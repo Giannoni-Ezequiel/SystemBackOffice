@@ -6,13 +6,14 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "Impuesto")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Builder
+
 public class Impuesto {
 
     @Id
@@ -20,7 +21,10 @@ public class Impuesto {
     @Column(name = "ID")
     private Integer imp_ID;
     @Column(name = "Porcentaje")
-    private float imp_Porcentaje;
+    private Float imp_Porcentaje;
     @Column(name = "Nombre")
     private String imp_Nombre;
+    @ManyToMany
+    //@JoinColumn(name = "bien_ID")
+    private List<Bien> Bienes;
 }

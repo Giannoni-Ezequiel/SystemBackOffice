@@ -18,22 +18,23 @@ public class Pedido_detalle {
     private Integer item_ID;
     @Column(name = "nombre")
     private String item_cant;
-    @ManyToOne
-    @JoinColumn(name = "bien_ID")
-    private String bien_ID;
-    @ManyToOne
-    @JoinColumn(name = "ord_ID")
-    private Integer ord_ID;
+
     @Column(name = "Precio Unitario")
-    private float item_PrecioUnitario;
+    private Float item_PrecioUnitario;
     @Column(name = "Precio Total")
-    private float item_PrecioTotal;
+    private Float item_PrecioTotal;
     @Column(name = "Descuento")
-    private float item_Descuento;
+    private Float item_Descuento;
     @Column(name = "Garantia")
     private Integer item_Garantia;
     @Column(name = "Porcentaje de Garantia")
-    private float item_PorcGarantia;
+    private Float item_PorcGarantia;
     @Column(name = "Cargo Soporte")
-    private float item_CargoSoporte;
+    private Float item_CargoSoporte;
+    @OneToOne
+    //@JoinColumn(name = "bien_ID")
+    private Bien bien;
+    @OneToOne
+    //@JoinColumn(name = "item_ID")
+    private Pedido_impuesto pedido_impuesto;
 }

@@ -13,15 +13,15 @@ import javax.persistence.Entity;
 @NoArgsConstructor
 public class Producto extends Bien{
 
-    @Column(name = "ID")
+    @Column(name = "ID Producto")
     private Integer prod_ID;
-    @Column(name = "Nombre")
+    @Column(name = "Nombre Producto")
     private String prod_Nombre;
     @Column(name = "Impuesto")
     private float prod_Impuesto;
-    @Column(name = "razon_social")
+    @Column(name = "Precio Base")
     private float prod_PrecioBase;
-    @Column(name = "razon_social")
+    @Column(name = "Porcentaje Garantia")
     private float prod_PorcentajeGarantia;
 
 }

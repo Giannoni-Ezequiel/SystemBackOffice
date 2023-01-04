@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 
 @Entity
+@Table(name = "Roles")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -15,8 +16,8 @@ public class Roles {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "ID")
+    @Column(name = "ID Rol")
     private Integer rol_ID;
-    @Column(name = "Detalle")
+    @Column(name = "Detalle Rol")
     private String rol_Nombre;
 }
