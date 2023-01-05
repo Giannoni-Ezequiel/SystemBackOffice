@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
 
 @Entity
 @Table(name = "Pedido_Impuesto")
@@ -19,8 +20,8 @@ public class Pedido_impuesto {
     private Integer peIm_ID;
     @Column(name = "Porcentaje")
     private Integer imp_Porcentaje;
-    @Column(name = "Total Impuesto Cobrado")
-    private Float imp_TotalImpCobrado;
+    @Column(name = "TotalImpuestoCobrado")
+    private BigDecimal imp_TotalImpCobrado;
     @OneToOne
     //@JoinColumn(name = "imp_ID")
     private Impuesto impuesto;

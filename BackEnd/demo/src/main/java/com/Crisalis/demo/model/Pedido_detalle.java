@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
 
 @Entity
 @Data
@@ -16,21 +17,20 @@ public class Pedido_detalle {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID")
     private Integer item_ID;
-    @Column(name = "nombre")
+    @Column(name = "Cantidad")
     private String item_cant;
-
-    @Column(name = "Precio Unitario")
-    private Float item_PrecioUnitario;
-    @Column(name = "Precio Total")
-    private Float item_PrecioTotal;
+    @Column(name = "PrecioUnitario")
+    private BigDecimal item_PrecioUnitario;
+    @Column(name = "PrecioTotal")
+    private BigDecimal item_PrecioTotal;
     @Column(name = "Descuento")
-    private Float item_Descuento;
+    private BigDecimal item_Descuento;
     @Column(name = "Garantia")
     private Integer item_Garantia;
-    @Column(name = "Porcentaje de Garantia")
-    private Float item_PorcGarantia;
-    @Column(name = "Cargo Soporte")
-    private Float item_CargoSoporte;
+    @Column(name = "PorcentajeDeGarantia")
+    private Double item_PorcGarantia;
+    @Column(name = "CargoSoporte")
+    private BigDecimal item_CargoSoporte;
     @OneToOne
     //@JoinColumn(name = "bien_ID")
     private Bien bien;

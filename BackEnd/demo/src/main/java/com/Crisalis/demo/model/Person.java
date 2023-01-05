@@ -1,16 +1,14 @@
 package com.Crisalis.demo.model;
 
 import com.Crisalis.demo.model.DTO.PersonDTO;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 
 
 @Entity
-@Data
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 //@Builder

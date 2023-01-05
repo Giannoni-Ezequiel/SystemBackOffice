@@ -6,13 +6,13 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "Bien_Tipo")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-
 public class Bien_Tipo {
 
     @Id
@@ -21,4 +21,6 @@ public class Bien_Tipo {
     private Integer tipoBien_ID;
     @Column(name = "Nombre")
     private String tipoBien_Nombre;
+    @OneToMany
+    private List<Bien> bienlist;
 }
