@@ -17,21 +17,25 @@ public class ClienteService implements IClienteService {
 
     @Override
     public Cliente listarId(int id) {
-        return null;
+        return repo.findOne(id);
     }
 
     @Override
     public Cliente crear(Cliente c) {
-        return null;
+        return repo.guardar(c);
     }
 
     @Override
     public Cliente editar(Cliente c) {
-        return null;
+        return repo.guardar(c);
     }
 
     @Override
     public Cliente delete(int id) {
-        return null;
+        Cliente c=repo.findOne(id);
+        if(c!=null){
+            repo.borrar(c);
+        }
+        return c;
     }
 }
