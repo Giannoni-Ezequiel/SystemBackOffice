@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -9,7 +10,7 @@ import { HttpClient } from '@angular/common/http';
 export class AppComponent {
   title = '';
   description = '';
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private router:Router) { }
 
   //Peticiones del backend
   ngOnInit() {
@@ -27,4 +28,10 @@ export class AppComponent {
       (error:any) => {console.log(error)}
 
     }
+  Listar(){
+    this.router.navigate(["listar"])
+  }
+  Crear(){
+    this.router.navigate(["crear"])
+  }
   }

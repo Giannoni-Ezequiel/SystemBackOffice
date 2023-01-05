@@ -1,32 +1,5 @@
-<table class="table">
-  <thead class="thead-light">
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">Nombre</th>
-      <th scope="col">DNI</th>
-      <th scope="col">Apellido</th>
-      <th scope="col">Email</th>
-      <th scope="col">Direccion</th>
-      <th scope="col">Telefono</th>
-      <th scope="col">IDTipo</th>
-      <th scope="col">Rol</th>
-      <th scope="col">ACCION</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-      <td>@mdo</td>
-      <td>@mdo</td>
-      <td>@mdo</td>
-      <td>@mdo</td>
-      <td>@mdo</td>
-      <td>Editar</td>
-      <td>Borrar</td>
-    </tr>
-
-  </tbody>
-</table>
+<div class="container">
+  <button (click)="Listar()" class="btn btn-light">Listar</button>
+  <button (click)="Crear()" class="btn btn-primary" style="margin-left: 10px;">Nuevo</button>
+</div>
+<app-listar></app-listar>

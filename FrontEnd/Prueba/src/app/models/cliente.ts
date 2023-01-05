@@ -1,9 +1,9 @@
 export class Cliente
 {
   id: number;
-  nombre: string;
+  nombre: String;
   dni: number;
-  apellido: string;
+  apellido: String;
   img: string;
   razonSocial: string;
   email: string;
@@ -12,7 +12,7 @@ export class Cliente
   telefono: string;
   fechaDeInicio: Date;
 
-  constructor(id: number,nombre: string, dni: number,apellido: string,img: string,
+  /*constructor(id: number,nombre: string, dni: number,apellido: string,img: string,
     razonSocial: string,email: string,direccion: string,cuit: string,telefono: string,fechaDeInicio: Date){
       this.id = id;
       this.nombre = nombre;
@@ -32,5 +32,5 @@ export class Cliente
     {
       this.nombre = nombre;
 
-    }
+    }*/
 }

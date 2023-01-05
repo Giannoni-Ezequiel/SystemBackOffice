@@ -1,0 +1,45 @@
+<div class="container">
+    <div class="card">
+        <div class="card-header">
+            <h3>Clientes</h3>
+        </div>
+        <div class="card-body">
+            <table class="table">
+                <thead class="thead-light">
+                  <tr class="text-center">
+                    <th scope="col">#</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">DNI</th>
+                    <th scope="col">Apellido</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Direccion</th>
+                    <th scope="col">Telefono</th>
+                    <th scope="col">IDTipo</th>
+                    <th scope="col">Rol</th>
+                    <th scope="col">ACCION</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ng-for="let cliente of clientes" class="text-center">
+                    <th scope="row">1</th>
+                    <td>{{cliente.id}}</td>
+                    <td>{{cliente.nombre}}</td>
+                    <td>{{cliente.dni}}</td>
+                    <td>{{cliente.apellido}}</td>
+                    <td>{{cliente.img}}</td>
+                    <td>{{cliente.razonSocial}}</td>
+                    <td>{{cliente.email}}</td>
+                    <td>{{cliente.direccion}}</td>
+                    <td>{{cliente.cuit}}</td>
+                    <td>{{cliente.telefono}}</td>
+                    <td>{{cliente.fechaDeInicio}}</td>
+                    <td>
+                        <button (click)="Editar(cliente)" class="btn btn-warning">Editar</button>
+                        <button (click)="Delete(cliente)" class="btn btn-warning" style="margin-left: 10px">Delete</button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>              
+        </div>
+    </div>
+</div>

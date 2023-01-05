@@ -12,6 +12,10 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { ServicioComponent } from './vistas/servicio/servicio.component';
 import { BannerComponent } from './vistas/banner/banner.component';
 import { BodyComponent } from './vistas/body/body.component';
+import { ListarComponent } from './vistas/cliente/listar/listar.component';
+import { CrearComponent } from './vistas/cliente/crear/crear.component';
+import { EditarComponent } from './vistas/cliente/editar/editar.component';
+import { ServiceService } from './service/service.service';
 
 @NgModule({
   declarations: [
@@ -24,7 +28,10 @@ import { BodyComponent } from './vistas/body/body.component';
     LogoComponent,
     ServicioComponent,
     BannerComponent,
-    BodyComponent
+    BodyComponent,
+    ListarComponent,
+    CrearComponent,
+    EditarComponent
   ],
   imports: [
     BrowserModule,
@@ -32,7 +39,7 @@ import { BodyComponent } from './vistas/body/body.component';
     HttpClientModule,
     ReactiveFormsModule, FormsModule
   ],
-  providers: [],
+  providers: [ServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
