@@ -9,7 +9,7 @@ import java.util.List;
 @Service
 public class ClienteService implements IClienteService {
     @Autowired
-    private ClienteRepository repo;
+    ClienteRepository repo;
     @Override
     public List<Cliente> listar() {
         return repo.findAll();
@@ -22,12 +22,12 @@ public class ClienteService implements IClienteService {
 
     @Override
     public Cliente crear(Cliente c) {
-        return repo.guardar(c);
+        return repo.crear(c);
     }
 
     @Override
     public Cliente editar(Cliente c) {
-        return repo.guardar(c);
+        return repo.crear(c);
     }
 
     @Override

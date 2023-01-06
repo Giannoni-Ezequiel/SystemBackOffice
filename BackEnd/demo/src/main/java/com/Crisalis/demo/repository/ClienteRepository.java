@@ -1,13 +1,17 @@
 package com.Crisalis.demo.repository;
 
 import com.Crisalis.demo.model.Cliente;
-import org.springframework.data.repository.Repository;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
-public interface ClienteRepository extends Repository<Cliente, Integer> {
+@Repository
+public interface ClienteRepository extends JpaRepository<Cliente, Integer> {
+
     List<Cliente>findAll();
     Cliente findOne(int id);
-    Cliente guardar(Cliente c);
+    Cliente crear(Cliente c);
     void borrar(Cliente c);
 }

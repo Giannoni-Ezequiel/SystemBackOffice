@@ -21,9 +21,6 @@ public class Bien {
     private Integer bien_ID;
     @Column(name = "Nombre")
     private String bien_Nombre;
-    @ManyToOne
-    //@JoinColumn(name = "tipoBien_ID")
-    private Bien_Tipo bienTipo;
     @Column(name = "Costo")
     private BigDecimal bien_Costo;
     @Column(name = "CargoSoporte")
