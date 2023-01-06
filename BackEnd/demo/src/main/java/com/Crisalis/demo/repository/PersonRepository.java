@@ -9,7 +9,7 @@ import java.util.Optional;
 @Repository
 public interface PersonRepository extends JpaRepository<Person, Integer> {
 
-    void deletePersonByDNI(Integer DNI);
-    Optional<Person> findByDNIAndnombre(Integer id, String nombre);
+    //void deletePersonByDNI(Integer DNI);
+    //Optional<Person> findByDNIAndnombre(Integer id, String nombre);
 
 }

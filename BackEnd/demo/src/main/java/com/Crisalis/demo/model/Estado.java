@@ -8,23 +8,16 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "Cliente")
+@Table(name = "Estado")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-
-public class Cliente {
+public class Estado {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
-    private Integer id;
-    @Column(name = "nombre")
-    private String nombre;
-    @Column(name = "direccion")
-    private String direccion;
-    @Column(name = "telefono")
-    private String telefono;
+    @Column(name = "ID")
+    private Integer stat_ID;
+    @Column(name = "costo")
+    private String stat_Nombre;
 }
-
-//

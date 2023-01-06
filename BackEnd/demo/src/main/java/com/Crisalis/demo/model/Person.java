@@ -1,23 +1,19 @@
 package com.Crisalis.demo.model;
 
 import com.Crisalis.demo.model.DTO.PersonDTO;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 
+
 @Entity
-@Table(name = "PersonaFisica")
-@Data
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Builder
+//@Builder
 public class Person extends Cliente{
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "DNI")
     private Integer DNI;
     @Column(name = "nombre")
@@ -33,7 +29,6 @@ public class Person extends Cliente{
         this.apellido = personDTO.getApellido();
         this.email = personDTO.getEmail();
     }
-
     public PersonDTO toDTO(){
         return
                 PersonDTO
