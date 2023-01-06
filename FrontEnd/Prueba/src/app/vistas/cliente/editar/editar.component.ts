@@ -9,8 +9,21 @@ import { Cliente } from 'src/app/models/cliente';
 })
 export class EditarComponent implements OnInit{
 
-  cliente:Cliente = new Cliente;
-  constructor(private router:Router, private service:ServiceService){}
+  cliente:Cliente;
+  constructor(private router:Router, private service:ServiceService){
+    this.cliente = {
+      nombre : '',
+      dni : '',
+      apellido : '',
+      img : '',
+      razonSocial : '',
+      email : '',
+      direccion : '',
+      cuit : '',
+      telefono : '',
+      fechaDeInicio : new Date,
+    }
+  }
 
   ngOnInit(){
     this.Editar();
@@ -18,7 +31,7 @@ export class EditarComponent implements OnInit{
 
   Editar(){
     let id=localStorage.getItem("id");
-    this.service.getClienteId(+id).subscribe(data=>{
+    this.service.getClienteId(id).subscribe(data=>{
       this.cliente=data;
     })
   }

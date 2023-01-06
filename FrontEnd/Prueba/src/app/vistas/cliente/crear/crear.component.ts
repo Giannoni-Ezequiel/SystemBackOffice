@@ -10,9 +10,22 @@ import { Cliente } from 'src/app/models/cliente';
 })
 export class CrearComponent implements OnInit {
 
-  cliente:Cliente = new Cliente;
+  cliente:Cliente;
 
-  constructor(private router:Router, private service:ServiceService){}
+  constructor(private router:Router, private service:ServiceService){
+    this.cliente = {
+      nombre : '',
+      dni : '',
+      apellido : '',
+      img : '',
+      razonSocial : '',
+      email : '',
+      direccion : '',
+      cuit : '',
+      telefono : '',
+      fechaDeInicio : new Date,
+    }
+  }
 
   ngOnInit() {
   }

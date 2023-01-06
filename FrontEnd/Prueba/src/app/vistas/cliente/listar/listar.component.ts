@@ -10,7 +10,7 @@ import { Cliente } from 'src/app/models/cliente';
 })
 export class ListarComponent implements OnInit{
 
-  clientes:Cliente[] | undefined;
+  clientes:Cliente[] = [];
   constructor(private service:ServiceService, private router:Router){}
 
   ngOnInit(){
@@ -20,7 +20,7 @@ export class ListarComponent implements OnInit{
   }
 
   Editar(cliente:Cliente):void{
-    localStorage.setItem("id",cliente.id.toString());
+    localStorage.setItem("id",cliente.id!.toString());
     this.router.navigate(["editar"]);
   }
 

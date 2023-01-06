@@ -1,18 +1,18 @@
 export class Cliente
 {
   id?: number;
-  nombre: String;
-  dni: number;
+  nombre: string;
   apellido: String;
-  img: string;
+  dni: string;
   razonSocial: string;
   email: string;
   direccion: string;
   cuit: string;
   telefono: string;
   fechaDeInicio: Date;
+  img: string;
 
-  constructor(nombre: String, dni: number,apellido: String,img: string,
+  constructor(nombre: string,apellido: String, dni: string,img: string,
     razonSocial: string,email: string,direccion: string,cuit: string,telefono: string,fechaDeInicio: Date){
 
       this.nombre = nombre;
@@ -27,10 +27,10 @@ export class Cliente
       this.fechaDeInicio = fechaDeInicio;
     }
 
-  PersonaFisica(nombre: string, dni: number,apellido: string,img: string,
+  /*PersonaFisica(nombre: string, dni: number,apellido: string,img: string,
                             email: string,direccion: string, telefono: string)
     {
       this.nombre = nombre;
 
-    }
+    }*/
 }

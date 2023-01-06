@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Cliente } from '../models/cliente';
+import { environment } from '../enviroments/enviroment';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +10,7 @@ export class ServiceService {
 
   constructor(private http:HttpClient) { }
 
-  Url="http://localhost:8080/demo/cliente";
+  private Url = environment.apiBaseUrl;
 
   getClientes(){
     return this.http.get<Cliente[]>(this.Url);
@@ -17,7 +18,7 @@ export class ServiceService {
   crearCliente(cliente:Cliente){
     return this.http.post<Cliente>(this.Url,cliente);
   }
-  getClienteId(id:number){
+  getClienteId(id:any){
     return this.http.get<Cliente>(this.Url+"/"+id);
   }
   updateCliente(cliente:Cliente){
