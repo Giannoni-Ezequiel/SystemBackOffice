@@ -32,4 +32,11 @@ export class ListarComponent implements OnInit{
     })
   }
 
+  Volver(){
+    this.router.navigate(["proyecto"])
+  }
+  Crear(){
+    this.router.navigate(["crear"])
+  }
+
 }

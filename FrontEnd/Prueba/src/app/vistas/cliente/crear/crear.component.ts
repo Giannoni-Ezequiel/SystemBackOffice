@@ -36,4 +36,9 @@ export class CrearComponent implements OnInit {
       this.router.navigate(["listar"]);
     })
   }
+
+  Volver(){
+    this.router.navigate(["proyecto"])
+  }
+
 }

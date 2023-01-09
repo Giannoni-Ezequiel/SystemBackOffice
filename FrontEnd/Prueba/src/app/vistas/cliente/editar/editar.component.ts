@@ -42,6 +42,10 @@ export class EditarComponent implements OnInit{
       alert("Se actualizo correctamente!!!");
       this.router.navigate(["listar"])
     })
-
   }
+
+  Volver(){
+    this.router.navigate(["proyecto"])
+  }
+
 }

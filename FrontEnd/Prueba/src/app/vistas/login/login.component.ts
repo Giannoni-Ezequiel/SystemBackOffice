@@ -21,7 +21,8 @@ export class LoginComponent implements OnInit {
 
   LoginUsuario!: LoginUsuario;
   nombreUsuario!: string;
-  password!: string
+  password!: string;
+  name!: string;
 
   constructor(private registrationService: RegistrationService, private router:Router){}
 
@@ -29,7 +30,7 @@ export class LoginComponent implements OnInit {
 
   onLogin(form: LoginUsuario): void
   {
-    this.LoginUsuario = new LoginUsuario(this.nombreUsuario, this.password);
+    this.LoginUsuario = new LoginUsuario(this.nombreUsuario, this.password, this.name);
     this.registrationService.login(this.LoginUsuario).subscribe(data => {
       let dataResponse: ResponseI = data;
       if(dataResponse.status == "ok"){

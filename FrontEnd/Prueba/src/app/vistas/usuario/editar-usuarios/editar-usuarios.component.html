@@ -1,0 +1,29 @@
+<div class="container col-md-6">
+  <br>
+    <div class="card">
+        <div class="card-header">
+            <h3>Modificar Usuarios</h3>
+        </div>
+        <br>
+        <div class="card-body">
+            <form action="">
+                <div class="form-group">
+                    <label for="">Nombre de Usuario:</label>
+                    <input [(ngModel)]="usuario.nombreUsuario" name="user" type="text" class="form-control">
+                </div>
+                <div class="form-group">
+                  <label for="">Contrasena:</label>
+                  <input [(ngModel)]="usuario.password" name="password" type="text" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="">Nombre:</label>
+                    <input [(ngModel)]="usuario.name" name="nombre" type="text" class="form-control">
+                </div>
+
+                <br>
+                <button (click)="Actualizar(usuario)" class="btn btn-danger">Actualizar</button>
+                <button (click)="Volver()" class="btn btn-light" style="margin-left: 10px;">Volver</button>
+            </form>
+        </div>
+    </div>
+</div>

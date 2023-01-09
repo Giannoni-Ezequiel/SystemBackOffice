@@ -1,0 +1,42 @@
+<div class="container">
+  <br>
+    <div class="container">
+      <button (click)="Volver()" class="btn btn-light">Volver</button>
+      <button (click)="Crear()" class="btn btn-primary" style="margin-left: 10px;">Nuevo</button>
+    </div>
+    <br>
+  <div class="card">
+      <div class="card-header">
+          <h3>Usuarios</h3>
+      </div>
+      <br>
+      <div class="card-body">
+          <table class="table">
+              <thead class="thead-light">
+                <tr class="text-center">
+                  <th scope="col">#</th>
+                  <th scope="col">Nombre de Usuario</th>
+                  <th scope="col">Contraseña</th>
+                  <th scope="col">Nombre</th>
+
+                  <th scope="col">ACCION</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ng-for="let usuario of usuarios" class="text-center">
+                  <th scope="row">1</th>
+                  <td>{{usuario.id}}</td>
+                  <td>{{usuario.nombreUsuario}}</td>
+                  <td>{{usuario.password}}</td>
+                  <td>{{usuario.name}}</td>
+
+                  <td>
+                      <button (click)="Editar(usuario)" class="btn btn-warning">Editar</button>
+                      <button (click)="Delete(usuario)" class="btn btn-warning" style="margin-left: 10px">Delete</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+      </div>
+  </div>
+</div>

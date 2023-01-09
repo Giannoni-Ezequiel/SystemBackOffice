@@ -14,7 +14,11 @@ export class HeaderComponent {
   }
 
   cliente(){
-    this.router.navigate(['/cliente'])
+    this.router.navigate(['/listar'])
+  }
+
+  usuario(){
+    this.router.navigate(['/listar-usuarios'])
   }
 
   servicio(){
