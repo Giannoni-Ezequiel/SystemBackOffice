@@ -16,7 +16,7 @@ export class UsuarioService {
     return this.http.get<LoginUsuario[]>(this.Url);
   }
   crearUsuarios(usuario:LoginUsuario){
-    return this.http.post<LoginUsuario>(this.Url,usuario);
+    return this.http.post<LoginUsuario>(this.Url+"usuario",usuario);
   }
   getUsuariosId(id:any){
     return this.http.get<LoginUsuario>(this.Url+"/"+id);

@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Cliente } from '../models/cliente';
-import { environment } from '../enviroments/enviroment';
+//import { environment } from '../enviroments/enviroment';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +10,8 @@ export class ServiceService {
 
   constructor(private http:HttpClient) { }
 
-  private Url = environment.apiBaseUrl;
+  //private Url = environment.apiBaseUrl;
+  Url = 'http://localhost:8080/demo/clientes';
 
   getClientes(){
     return this.http.get<Cliente[]>(this.Url);

@@ -21,7 +21,7 @@ export class ListarUsuariosComponent implements OnInit{
 
   Editar(usuarios:LoginUsuario):void{
     localStorage.setItem("id",usuarios.id!.toString());
-    this.router.navigate(["editar"]);
+    this.router.navigate(["editar-usuarios"]);
   }
 
   Delete(usuarios:LoginUsuario){
@@ -35,7 +35,7 @@ export class ListarUsuariosComponent implements OnInit{
     this.router.navigate(["proyecto"])
   }
   Crear(){
-    this.router.navigate(["crear"])
+    this.router.navigate(["crear-usuarios"])
   }
 
 }
