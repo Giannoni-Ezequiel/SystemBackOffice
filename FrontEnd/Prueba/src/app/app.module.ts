@@ -27,6 +27,9 @@ import { ListarImpuestoComponent } from './vistas/impuesto/listar-impuesto/lista
 import { CrearImpuestoComponent } from './vistas/impuesto/crear-impuesto/crear-impuesto.component';
 import { EditarImpuestoComponent } from './vistas/impuesto/editar-impuesto/editar-impuesto.component';
 import { ImpuestoService } from './service/impuesto.service';
+import { ListarPedidoComponent } from './vistas/pedido/listar-pedido/listar-pedido.component';
+import { CrearPedidoComponent } from './vistas/pedido/crear-pedido/crear-pedido.component';
+import { EditarPedidoComponent } from './vistas/pedido/editar-pedido/editar-pedido.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +51,10 @@ import { ImpuestoService } from './service/impuesto.service';
     EditarBienComponent,
     ListarImpuestoComponent,
     CrearImpuestoComponent,
-    EditarImpuestoComponent
+    EditarImpuestoComponent,
+    ListarPedidoComponent,
+    CrearPedidoComponent,
+    EditarPedidoComponent
   ],
   imports: [
     BrowserModule,

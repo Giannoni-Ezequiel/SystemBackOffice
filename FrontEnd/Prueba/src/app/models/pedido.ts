@@ -1,4 +1,6 @@
-export class Pedido{
+export class Pedido
+{
+  id?: number;
   Ncomprobante: string;
   fecha: Date;
   totalPedido: number;

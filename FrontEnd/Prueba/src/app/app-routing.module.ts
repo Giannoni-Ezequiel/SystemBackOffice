@@ -14,6 +14,9 @@ import { ListarBienComponent } from './vistas/bien/listar-bien/listar-bien.compo
 import { CrearImpuestoComponent } from './vistas/impuesto/crear-impuesto/crear-impuesto.component';
 import { EditarImpuestoComponent } from './vistas/impuesto/editar-impuesto/editar-impuesto.component';
 import { ListarImpuestoComponent } from './vistas/impuesto/listar-impuesto/listar-impuesto.component';
+import { EditarPedidoComponent } from './vistas/pedido/editar-pedido/editar-pedido.component';
+import { CrearPedidoComponent } from './vistas/pedido/crear-pedido/crear-pedido.component';
+import { ListarPedidoComponent } from './vistas/pedido/listar-pedido/listar-pedido.component';
 
 
 const routes: Routes =
@@ -42,10 +45,13 @@ const routes: Routes =
   // IMPUESTOS
   {path: 'crear-impuesto', component: CrearImpuestoComponent},
   {path: 'editar-impuesto', component: EditarImpuestoComponent},
-  {path: 'listar-impuesto', component: ListarImpuestoComponent}
+  {path: 'listar-impuesto', component: ListarImpuestoComponent},
   
   // PEDIDO
-  //{path: 'pedido', component: PedidoComponent}
+  {path: 'crear-pedido', component: CrearPedidoComponent},
+  {path: 'editar-pedido', component: EditarPedidoComponent},
+  {path: 'listar-pedido', component: ListarPedidoComponent}
+
   //{path: 'producto', component: ProductoComponent}
 
 ];

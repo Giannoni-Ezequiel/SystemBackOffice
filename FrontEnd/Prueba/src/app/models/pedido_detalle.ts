@@ -1,6 +1,6 @@
 export class Pedido_Detalle
 {
-  id: number;
+  id?: number;
   cant: number;
   precioUnitario: number;
   precioTotal: number;
