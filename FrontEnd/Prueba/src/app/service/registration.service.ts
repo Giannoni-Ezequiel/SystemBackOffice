@@ -17,7 +17,7 @@ export class RegistrationService {
 
   public login(loginUsuario: LoginUsuario): Observable<ResponseI>
   {
-    return this.httpClient.post<ResponseI>(this.url + 'usuario/login', loginUsuario);
+    return this.httpClient.post<ResponseI>(this.url + 'usuario/login/', loginUsuario);
   }
 
 

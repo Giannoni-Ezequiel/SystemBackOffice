@@ -22,8 +22,6 @@ export class BienService {
     return this.httpClient.get<Bien>(this.URL + detail/${id});
   }*/
 
-
-
   /*public update(id: number, bien: Bien): Observable<any>{
     return this.httpClient.put<any>(this.URL + update/${id}, bien);
   }*/

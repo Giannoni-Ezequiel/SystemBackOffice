@@ -13,10 +13,14 @@ import { BodyComponent } from './vistas/body/body.component';
 import { ListarComponent } from './vistas/cliente/listar/listar.component';
 import { CrearComponent } from './vistas/cliente/crear/crear.component';
 import { EditarComponent } from './vistas/cliente/editar/editar.component';
-import { ServiceService } from './service/service.service';
+import { ClienteService } from './service/cliente.service';
 import { CrearUsuariosComponent } from './vistas/usuario/crear-usuarios/crear-usuarios.component';
 import { EditarUsuariosComponent } from './vistas/usuario/editar-usuarios/editar-usuarios.component';
 import { ListarUsuariosComponent } from './vistas/usuario/listar-usuarios/listar-usuarios.component';
+import { BienService } from './service/bien.service';
+import { PedidoService } from './service/pedido.service';
+import { RegistrationService } from './service/registration.service';
+import { UsuarioService } from './service/usuario.service';
 
 @NgModule({
   declarations: [
@@ -41,7 +45,7 @@ import { ListarUsuariosComponent } from './vistas/usuario/listar-usuarios/listar
     HttpClientModule,
     ReactiveFormsModule, FormsModule
   ],
-  providers: [ServiceService],
+  providers: [ClienteService, BienService, PedidoService, RegistrationService, UsuarioService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

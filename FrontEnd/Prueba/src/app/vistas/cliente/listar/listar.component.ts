@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { ServiceService } from 'src/app/service/service.service';
+import { ClienteService } from 'src/app/service/cliente.service';
 import { Cliente } from 'src/app/models/cliente';
 
 @Component({
@@ -11,7 +11,7 @@ import { Cliente } from 'src/app/models/cliente';
 export class ListarComponent implements OnInit{
 
   clientes:Cliente[] = [];
-  constructor(private service:ServiceService, private router:Router){}
+  constructor(private service:ClienteService, private router:Router){}
 
   ngOnInit(){
     this.service.getClientes().subscribe(data=>{

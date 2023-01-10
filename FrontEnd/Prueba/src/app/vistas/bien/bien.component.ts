@@ -11,11 +11,11 @@ import { ClienteService } from 'src/app/service/cliente.service';
 })
 export class BienComponent implements OnInit {
 
-  /*bien: Bien[];
+  bien: Bien[] = [];
 
-  cliente: Cliente[];*/
+  cliente: Cliente[] = [];
 
-  constructor(private bienService: BienService, private clienteService: ClienteService) { }
+  constructor(private bienService: BienService, private service: ClienteService) { }
 
   ngOnInit() {
       /*this.bienService.getProductsSmall().then(data => this.products = data);

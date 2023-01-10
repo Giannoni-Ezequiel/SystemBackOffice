@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { ServiceService } from 'src/app/service/service.service';
+import { ClienteService } from 'src/app/service/cliente.service';
 import { Cliente } from 'src/app/models/cliente';
 @Component({
   selector: 'app-editar',
@@ -10,7 +10,7 @@ import { Cliente } from 'src/app/models/cliente';
 export class EditarComponent implements OnInit{
 
   cliente:Cliente;
-  constructor(private router:Router, private service:ServiceService){
+  constructor(private router:Router, private service:ClienteService){
     this.cliente = {
       nombre : '',
       dni : '',
