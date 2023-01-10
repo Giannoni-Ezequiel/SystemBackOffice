@@ -39,14 +39,16 @@
 
       <div class="dropdown show">
         <a class="btn btn-secondary dropdown-toggle" role="button" id="dropdownMenuLink"
-        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+        (click)="pedido()">
           Pedidos
         </a>
       </div>
 
       <div class="dropdown show">
         <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
-        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" (click)="impuesto()">
+        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" 
+        (click)="impuesto()">
           Impuestos
         </a>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
@@ -58,14 +60,16 @@
 
       <div class="dropdown show">
         <a class="btn btn-secondary dropdown-toggle" role="button" id="dropdownMenuLink"
-        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" (click)="usuario()">
+        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" 
+        (click)="usuario()">
           Usuarios
         </a>
       </div>
 
       <div class="boton">
         <div>
-          <button type="button" class="btn btn-outline-light" style="margin-right: 20px;" (click)="login()">
+          <button type="button" class="btn btn-outline-light" style="margin-right: 20px;" 
+          (click)="login()">
               INGRESAR
           </button>
         </div>

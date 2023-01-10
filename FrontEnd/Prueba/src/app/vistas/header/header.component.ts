@@ -28,4 +28,8 @@ export class HeaderComponent {
   impuesto(){
     this.router.navigate(['/listar-impuesto'])
   }
+
+  pedido(){
+    this.router.navigate(['/listar-pedido'])
+  }
 }

@@ -1,1 +1,45 @@
-<p>listar-pedido works!</p>
+<div class="container">
+    <br>
+      <div class="container">
+        <button (click)="Volver()" class="btn btn-light">Volver</button>
+        <button (click)="Crear()" class="btn btn-primary" style="margin-left: 10px;">Nuevo</button>
+      </div>
+      <br>
+    <div class="card">
+        <div class="card-header">
+            <h3>Pedidos</h3>
+        </div>
+        <br>
+        <div class="card-body">
+            <table class="table">
+                <thead class="thead-light">
+                  <tr class="text-center">
+                    <th scope="col">#</th>
+                    <th scope="col">N° Comprobante</th>
+                    <th scope="col">Fecha</th>
+                    <th scope="col">Total del Pedido</th>
+                    <th scope="col">Nombre de Empresa Emisora</th>
+                    <th scope="col">Porcentaje del Descuento</th>
+                    <th scope="col">Total del Descuento</th>
+                    <th scope="col">ACCION</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ng-for="let pedido of pedidos" class="text-center">
+                    <th scope="row">1</th>
+                    <td>{{pedido.id}}</td>
+                    <td>{{pedido.Ncomprobante}}</td>
+                    <td>{{pedido.fecha}}</td>
+                    <td>{{pedido.nomEmpEmisora}}</td>
+                    <td>{{pedido.DescuentoPorcent}}</td>
+                    <td>{{pedido.DescuentoTotal}}</td>
+                    <td>
+                        <button (click)="Editar(pedido)" class="btn btn-warning">Editar</button>
+                        <button (click)="Delete(pedido)" class="btn btn-warning" style="margin-left: 10px">Delete</button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+        </div>
+    </div>
+  </div>  
