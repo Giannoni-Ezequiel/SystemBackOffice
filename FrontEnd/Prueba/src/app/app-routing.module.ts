@@ -56,9 +56,9 @@ const routes: Routes =
   {path: 'listar-pedido', component: ListarPedidoComponent},
 
   // DETALLE
-  {paht: 'crear-detalle', component: CrearDetalleComponent},
+  {path: 'crear-detalle', component: CrearDetalleComponent},
   {path: 'editar-detalle', component: EditarDetalleComponent},
-  {paht: 'listar-detalle', component: ListarDetalleComponent}
+  {path: 'listar-detalle', component: ListarDetalleComponent}
 
   //{path: 'producto', component: ProductoComponent}
 

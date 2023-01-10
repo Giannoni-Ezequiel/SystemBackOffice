@@ -42,6 +42,6 @@ export class EditarPedidoComponent implements OnInit{
   }
 
   Volver(){
-    this.router.navigate(["proyecto"])
+    this.router.navigate(["listar-pedido"])
   }
 }

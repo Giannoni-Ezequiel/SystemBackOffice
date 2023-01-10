@@ -25,11 +25,11 @@ export class CrearUsuariosComponent implements OnInit{
   Crear(usuario:LoginUsuario){
     this.service.crearUsuarios(usuario).subscribe(data=>{
       alert("Se agrego con exito!!!");
-      this.router.navigate(["listar"]);
+      this.router.navigate(["listar-usuarios"]);
     })
   }
 
   Volver(){
-    this.router.navigate(["proyecto"])
+    this.router.navigate(["listar-usuarios"])
   }
 }
