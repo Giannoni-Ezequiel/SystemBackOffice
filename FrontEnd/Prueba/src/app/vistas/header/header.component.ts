@@ -32,4 +32,8 @@ export class HeaderComponent {
   pedido(){
     this.router.navigate(['/listar-pedido'])
   }
+
+  detalle(){
+    this.router.navigate(['/listar-detalle'])
+  }
 }

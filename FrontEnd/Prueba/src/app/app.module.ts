@@ -30,6 +30,10 @@ import { ImpuestoService } from './service/impuesto.service';
 import { ListarPedidoComponent } from './vistas/pedido/listar-pedido/listar-pedido.component';
 import { CrearPedidoComponent } from './vistas/pedido/crear-pedido/crear-pedido.component';
 import { EditarPedidoComponent } from './vistas/pedido/editar-pedido/editar-pedido.component';
+import { ListarDetalleComponent } from './vistas/detalle/listar-detalle/listar-detalle.component';
+import { CrearDetalleComponent } from './vistas/detalle/crear-detalle/crear-detalle.component';
+import { EditarDetalleComponent } from './vistas/detalle/editar-detalle/editar-detalle.component';
+import { DetalleService } from './service/detalle.service';
 
 @NgModule({
   declarations: [
@@ -54,7 +58,10 @@ import { EditarPedidoComponent } from './vistas/pedido/editar-pedido/editar-pedi
     EditarImpuestoComponent,
     ListarPedidoComponent,
     CrearPedidoComponent,
-    EditarPedidoComponent
+    EditarPedidoComponent,
+    ListarDetalleComponent,
+    CrearDetalleComponent,
+    EditarDetalleComponent
   ],
   imports: [
     BrowserModule,
@@ -62,7 +69,7 @@ import { EditarPedidoComponent } from './vistas/pedido/editar-pedido/editar-pedi
     HttpClientModule,
     ReactiveFormsModule, FormsModule
   ],
-  providers: [ClienteService, BienService, PedidoService, RegistrationService, UsuarioService, ImpuestoService],
+  providers: [ClienteService, BienService, PedidoService, RegistrationService, UsuarioService, ImpuestoService, DetalleService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

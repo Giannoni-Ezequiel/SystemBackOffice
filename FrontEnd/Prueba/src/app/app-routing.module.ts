@@ -17,6 +17,9 @@ import { ListarImpuestoComponent } from './vistas/impuesto/listar-impuesto/lista
 import { EditarPedidoComponent } from './vistas/pedido/editar-pedido/editar-pedido.component';
 import { CrearPedidoComponent } from './vistas/pedido/crear-pedido/crear-pedido.component';
 import { ListarPedidoComponent } from './vistas/pedido/listar-pedido/listar-pedido.component';
+import { CrearDetalleComponent } from './vistas/detalle/crear-detalle/crear-detalle.component';
+import { EditarDetalleComponent } from './vistas/detalle/editar-detalle/editar-detalle.component';
+import { ListarDetalleComponent } from './vistas/detalle/listar-detalle/listar-detalle.component';
 
 
 const routes: Routes =
@@ -50,7 +53,12 @@ const routes: Routes =
   // PEDIDO
   {path: 'crear-pedido', component: CrearPedidoComponent},
   {path: 'editar-pedido', component: EditarPedidoComponent},
-  {path: 'listar-pedido', component: ListarPedidoComponent}
+  {path: 'listar-pedido', component: ListarPedidoComponent},
+
+  // DETALLE
+  {paht: 'crear-detalle', component: CrearDetalleComponent},
+  {path: 'editar-detalle', component: EditarDetalleComponent},
+  {paht: 'listar-detalle', component: ListarDetalleComponent}
 
   //{path: 'producto', component: ProductoComponent}
 
