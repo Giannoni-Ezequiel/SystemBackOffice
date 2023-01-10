@@ -8,23 +8,40 @@ import { EditarComponent } from './vistas/cliente/editar/editar.component';
 import { CrearUsuariosComponent } from './vistas/usuario/crear-usuarios/crear-usuarios.component';
 import { EditarUsuariosComponent } from './vistas/usuario/editar-usuarios/editar-usuarios.component';
 import { ListarUsuariosComponent } from './vistas/usuario/listar-usuarios/listar-usuarios.component';
+import { CrearBienComponent } from './vistas/bien/crear-bien/crear-bien.component';
+import { EditarBienComponent } from './vistas/bien/editar-bien/editar-bien.component';
+import { ListarBienComponent } from './vistas/bien/listar-bien/listar-bien.component';
 
 
 const routes: Routes =
 [
+  // LOGIN/HOME
   {path: '', redirectTo: 'login', pathMatch:'full'},
   {path:'login', component: LoginComponent},
   {path:'proyecto', component: ProyectoComponent},
+
+  // CLIENTES
   {path:'listar', component: ListarComponent},
   {path:'crear', component: CrearComponent},
   {path:'editar', component: EditarComponent},
-  //{path: 'impuesto', component: ImpuestoComponent}
-  //{path: 'pedido', component: PedidoComponent}
-  //{path: 'producto', component: ProductoComponent}
+  
+
+  // USUARIOS
   {path:'crear-usuarios', component: CrearUsuariosComponent},
   {path:'editar-usuarios', component: EditarUsuariosComponent},
-  {path:'listar-usuarios', component: ListarUsuariosComponent}
+  {path:'listar-usuarios', component: ListarUsuariosComponent},
 
+  // BIENES
+  {path:'crear-bien', component: CrearBienComponent},
+  {path:'editar-bien', component: EditarBienComponent},
+  {path:'listar-bien', component: ListarBienComponent}
+
+  // IMPUESTOS
+  //{path: 'impuesto', component: ImpuestoComponent}
+  
+  // PEDIDO
+  //{path: 'pedido', component: PedidoComponent}
+  //{path: 'producto', component: ProductoComponent}
 
 ];
 

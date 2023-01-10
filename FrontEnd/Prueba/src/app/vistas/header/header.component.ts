@@ -21,7 +21,7 @@ export class HeaderComponent {
     this.router.navigate(['/listar-usuarios'])
   }
 
-  servicio(){
-    this.router.navigate(['/servicio'])
+  bien(){
+    this.router.navigate(['/listar-bien'])
   }
 }

@@ -3,7 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule, RoutingComponents } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { BienComponent } from './vistas/bien/bien.component';
 import { HeaderComponent } from './vistas/header/header.component';
 import { FooterComponent } from './vistas/footer/footer.component';
 import { LogoComponent } from './vistas/logo/logo.component';
@@ -28,7 +27,6 @@ import { EditarBienComponent } from './vistas/bien/editar-bien/editar-bien.compo
 @NgModule({
   declarations: [
     AppComponent,
-    BienComponent,
     RoutingComponents,
     HeaderComponent,
     FooterComponent,
