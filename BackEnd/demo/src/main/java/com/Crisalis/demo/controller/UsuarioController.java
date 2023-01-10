@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("usuario")
 public class UsuarioController {
@@ -30,4 +32,8 @@ public class UsuarioController {
         return this.usuarioService.loginUserWithCredentials(username, password);
     }
 
+    @GetMapping(value = "list", produces = MediaType.APPLICATION_JSON_VALUE)
+    public List<UserDTO> getAllUsers(){
+        return this.usuarioService.getListAllUsersInBD();
+    }
 }

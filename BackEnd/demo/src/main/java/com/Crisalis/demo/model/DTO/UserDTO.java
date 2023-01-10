@@ -1,5 +1,6 @@
 package com.Crisalis.demo.model.DTO;
 
+import com.Crisalis.demo.model.UserRol;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -16,4 +17,6 @@ public class UserDTO {
     private String username;
     @JsonProperty("password")
     private String password;
+    @JsonProperty("rol")
+    private UserRol rol;
 }

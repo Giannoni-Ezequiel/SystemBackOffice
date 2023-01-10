@@ -16,7 +16,7 @@ public class ProductoService {
     @Autowired
     ProductoRepository productoRepository;
 
-    public List<Producto> list(){
+    /*public List<Producto> list(){
         return productoRepository.findAll();
     }
 
@@ -42,5 +42,5 @@ public class ProductoService {
 
     public boolean existsByNombre(String nombre){
         return productoRepository.existsByNombre(nombre);
-    }
+    }*/
 }

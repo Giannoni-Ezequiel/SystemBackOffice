@@ -1,7 +1,7 @@
 package com.Crisalis.demo.model;
 
+import com.Crisalis.demo.model.DTO.ClienteDTO;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -12,7 +12,6 @@ import javax.persistence.*;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-
 public class Cliente {
 
     @Id
@@ -25,6 +24,22 @@ public class Cliente {
     private String direccion;
     @Column(name = "telefono")
     private String telefono;
+
+    public Cliente(ClienteDTO clienteDTO){
+        this.nombre = clienteDTO.getNombre();
+        this.direccion = clienteDTO.getDireccion();
+        this.telefono = clienteDTO.getTelefono();
+    }
+
+    public ClienteDTO toDTO(){
+        return
+                ClienteDTO
+                        .builder()
+                        .nombre(this.nombre)
+                        .direccion(this.direccion)
+                        .telefono(this.telefono)
+                        .build();
+    }
 }
 
 //

@@ -7,17 +7,10 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
-@Entity
-@Table(name = "Estado")
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
-public class Estado {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "ID")
-    private Integer stat_ID;
-    @Column(name = "costo")
-    private String stat_Nombre;
+public enum Estado {
+    NUEVO,
+    PREPARADO,
+    EJECUTANDOSE,
+    BLOQUEADO,
+    FINALIZADO
 }

@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 //import com.Crisalis.demo.model.Estado;
 import javax.persistence.*;
 import java.math.BigDecimal;
+import java.util.List;
 
 @Entity
 @Table(name = "Pedido")
@@ -29,12 +30,11 @@ public class Pedido {
     @Column(name = "EmpresaEmisora")
     private String ord_NomEmpEmisora;
     @Column(name = "DescuentoPorcentaje")
-    private Double DescuentoPorcent;
+    private Double ord_DescuentoPorcent;
     @Column(name = "DescuentoTotal")
-    private BigDecimal DescuentoTotal;
-    @OneToOne
-    //@Column(name = "stat_ID")
+    private BigDecimal ord_DescuentoTotal;
+    @Column(name = "Estado")
     private Estado estado;
-    @OneToOne
-    private Pedido_detalle pedido_detalle;
+    @OneToMany
+    private List<Pedido_detalle> pedido_detalle;
 }

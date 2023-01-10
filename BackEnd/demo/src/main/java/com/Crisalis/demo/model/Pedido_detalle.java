@@ -31,8 +31,11 @@ public class Pedido_detalle {
     private Double item_PorcGarantia;
     @Column(name = "CargoSoporte")
     private BigDecimal item_CargoSoporte;
-    @OneToOne
-    //@JoinColumn(name = "bien_ID")
+    @ManyToOne(
+            fetch = FetchType.LAZY,
+            optional = false
+    )
+    @JoinColumn(name = "bien_ID")
     private Bien bien;
     @OneToOne
     //@JoinColumn(name = "item_ID")

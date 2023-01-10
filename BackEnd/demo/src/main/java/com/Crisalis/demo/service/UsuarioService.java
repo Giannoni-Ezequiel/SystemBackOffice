@@ -10,6 +10,8 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.stream.Collectors;
 
 
 @Service
@@ -43,13 +45,24 @@ public class UsuarioService {
         }
         throw new UnauthorizedException("Invalid credentials");
     }
+
+    public List<UserDTO> getListAllUsersInBD(){
+        return this.usuarioRepository
+                .findAll()
+                .stream()
+                .map(Usuario::toDTO)
+                .collect(Collectors.toList());
+    }
+
     private Boolean checkUserForSaveOrLogin(UserDTO userDTO, Boolean isForLogin){
         if(!isForLogin){
-            if(StringUtils.isEmpty(userDTO.getName())){
+            if(StringUtils.isEmpty(userDTO.getName())) {
                 throw new EmptyElementException("Name is empty");
             }
+            if(userDTO.getRol() == null){
+                throw new EmptyElementException("Rol is empty");
+            }
         }
-
         if(StringUtils.isEmpty(userDTO.getUsername())){
             throw new EmptyElementException("Username is empty");
         }

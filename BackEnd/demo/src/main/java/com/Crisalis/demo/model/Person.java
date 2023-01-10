@@ -12,7 +12,7 @@ import javax.persistence.*;
 @AllArgsConstructor
 @NoArgsConstructor
 //@Builder
-public class Person extends Cliente{
+public class Person extends Cliente {
 
     @Column(name = "DNI")
     private Integer DNI;
@@ -22,8 +22,8 @@ public class Person extends Cliente{
     private String apellido;
     @Column(name = "email")
     private String email;
-
-    public Person(PersonDTO personDTO){
+}
+    /*public Person(PersonDTO personDTO){
         this.DNI = personDTO.getDNI();
         this.nombre = personDTO.getNombre();
         this.apellido = personDTO.getApellido();

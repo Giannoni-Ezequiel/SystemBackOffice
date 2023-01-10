@@ -8,13 +8,12 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
-
 @Entity
 @Table(name = "Usuario")
 @Data
+@Builder
 @AllArgsConstructor
 @NoArgsConstructor
-
 public class Usuario {
 
     @Id
@@ -28,10 +27,14 @@ public class Usuario {
     @Column(name = "name")
     private String name;
 
+    @Column(name = "rol")
+    private UserRol rol;
+
     public Usuario(UserDTO userDTO){
         this.name = userDTO.getName();
         this.username = userDTO.getUsername();
         this.password = userDTO.getPassword();
+        this.rol = userDTO.getRol();
     }
 
     public UserDTO toDTO(){
@@ -41,6 +44,7 @@ public class Usuario {
                         .name(this.name)
                         .username(this.username)
                         .password(this.password)
+                        .rol(this.rol)
                         .build();
     }
 }
