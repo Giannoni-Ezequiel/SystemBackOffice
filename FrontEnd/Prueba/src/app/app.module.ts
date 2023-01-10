@@ -21,6 +21,9 @@ import { BienService } from './service/bien.service';
 import { PedidoService } from './service/pedido.service';
 import { RegistrationService } from './service/registration.service';
 import { UsuarioService } from './service/usuario.service';
+import { ListarBienComponent } from './vistas/bien/listar-bien/listar-bien.component';
+import { CrearBienComponent } from './vistas/bien/crear-bien/crear-bien.component';
+import { EditarBienComponent } from './vistas/bien/editar-bien/editar-bien.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +40,10 @@ import { UsuarioService } from './service/usuario.service';
     EditarComponent,
     CrearUsuariosComponent,
     EditarUsuariosComponent,
-    ListarUsuariosComponent
+    ListarUsuariosComponent,
+    ListarBienComponent,
+    CrearBienComponent,
+    EditarBienComponent
   ],
   imports: [
     BrowserModule,
