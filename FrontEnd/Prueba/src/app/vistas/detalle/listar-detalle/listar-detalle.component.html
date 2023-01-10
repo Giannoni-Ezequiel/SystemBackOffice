@@ -1,1 +1,48 @@
-<p>listar-detalle works!</p>
+<div class="container">
+    <br>
+      <div class="container">
+        <button (click)="Volver()" class="btn btn-light">Volver</button>
+        <button (click)="Crear()" class="btn btn-primary" style="margin-left: 10px;">Nuevo</button>
+      </div>
+      <br>
+    <div class="card">
+        <div class="card-header">
+            <h3>Detalles</h3>
+        </div>
+        <br>
+        <div class="card-body">
+            <table class="table">
+                <thead class="thead-light">
+                  <tr class="text-center">
+                    <th scope="col">#</th>
+                    <th scope="col">Cantidad</th>
+                    <th scope="col">Precio Unitario</th>
+                    <th scope="col">Precio Total</th>
+                    <th scope="col">Descuento</th>
+                    <th scope="col">Garantia</th>
+                    <th scope="col">Porcentaje Garantia</th>
+                    <th scope="col">Cargo Soporte</th>
+                    <th scope="col">ACCION</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ng-for="let detalle of detalles" class="text-center">
+                    <th scope="row">1</th>
+                    <td>{{detalle.id}}</td>
+                    <td>{{detalle.cant}}</td>
+                    <td>{{detalle.precioUnitario}}</td>
+                    <td>{{detalle.precioTotal}}</td>
+                    <td>{{detalle.descuento}}</td>
+                    <td>{{detalle.garantia}}</td>
+                    <td>{{detalle.porcGarantia}}</td>
+                    <td>{{detalle.cargoSoporte}}</td>
+                    <td>
+                        <button (click)="Editar(detalle)" class="btn btn-warning">Editar</button>
+                        <button (click)="Delete(detalle)" class="btn btn-warning" style="margin-left: 10px">Delete</button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+        </div>
+    </div>
+  </div>

@@ -1,1 +1,45 @@
-<p>editar-detalle works!</p>
+<<div class="container col-md-6">
+    <br>
+      <div class="card">
+          <div class="card-header">
+              <h3>Modificar Detalle</h3>
+          </div>
+          <br>
+          <div class="card-body">
+              <form action="">
+                  <div class="form-group">
+                      <label for="">Cantidad:</label>
+                      <input [(ngModel)]="detalle.cant" name="cant" type="text" class="form-control">
+                  </div>
+                  <div class="form-group">
+                    <label for="">Fecha:</label>
+                    <input [(ngModel)]="detalle.precioUnitario" name="precioUnitario" type="text" class="form-control">
+                  </div>
+                  <div class="form-group">
+                      <label for="">Total del Pedido:</label>
+                      <input [(ngModel)]="detalle.precioTotal" name="precioTotal" type="text" class="form-control">
+                  </div>
+                  <div class="form-group">
+                    <label for="">Descuento:</label>
+                    <input [(ngModel)]="detalle.garantia" name="descuento" type="text" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="">Garantia:</label>
+                    <input [(ngModel)]="detalle.garantia" name="garantia" type="text" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="">Porcentaje de Garantia:</label>
+                    <input [(ngModel)]="detalle.porcGarantia" name="porcGarantia" type="text" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="">Cargo Soporte:</label>
+                    <input [(ngModel)]="detalle.cargoSoporte" name="cargoSoporte" type="text" class="form-control">
+                </div>
+                  <br>
+                  <button (click)="Actualizar(detalle)" class="btn btn-danger">Actualizar</button>
+                  <button (click)="Volver()" class="btn btn-light" style="margin-left: 10px;">Volver</button>
+              </form>
+          </div>
+      </div>
+  </div>
+
