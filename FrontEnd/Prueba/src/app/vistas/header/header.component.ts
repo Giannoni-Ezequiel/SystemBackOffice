@@ -24,4 +24,8 @@ export class HeaderComponent {
   bien(){
     this.router.navigate(['/listar-bien'])
   }
+
+  impuesto(){
+    this.router.navigate(['/listar-impuesto'])
+  }
 }
