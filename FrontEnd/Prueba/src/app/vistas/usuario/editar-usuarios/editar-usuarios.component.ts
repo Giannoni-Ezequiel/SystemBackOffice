@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { UsuarioService } from 'src/app/service/usuario.service';
 import { LoginUsuario } from 'src/app/models/usuario';
+
 @Component({
   selector: 'app-editar-usuarios',
   templateUrl: './editar-usuarios.component.html',
@@ -15,7 +16,6 @@ export class EditarUsuariosComponent implements OnInit{
       nombreUsuario : '',
       password : '',
       name : '',
-
     }
   }
 
@@ -34,7 +34,7 @@ export class EditarUsuariosComponent implements OnInit{
     this.service.updateUsuarios(usuario).subscribe(data=>{
       this.usuario = data;
       alert("Se actualizo correctamente!!!");
-      this.router.navigate(["listar"])
+      this.router.navigate(["listar-usuarios"])
     })
   }
 

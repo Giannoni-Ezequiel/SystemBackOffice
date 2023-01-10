@@ -1,6 +1,6 @@
 export class Bien
 {
-  id: number;
+  id?: number;
   nombre: string;
   costo: number;
   cargoSoporte: number;

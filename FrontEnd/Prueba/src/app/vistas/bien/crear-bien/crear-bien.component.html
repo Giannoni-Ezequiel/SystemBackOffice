@@ -1,1 +1,36 @@
-<p>crear-bien works!</p>
+<div class="container col-md-6">
+    <br>
+      <div class="card">
+          <div class="card-header">
+              <h3>Agregar Bien</h3>
+          </div>
+          <br>
+          <div class="card-body">
+              <form action="">
+                  <div class="form-group">
+                      <label for="">Nombre:</label>
+                      <input [(ngModel)]="bien.nombre" name="nombre" type="text" class="form-control">
+                  </div>
+                  <div class="form-group">
+                    <label for="">Costo:</label>
+                    <input [(ngModel)]="bien.costo" name="costo" type="text" class="form-control">
+                  </div>
+                  <div class="form-group">
+                      <label for="">Cargo de Soporte:</label>
+                      <input [(ngModel)]="bien.cargoSoporte" name="cargoSoporte" type="text" class="form-control">
+                  </div>
+                  <div class="form-group">
+                    <label for="">Especial:</label>
+                    <input [(ngModel)]="bien.esEspecial" name="esEspecial" type="text" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="">Porcentaje Cargo:</label>
+                    <input [(ngModel)]="bien.porcentajeCarg" name="porcentajeCarg" type="text" class="form-control">
+                </div>
+                  <br>
+                  <button (click)="Crear(bien)" class="btn btn-danger">Guardar</button>
+                  <button (click)="Volver()" class="btn btn-light" style="margin-left: 10px;">Volver</button>
+              </form>
+          </div>
+      </div>
+  </div>

@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+//import { Observable } from 'rxjs';
 import { Bien } from '../models/bien';
 import { environment } from '../enviroments/enviroment';
 
@@ -8,17 +8,32 @@ import { environment } from '../enviroments/enviroment';
   providedIn: 'root'
 })
 export class BienService {
-  private URL = environment.apiBaseUrl;
+  private Url = environment.apiBaseUrl;
 
-  constructor(private httpClient : HttpClient) { }
+  constructor(private http:HttpClient) { }
 
-  public lista(): Observable<Bien[]>{
+  getBien(){
+    return this.http.get<Bien[]>(this.Url);
+  }
+  crearBien(bien:Bien){
+    return this.http.post<Bien>(this.Url,bien);
+  }
+  getBienId(id:any){
+    return this.http.get<Bien>(this.Url+"/"+id);
+  }
+  updateBien(bien:Bien){
+    return this.http.put<Bien>(this.Url+"/"+bien.id,bien);
+  }
+  deleteBien(bien:Bien){
+    return this.http.delete<Bien>(this.Url+"/"+bien.id);
+  }
+   /*public lista(): Observable<Bien[]>{
     return this.httpClient.get<Bien[]>(this.URL + 'lista');
   }
   public save(bien: Bien): Observable<any>{
       return this.httpClient.post<any>(this.URL + 'create', bien);
     }
-  /*public detail(id: number): Observable<Bien>{
+ public detail(id: number): Observable<Bien>{
     return this.httpClient.get<Bien>(this.URL + detail/${id});
   }*/
 

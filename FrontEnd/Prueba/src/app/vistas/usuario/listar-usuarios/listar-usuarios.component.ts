@@ -27,7 +27,7 @@ export class ListarUsuariosComponent implements OnInit{
   Delete(usuarios:LoginUsuario){
     this.usuario.deleteUsuarios(usuarios).subscribe(data=>{
       this.usuarios=this.usuarios?.filter(u=>u!==usuarios);
-      alert("Cliente eliminado!!!")
+      alert("Usuario eliminado!!!")
     })
   }
 
