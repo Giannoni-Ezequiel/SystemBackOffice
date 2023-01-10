@@ -1,1 +1,38 @@
-<p>listar-impuesto works!</p>
+<div class="container">
+    <br>
+      <div class="container">
+        <button (click)="Volver()" class="btn btn-light">Volver</button>
+        <button (click)="Crear()" class="btn btn-primary" style="margin-left: 10px;">Nuevo</button>
+      </div>
+      <br>
+    <div class="card">
+        <div class="card-header">
+            <h3>Impuestos</h3>
+        </div>
+        <br>
+        <div class="card-body">
+            <table class="table">
+                <thead class="thead-light">
+                  <tr class="text-center">
+                    <th scope="col">#</th>
+                    <th scope="col">Porcentaje</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">ACCION</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ng-for="let impuesto of impuesto" class="text-center">
+                    <th scope="row">1</th>
+                    <td>{{impuesto.id}}</td>
+                    <td>{{impuesto.porcentaje}}</td>
+                    <td>{{impuesto.nombre}}</td>
+                    <td>
+                        <button (click)="Editar(impuesto)" class="btn btn-warning">Editar</button>
+                        <button (click)="Delete(impuesto)" class="btn btn-warning" style="margin-left: 10px">Delete</button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+        </div>
+    </div>
+  </div>

@@ -1,6 +1,6 @@
 export class Impuesto
 {
-  id: number;
+  id?: number;
   porcentaje: number;
   nombre: string;
 
