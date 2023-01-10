@@ -23,6 +23,10 @@ import { UsuarioService } from './service/usuario.service';
 import { ListarBienComponent } from './vistas/bien/listar-bien/listar-bien.component';
 import { CrearBienComponent } from './vistas/bien/crear-bien/crear-bien.component';
 import { EditarBienComponent } from './vistas/bien/editar-bien/editar-bien.component';
+import { ListarImpuestoComponent } from './vistas/impuesto/listar-impuesto/listar-impuesto.component';
+import { CrearImpuestoComponent } from './vistas/impuesto/crear-impuesto/crear-impuesto.component';
+import { EditarImpuestoComponent } from './vistas/impuesto/editar-impuesto/editar-impuesto.component';
+import { ImpuestoService } from './service/impuesto.service';
 
 @NgModule({
   declarations: [
@@ -41,7 +45,10 @@ import { EditarBienComponent } from './vistas/bien/editar-bien/editar-bien.compo
     ListarUsuariosComponent,
     ListarBienComponent,
     CrearBienComponent,
-    EditarBienComponent
+    EditarBienComponent,
+    ListarImpuestoComponent,
+    CrearImpuestoComponent,
+    EditarImpuestoComponent
   ],
   imports: [
     BrowserModule,
@@ -49,7 +56,7 @@ import { EditarBienComponent } from './vistas/bien/editar-bien/editar-bien.compo
     HttpClientModule,
     ReactiveFormsModule, FormsModule
   ],
-  providers: [ClienteService, BienService, PedidoService, RegistrationService, UsuarioService],
+  providers: [ClienteService, BienService, PedidoService, RegistrationService, UsuarioService, ImpuestoService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
