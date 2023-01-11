@@ -33,8 +33,6 @@ public abstract class Cliente {
     )
     @Column(name = "id")
     private Integer id;
-    @Column(name = "nombre")
-    private String nombre;
     @Column(name = "direccion")
     private String direccion;
     @Column(name = "telefono")
@@ -43,9 +41,9 @@ public abstract class Cliente {
     @ManyToMany
     private List<Bien> bienList = new ArrayList<>();
 
-    /*
+
     public Cliente(ClienteDTO clienteDTO){
-        this.nombre = clienteDTO.getNombre();
+
         this.direccion = clienteDTO.getDireccion();
         this.telefono = clienteDTO.getTelefono();
     }
@@ -54,9 +52,8 @@ public abstract class Cliente {
         return
                 ClienteDTO
                         .builder()
-                        .nombre(this.nombre)
                         .direccion(this.direccion)
                         .telefono(this.telefono)
                         .build();
-    }*/
+    }
 }

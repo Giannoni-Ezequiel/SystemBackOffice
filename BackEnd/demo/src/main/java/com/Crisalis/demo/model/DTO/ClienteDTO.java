@@ -12,6 +12,8 @@ public class ClienteDTO {
 
     @JsonProperty("nombre")
     private String nombre;
+    @JsonProperty("apellido")
+    private String apellido;
     @JsonProperty("direccion")
     private String direccion;
     @JsonProperty("telefono")
