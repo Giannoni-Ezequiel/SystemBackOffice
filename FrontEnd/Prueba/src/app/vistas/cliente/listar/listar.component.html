@@ -1,8 +1,11 @@
 <div class="container">
     <br>
     <div class="container">
-      <button (click)="Volver()" class="btn btn-light">Volver</button>
-      <button (click)="Crear()" class="btn btn-primary" style="margin-left: 10px;">Nuevo</button>
+      <div class="border">
+        <button (click)="Volver()" class="btn btn-light">Volver</button>
+        <button (click)="Crear()" class="btn btn-md btn-outline-primary" style="margin-left: 10px;">
+          <i class="fa fa-user"></i>Nuevo</button>
+      </div>
     </div>
     <br>
     <div class="card">
@@ -11,7 +14,7 @@
         </div>
         <br>
         <div class="card-body">
-            <table class="table">
+            <table class="table table-bordered table-striped">
                 <thead class="thead-light">
                   <tr class="text-center">
                     <th scope="col">#</th>
@@ -28,8 +31,7 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr *ngFor="let cliente of clientes" class="text-center">
-
+                  <tr *ngFor="let cliente of clientes">
                     <td>{{cliente.id}}</td>
                     <td>{{cliente.nombre}}</td>
                     <td>{{cliente.apellido}}</td>
@@ -42,8 +44,10 @@
                     <td>{{cliente.telefono}}</td>
                     <td>{{cliente.fechaDeInicio}}</td>
                     <td>
-                        <button (click)="Editar(cliente)" class="btn btn-warning">Editar</button>
-                        <button (click)="Delete(cliente)" class="btn btn-warning" style="margin-left: 10px">Delete</button>
+                        <button (click)="Editar(cliente)" class="btn btn-sm btn-warning">
+                          <i class="fa fa-edit"></i>Editar</button>
+                        <button (click)="Delete(cliente)" class="btn btn-sm btn-danger">
+                          <i class="fa fa-remove"></i>Delete</button>
                     </td>
                   </tr>
                 </tbody>

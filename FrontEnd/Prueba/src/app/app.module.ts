@@ -34,6 +34,7 @@ import { ListarDetalleComponent } from './vistas/detalle/listar-detalle/listar-d
 import { CrearDetalleComponent } from './vistas/detalle/crear-detalle/crear-detalle.component';
 import { EditarDetalleComponent } from './vistas/detalle/editar-detalle/editar-detalle.component';
 import { DetalleService } from './service/detalle.service';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -67,7 +68,7 @@ import { DetalleService } from './service/detalle.service';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule, FormsModule
+    ReactiveFormsModule, FormsModule, NgbModule
   ],
   providers: [ClienteService, BienService, PedidoService, RegistrationService, UsuarioService, ImpuestoService, DetalleService],
   bootstrap: [AppComponent]

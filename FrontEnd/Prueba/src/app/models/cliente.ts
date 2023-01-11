@@ -12,8 +12,10 @@ export class Cliente
   fechaDeInicio: Date;
   img: string;
 
+
   constructor(nombre: string,apellido: String, dni: string,img: string,
-    razonSocial: string,email: string,direccion: string,cuit: string,telefono: string,fechaDeInicio: Date){
+    razonSocial: string,email: string,direccion: string,cuit: string,
+    telefono: string,fechaDeInicio: Date, ){
 
       this.nombre = nombre;
       this.dni = dni;
@@ -25,6 +27,7 @@ export class Cliente
       this.cuit = cuit;
       this.telefono = telefono;
       this.fechaDeInicio = fechaDeInicio;
+
     }
 
   /*PersonaFisica(nombre: string, dni: number,apellido: string,img: string,
