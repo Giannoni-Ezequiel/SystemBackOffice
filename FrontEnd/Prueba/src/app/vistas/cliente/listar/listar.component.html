@@ -3,8 +3,8 @@
     <div class="container">
       <div class="border">
         <button (click)="Volver()" class="btn btn-light">Volver</button>
-        <button (click)="Crear()" class="btn btn-md btn-outline-primary" style="margin-left: 10px;">
-          <i class="fa fa-user"></i>Nuevo</button>
+<!--(click)="Crear()"--><button  class="btn btn-md btn-outline-primary" style="margin-left: 10px;" (click)="open(content)">
+          <i id="myicon" class="fa fa-user"></i>Nuevo</button>
       </div>
     </div>
     <br>
@@ -45,9 +45,9 @@
                     <td>{{cliente.fechaDeInicio}}</td>
                     <td>
                         <button (click)="Editar(cliente)" class="btn btn-sm btn-warning">
-                          <i class="fa fa-edit"></i>Editar</button>
+                          <i id="myicon1" class="fa fa-edit"></i>Editar</button>
                         <button (click)="Delete(cliente)" class="btn btn-sm btn-danger">
-                          <i class="fa fa-remove"></i>Delete</button>
+                          <i id="myicon2" class="fa fa-remove"></i>Delete</button>
                     </td>
                   </tr>
                 </tbody>
@@ -55,3 +55,28 @@
         </div>
     </div>
 </div>
+
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">New Friend</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
+      <div class="form-group">
+        <label for="firstname">Firstname</label>
+        <div class="input-group">
+          <input id="firstname" name="firstname" class="form-control" ngModel>
+        </div>
+        <div class="border text-center">
+          <button data-dismiss="modal" class="btn btn-info">Submit</button>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
+  </div>
+</ng-template>
