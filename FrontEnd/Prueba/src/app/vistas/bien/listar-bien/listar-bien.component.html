@@ -24,8 +24,7 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr *ng-for="let bien of bienes" class="text-center">
-                    <th scope="row">1</th>
+                  <tr *ngFor="let bien of bien" class="text-center">
                     <td>{{bien.id}}</td>
                     <td>{{bien.nombre}}</td>
                     <td>{{bien.costo}}</td>

@@ -16,24 +16,25 @@
                   <tr class="text-center">
                     <th scope="col">#</th>
                     <th scope="col">Nombre</th>
-                    <th scope="col">DNI</th>
                     <th scope="col">Apellido</th>
+                    <th scope="col">DNI</th>
+                    <th scope="col">Razon Social</th>
                     <th scope="col">Email</th>
                     <th scope="col">Direccion</th>
+                    <th scope="col">CUIT</th>
                     <th scope="col">Telefono</th>
-                    <th scope="col">IDTipo</th>
-                    <th scope="col">Rol</th>
+                    <th scope="col">Fecha de Inicio</th>
                     <th scope="col">ACCION</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr *ng-for="let cliente of clientes" class="text-center">
-                    <th scope="row">1</th>
+                  <tr *ngFor="let cliente of clientes" class="text-center">
+
                     <td>{{cliente.id}}</td>
                     <td>{{cliente.nombre}}</td>
-                    <td>{{cliente.dni}}</td>
                     <td>{{cliente.apellido}}</td>
-                    <td>{{cliente.img}}</td>
+                    <td>{{cliente.dni}}</td>
+                    <!--<td>{{cliente.img}}</td>-->
                     <td>{{cliente.razonSocial}}</td>
                     <td>{{cliente.email}}</td>
                     <td>{{cliente.direccion}}</td>

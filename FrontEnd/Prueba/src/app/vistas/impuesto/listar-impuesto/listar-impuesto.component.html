@@ -21,8 +21,7 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr *ng-for="let impuesto of impuesto" class="text-center">
-                    <th scope="row">1</th>
+                  <tr *ngFor="let impuesto of impuesto" class="text-center">
                     <td>{{impuesto.id}}</td>
                     <td>{{impuesto.porcentaje}}</td>
                     <td>{{impuesto.nombre}}</td>

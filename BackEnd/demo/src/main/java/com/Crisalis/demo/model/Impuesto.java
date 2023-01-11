@@ -7,6 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -26,7 +27,7 @@ public class Impuesto {
     private String imp_Nombre;
     @ManyToMany
     @JoinColumn(name = "bien_ID")
-    private List<Bien> Bienes;
+    private List<Bien> Bienes = new ArrayList<>();
 
     public Impuesto(ImpuestoDTO impuestoDTO){
         this.imp_Nombre = impuestoDTO.getImp_Nombre();

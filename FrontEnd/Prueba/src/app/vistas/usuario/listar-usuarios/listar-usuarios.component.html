@@ -18,18 +18,15 @@
                   <th scope="col">Nombre de Usuario</th>
                   <th scope="col">Contraseña</th>
                   <th scope="col">Nombre</th>
-
                   <th scope="col">ACCION</th>
                 </tr>
               </thead>
               <tbody>
-                <tr *ng-for="let usuario of usuarios" class="text-center">
-                  <th scope="row">1</th>
+                <tr *ngFor="let usuario of usuarios" class="text-center">
                   <td>{{usuario.id}}</td>
                   <td>{{usuario.nombreUsuario}}</td>
                   <td>{{usuario.password}}</td>
                   <td>{{usuario.name}}</td>
-
                   <td>
                       <button (click)="Editar(usuario)" class="btn btn-warning">Editar</button>
                       <button (click)="Delete(usuario)" class="btn btn-warning" style="margin-left: 10px">Delete</button>

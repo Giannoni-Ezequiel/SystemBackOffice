@@ -22,7 +22,7 @@ public class DemoApplication {
 		CorsConfiguration config = new CorsConfiguration();
 		config.setAllowCredentials(true);
 		config.setAllowedOriginPatterns(Arrays.asList(
-				""));
+				"http://localhost:4200"));
 		config.addAllowedHeader("");
 		config.addAllowedMethod("OPTIONS");
 		config.addAllowedMethod("GET");

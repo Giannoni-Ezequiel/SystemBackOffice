@@ -26,8 +26,7 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr *ng-for="let detalle of detalles" class="text-center">
-                    <th scope="row">1</th>
+                  <tr *ngFor="let detalle of detalle" class="text-center">
                     <td>{{detalle.id}}</td>
                     <td>{{detalle.cant}}</td>
                     <td>{{detalle.precioUnitario}}</td>

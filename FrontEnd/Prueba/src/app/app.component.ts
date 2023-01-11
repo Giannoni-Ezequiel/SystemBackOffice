@@ -15,7 +15,7 @@ export class AppComponent {
   //Peticiones del backend
   ngOnInit() {
 
-    this.http.get('https://localhost:8080/nombre', {responseType: 'text'}).subscribe(
+    /*this.http.get('https://localhost:8080/nombre', {responseType: 'text'}).subscribe(
       (resp:any) => {
       this.title = resp;
       }),
@@ -25,7 +25,7 @@ export class AppComponent {
       (resp:any) => {
       this.description = resp;
       }),
-      (error:any) => {console.log(error)}
+      (error:any) => {console.log(error)}*/
 
     }
   Listar(){

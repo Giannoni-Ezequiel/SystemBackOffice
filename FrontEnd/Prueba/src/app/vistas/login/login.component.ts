@@ -28,13 +28,13 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void{}
 
-  onLogin(form: LoginUsuario): void
+  onLogin(): void
   {
     this.LoginUsuario = new LoginUsuario(this.nombreUsuario, this.password, this.name);
     this.registrationService.login(this.LoginUsuario).subscribe(data => {
       let dataResponse: ResponseI = data;
       if(dataResponse.status == "ok"){
-        //localStorage.setItem("token",dataResponse.result.token);
+        localStorage.setItem("token",dataResponse.result.token);
         this.router.navigate(['proyecto'])
       }
     });

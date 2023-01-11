@@ -2,31 +2,27 @@ package com.Crisalis.demo.service;
 
 import com.Crisalis.demo.model.Bien;
 import com.Crisalis.demo.repository.IBienRepository;
+import com.Crisalis.demo.repository.PedidoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 
-public class BienService implements IBienRepository {
+public class BienService {
 
+    private final IBienRepository bienRepository;
     @Autowired
-    BienService BienRepo;
-
-    @Override
+    public BienService(IBienRepository bienRepository){
+        this.bienRepository = bienRepository;
+    }
     public List<Bien> findAll() {
         return null;
     }
-
-    @Override
-    public int save(Bien bien) {
-        return 0;
+    public Bien save(Bien bien) {
+        return bien;
     }
-
-    @Override
     public int update(Bien bien) {
         return 0;
     }
-
-    @Override
     public int deleteById(int id) {
         return 0;
     }

@@ -4,18 +4,33 @@ import com.Crisalis.demo.model.DTO.ClienteDTO;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.DiscriminatorOptions;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name="Tipo")
+@DiscriminatorOptions(force = true)
 @Table(name = "Cliente")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Cliente {
+public abstract class Cliente {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @SequenceGenerator(
+            name = "cliente_sequence",
+            sequenceName = "cliente_sequence",
+            allocationSize = 1,
+            initialValue = 0
+    )
+    @GeneratedValue(
+            strategy = GenerationType.SEQUENCE,
+            generator = "cliente_sequence"
+    )
     @Column(name = "id")
     private Integer id;
     @Column(name = "nombre")
@@ -25,6 +40,10 @@ public class Cliente {
     @Column(name = "telefono")
     private String telefono;
 
+    @ManyToMany
+    private List<Bien> bienList = new ArrayList<>();
+
+    /*
     public Cliente(ClienteDTO clienteDTO){
         this.nombre = clienteDTO.getNombre();
         this.direccion = clienteDTO.getDireccion();
@@ -39,7 +58,5 @@ public class Cliente {
                         .direccion(this.direccion)
                         .telefono(this.telefono)
                         .build();
-    }
+    }*/
 }
-
-//

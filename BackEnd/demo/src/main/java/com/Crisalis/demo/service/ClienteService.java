@@ -1,46 +1,41 @@
 package com.Crisalis.demo.service;
 
-import com.Crisalis.demo.interfaces.ICliente;
 import com.Crisalis.demo.model.Cliente;
 import com.Crisalis.demo.repository.ClienteRepository;
+import com.Crisalis.demo.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-public class ClienteService implements ICliente {
+public class ClienteService {
 
+    private final ClienteRepository clienteRepository;
     @Autowired
-    private ClienteRepository data;
-
-    @Override
-    public List<Cliente>listar() {
-        return (List<Cliente>) data.findAll();
+    public ClienteService(ClienteRepository clienteRepository){
+        this.clienteRepository = clienteRepository;
     }
 
-    /*@Override
-    public Cliente listarId(int id) {
-        return data.findOne(id);
+    public List<Cliente>listar() {
+        return (List<Cliente>) clienteRepository.findAll();
+    }
+
+    /*public Cliente listarId(int id) {
+        return data.find(id);
     }*/
 
-    @Override
     public Cliente add(Cliente c) {
-        return data.save(c);
+        return clienteRepository.save(c);
     }
 
-    @Override
     public Cliente edit(Cliente c) {
-        return data.save(c);
+        return clienteRepository.save(c);
     }
 
-    /*@Override
-    public Cliente delete(int id) {
-        Cliente c=data.findOne(id);
-        if(c!=null){
-            data.delete(c);
-        }
-        return c;
+
+    /*public void delete(int id) {
+        Cliente.deleteById(id);
     }*/
 
     /*

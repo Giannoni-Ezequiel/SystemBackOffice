@@ -11,7 +11,8 @@ import java.util.List;
 public interface ClienteRepository extends JpaRepository<Cliente, Integer> {
 
     List<Cliente>findAll();
-    /*Cliente findOne(int id);*/
+    public void deleteById(int id);
+
     Cliente save(Cliente c);
     void delete(Cliente c);
 }
