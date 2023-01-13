@@ -40,7 +40,7 @@ public class ClienteDTO {
         return new Person(this.direccion, this.telefono, this.DNI, this.nombre, this.apellido, this.email);
     }
 
-    /*public Empresa toEmpresaEntity(){
+    public Empresa toEmpresaEntity(){
         return new Empresa(this.direccion, this.telefono, this.CUIT, this.razonSocial, this.fechadeinicio);
-    }*/
+    }
 }

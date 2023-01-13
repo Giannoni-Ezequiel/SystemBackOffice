@@ -52,7 +52,10 @@ public class BienService {
     public void add(BienDTO bien) {
         if(bien.getTipo().equals("Producto")){
             this.bienRepository.save(bien.toProductoEntity());
-        }}
+        }else{
+            this.bienRepository.save(bien.toServicioEntity());
+        }
+    }
     public Bien edit(BienDTO c) {
         return this.bienRepository.save(c.toProductoEntity());
     }

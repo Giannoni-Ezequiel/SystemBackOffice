@@ -33,16 +33,14 @@ public class ClienteService {
         return this.clienteRepository.findById(id).get();
     }
 
-     public void add(ClienteDTO c) {
+    public void add(ClienteDTO c) {
         if(c.getTipo().equals("Persona")){
             this.personRepository.save(c.toPersonEntity());
-        } /*else {
-            if(c.getTipo().equals("Empresa")){
+        } else {
             this.empresaRepository.save(c.toEmpresaEntity());}
-        }*/
+        }
         //return this.clienteRepository.save(c);
 
-    }
     public Cliente edit(ClienteDTO c) {
         return this.clienteRepository.save(c.toPersonEntity());
     }

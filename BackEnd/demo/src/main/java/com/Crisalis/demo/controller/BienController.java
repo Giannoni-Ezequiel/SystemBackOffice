@@ -28,7 +28,7 @@ public class BienController {
     public void add(@RequestBody BienDTO bien){
         this.bienService.add(bien);
     }
-    @PutMapping(value = {"{id}"}, consumes = MediaType.APPLICATION_JSON_VALUE)
+    @PutMapping(value = "id", consumes = MediaType.APPLICATION_JSON_VALUE)
     public Bien editar(@RequestBody BienDTO cliente,@PathVariable("id")int id){
         return this.bienService.edit(cliente);
     }
@@ -38,6 +38,6 @@ public class BienController {
     }
     @GetMapping(path = {"/{id}"})
     public Bien listarId(@PathVariable("id")int id){
-        return bienService.listarId(id);
+        return this.bienService.listarId(id);
     }
 }
