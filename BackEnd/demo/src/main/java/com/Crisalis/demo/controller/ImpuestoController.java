@@ -42,7 +42,7 @@ public class ImpuestoController {
     }
     @GetMapping(path = {"/{id}"})
     public Impuesto listarId(@PathVariable("id")int id){
-        return impuestoService.listarId(id);
+        return this.impuestoService.listarId(id);
     }
 
     /*

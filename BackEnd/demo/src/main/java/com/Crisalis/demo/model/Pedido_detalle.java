@@ -4,6 +4,7 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
+import java.util.List;
 
 @Entity
 @Table(name = "pedido_detalle")
@@ -56,4 +57,17 @@ public class Pedido_detalle {
     )
     @JoinColumn(name = "pedido_fk")
     private Pedido pedido;
+
+    public Pedido_detalle(String item_cant, BigDecimal item_PrecioUnitario, BigDecimal item_PrecioTotal,
+                          BigDecimal item_Descuento, Integer item_Garantia, Double item_PorcGarantia,
+                          BigDecimal item_CargoSoporte, Bien bien, Pedido_impuesto pedido_impuesto, Pedido pedido)
+    {
+        this.item_cant = item_cant;
+        this.item_PrecioUnitario = item_PrecioUnitario;
+        this.item_PrecioTotal = item_PrecioTotal;
+        this.item_Descuento = item_Descuento;
+        this.item_Garantia = item_Garantia;
+        this.item_PorcGarantia = item_PorcGarantia;
+        this.item_CargoSoporte = item_CargoSoporte;
+    }
 }

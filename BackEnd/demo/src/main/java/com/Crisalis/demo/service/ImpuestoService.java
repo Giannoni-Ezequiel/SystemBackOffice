@@ -22,7 +22,6 @@ public class ImpuestoService {
     public ImpuestoService(ImpuestoRepository impuestoRepository) {
         this.impuestoRepository = impuestoRepository;
     }
-
     public List<Impuesto> listar() {
         return (List<Impuesto>) this.impuestoRepository.findAll();
     }
