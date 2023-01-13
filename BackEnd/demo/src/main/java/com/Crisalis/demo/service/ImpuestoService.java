@@ -2,12 +2,16 @@ package com.Crisalis.demo.service;
 
 import com.Crisalis.demo.exception.custom.EmptyElementException;
 import com.Crisalis.demo.exception.custom.NotCreatedException;
+import com.Crisalis.demo.model.Bien;
+import com.Crisalis.demo.model.DTO.BienDTO;
 import com.Crisalis.demo.model.DTO.ImpuestoDTO;
 import com.Crisalis.demo.model.Impuesto;
 import com.Crisalis.demo.repository.ImpuestoRepository;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class ImpuestoService {
@@ -19,13 +23,25 @@ public class ImpuestoService {
         this.impuestoRepository = impuestoRepository;
     }
 
-    public Impuesto saveImpuesto(ImpuestoDTO impuestoDTO){
-        if(checkImpuesto(impuestoDTO, Boolean.FALSE)){
-            return this.impuestoRepository.save(new Impuesto(impuestoDTO));
-        }
-        throw new NotCreatedException("Error en guardar impuesto");
+    public List<Impuesto> listar() {
+        return (List<Impuesto>) this.impuestoRepository.findAll();
     }
 
+    public Impuesto listarId(int id) {
+        return this.impuestoRepository.findById(id).get();
+    }
+
+    public void add(ImpuestoDTO imp) {
+            this.impuestoRepository.save(imp.toImpuestoEntity());
+    }
+    public Impuesto edit(ImpuestoDTO imp) {
+        return this.impuestoRepository.save(imp.toImpuestoEntity());
+    }
+    public Impuesto delete(int id) {
+        this.impuestoRepository.deleteById(id);
+        return null;
+    }
+    /*
     private Boolean checkImpuesto(ImpuestoDTO impuestoDTO, boolean check){
         if(!check) {
             if (StringUtils.isEmpty(impuestoDTO.getImp_Nombre())) {
@@ -37,4 +53,7 @@ public class ImpuestoService {
         }
         return Boolean.TRUE;
     }
+
+     */
+
 }

@@ -29,10 +29,10 @@ public class Impuesto {
     @JoinColumn(name = "bien_ID")
     private List<Bien> Bienes = new ArrayList<>();
 
-    public Impuesto(ImpuestoDTO impuestoDTO){
-        this.imp_Nombre = impuestoDTO.getImp_Nombre();
-        this.imp_Porcentaje = impuestoDTO.getImp_Porcentaje();
-        this.Bienes = impuestoDTO.getBienes();
+    public Impuesto(Float imp_Porcentaje, String imp_Nombre, List<Bien> Bienes){
+        this.imp_Nombre = imp_Nombre;
+        this.imp_Porcentaje = imp_Porcentaje;
+        this.Bienes = Bienes;
     }
     public ImpuestoDTO toDTO(){
         return

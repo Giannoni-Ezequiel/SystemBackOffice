@@ -1,6 +1,5 @@
 package com.Crisalis.demo.model;
 
-import com.Crisalis.demo.model.DTO.PersonDTO;
 import lombok.*;
 
 import javax.persistence.*;

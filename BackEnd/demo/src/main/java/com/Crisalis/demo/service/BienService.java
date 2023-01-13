@@ -28,19 +28,6 @@ public class BienService {
         this.productoRepository = productoRepository;
         this.servicioRepository = servicioRepository;
     }
-   /* public List<Bien> findAll() {
-        return null;
-    }
-    public Bien save(Bien bien) {
-        return bien;
-    }
-    public int update(Bien bien) {
-        return 0;
-    }
-    public int deleteById(int id) {
-        return 0;
-    }*/
-
     public List<Bien>listar() {
         return (List<Bien>) this.bienRepository.findAll();
     }
