@@ -10,9 +10,8 @@ import java.util.List;
 @Repository
 public interface ClienteRepository extends JpaRepository<Cliente, Integer> {
 
-    List<Cliente>findAll();
-    public void deleteById(int id);
 
+    public void deleteById(int id);
     Cliente save(Cliente c);
     void delete(Cliente c);
 }

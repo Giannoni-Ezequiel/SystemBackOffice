@@ -1,12 +1,9 @@
 package com.Crisalis.demo.repository;
 
-import com.Crisalis.demo.model.Person;
+import com.Crisalis.demo.model.Servicio;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import java.util.Optional;
-
 @Repository
-public interface PersonRepository extends JpaRepository<Person, Integer> {
-
+public interface ServicioRepository extends JpaRepository<Servicio, Integer> {
 }

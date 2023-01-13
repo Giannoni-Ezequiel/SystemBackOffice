@@ -39,8 +39,6 @@ public abstract class Bien {
     private BigDecimal bien_Costo;
     @Column(name = "CargoSoporte")
     private Double bien_CargoSoporte;
-    @Column(name = "EsEspecial")
-    private Boolean bien_EsEspecial;
     @Column(name = "PorcentajeDeCargo")
     private BigDecimal bien_PorcentajCarg;
 

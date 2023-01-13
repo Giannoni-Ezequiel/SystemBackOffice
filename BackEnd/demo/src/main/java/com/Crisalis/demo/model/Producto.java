@@ -24,4 +24,12 @@ public class Producto extends Bien implements Serializable {
     @Column(name = "PorcentajeGarantia")
     private Double prod_PorcentajeGarantia;
 
+    public Producto(String bien_Nombre, BigDecimal bien_costo, Double bien_CargoSoporte, BigDecimal bien_PorcentajeCarg
+                    , BigDecimal prod_Impuesto, BigDecimal prod_PrecioBase, Double prod_PorcentajeGarantia){
+        super(null, bien_Nombre, bien_costo, bien_CargoSoporte, bien_PorcentajeCarg,
+                null, null);
+        this.prod_Impuesto = prod_Impuesto;
+        this.prod_PrecioBase = prod_PrecioBase;
+        this.prod_PorcentajeGarantia = prod_PorcentajeGarantia;
+    }
 }

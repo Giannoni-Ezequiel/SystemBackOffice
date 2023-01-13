@@ -2,9 +2,10 @@ package com.Crisalis.demo.controller;
 
 
 import com.Crisalis.demo.model.Cliente;
+import com.Crisalis.demo.model.DTO.ClienteDTO;
 import com.Crisalis.demo.service.ClienteService;
-import com.Crisalis.demo.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -20,27 +21,25 @@ public class ClienteController {
     {
         this.clienteService = clienteService;
     }
-    @GetMapping
+    @GetMapping("")
     public List<Cliente>listar(){
-        return clienteService.listar();
+        return this.clienteService.listar();
     };
-
-    /*@GetMapping(path = {"/{id}"})
-    public Cliente listarId(@PathVariable("id")int id){
-        return service.listarId(id);
+    @PostMapping(value = "add", consumes = MediaType.APPLICATION_JSON_VALUE)
+    public void add(@RequestBody ClienteDTO cliente){
+        this.clienteService.add(cliente);
+    }
+    /*@PutMapping(value = {"{id}"}, consumes = MediaType.APPLICATION_JSON_VALUE)
+    public Cliente editar(@RequestBody ClienteDTO cliente,@PathVariable("id")int id){
+        cliente.set(id);
+        return this.clienteService.edit(cliente);
     }*/
-    @PostMapping
-    public Cliente agregar(@RequestBody Cliente c){
-        return clienteService.add(c);
-    }
-
-    @PutMapping(path = {"/{id}"})
-    public Cliente editar(@RequestBody Cliente c,@PathVariable("id")int id){
-        c.setId(id);
-        return clienteService.edit(c);
-    }
-    /*@DeleteMapping(path = {"/{id}"})
+    @DeleteMapping(path = {"/{id}"})
     public Cliente delete(@PathVariable("id")int id){
-        return service.delete(id);
-    }*/
+        return this.clienteService.delete(id);
+    }
+    @GetMapping(path = {"/{id}"})
+        public Cliente listarId(@PathVariable("id")int id){
+            return clienteService.listarId(id);
+        }
 }

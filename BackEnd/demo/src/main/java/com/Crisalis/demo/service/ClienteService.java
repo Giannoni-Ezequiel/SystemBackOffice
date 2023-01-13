@@ -1,8 +1,10 @@
 package com.Crisalis.demo.service;
 
 import com.Crisalis.demo.model.Cliente;
+import com.Crisalis.demo.model.DTO.ClienteDTO;
 import com.Crisalis.demo.repository.ClienteRepository;
-import com.Crisalis.demo.repository.UsuarioRepository;
+import com.Crisalis.demo.repository.EmpresaRepository;
+import com.Crisalis.demo.repository.PersonRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,31 +14,42 @@ import java.util.List;
 public class ClienteService {
 
     private final ClienteRepository clienteRepository;
+    private final PersonRepository personRepository;
+    private final EmpresaRepository empresaRepository;
     @Autowired
-    public ClienteService(ClienteRepository clienteRepository){
+    public ClienteService(ClienteRepository clienteRepository,
+                          PersonRepository personRepository,
+                          EmpresaRepository empresaRepository){
         this.clienteRepository = clienteRepository;
+        this.personRepository = personRepository;
+        this.empresaRepository = empresaRepository;
     }
 
     public List<Cliente>listar() {
-        return (List<Cliente>) clienteRepository.findAll();
+        return (List<Cliente>) this.clienteRepository.findAll();
     }
 
-    /*public Cliente listarId(int id) {
-        return data.find(id);
-    }*/
-
-    public Cliente add(Cliente c) {
-        return clienteRepository.save(c);
+    public Cliente listarId(int id) {
+        return this.clienteRepository.findById(id).get();
     }
 
-    public Cliente edit(Cliente c) {
-        return clienteRepository.save(c);
+     public void add(ClienteDTO c) {
+        if(c.getTipo().equals("Persona")){
+            this.personRepository.save(c.toPersonEntity());
+        } /*else {
+            if(c.getTipo().equals("Empresa")){
+            this.empresaRepository.save(c.toEmpresaEntity());}
+        }*/
+        //return this.clienteRepository.save(c);
+
     }
-
-
-    /*public void delete(int id) {
-        Cliente.deleteById(id);
-    }*/
+    public Cliente edit(ClienteDTO c) {
+        return this.clienteRepository.save(c.toPersonEntity());
+    }
+    public Cliente delete(int id) {
+        this.clienteRepository.deleteById(id);
+        return null;
+    }
 
     /*
     @Override

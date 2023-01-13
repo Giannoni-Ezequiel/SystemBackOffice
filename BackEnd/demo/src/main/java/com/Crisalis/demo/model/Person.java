@@ -16,7 +16,7 @@ import java.io.Serializable;
 //@Builder
 public class Person extends Cliente implements Serializable {
 
-    @Column(name = "DNI", nullable = false, length = 8)
+    @Column(name = "DNI")
     private Integer DNI;
     @Column(name = "nombre")
     private String nombre;
@@ -24,23 +24,15 @@ public class Person extends Cliente implements Serializable {
     private String apellido;
     @Column(name = "email")
     private String email;
-}
-    /*public Person(PersonDTO personDTO){
-        this.DNI = personDTO.getDNI();
-        this.nombre = personDTO.getNombre();
-        this.apellido = personDTO.getApellido();
-        this.email = personDTO.getEmail();
+
+    public Person(String direccion, String telefono, Integer DNI, String nombre, String apellido, String email){
+        super(null,direccion, telefono);
+        this.DNI = DNI;
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.email = email;
     }
-    public PersonDTO toDTO(){
-        return
-                PersonDTO
-                        .builder()
-                        .DNI(this.DNI)
-                        .nombre(this.nombre)
-                        .apellido(this.apellido)
-                        .email(this.email)
-                        .build();
-    }
+
 }
 
     /*public PersonParam toDto(){

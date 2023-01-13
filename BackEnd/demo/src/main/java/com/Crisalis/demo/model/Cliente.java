@@ -1,6 +1,6 @@
 package com.Crisalis.demo.model;
 
-import com.Crisalis.demo.model.DTO.ClienteDTO;
+//import com.Crisalis.demo.model.DTO.ClienteDTO;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -14,7 +14,7 @@ import java.util.List;
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name="Tipo")
 @DiscriminatorOptions(force = true)
-@Table(name = "Cliente")
+@Table(name = "cliente")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -38,10 +38,12 @@ public abstract class Cliente {
     @Column(name = "telefono")
     private String telefono;
 
+
+    /*
     @ManyToMany
-    private List<Bien> bienList = new ArrayList<>();
+    private List<Bien> bienList = new ArrayList<>();*/
 
-
+    /*
     public Cliente(ClienteDTO clienteDTO){
 
         this.direccion = clienteDTO.getDireccion();
@@ -55,5 +57,5 @@ public abstract class Cliente {
                         .direccion(this.direccion)
                         .telefono(this.telefono)
                         .build();
-    }
+    }*/
 }
