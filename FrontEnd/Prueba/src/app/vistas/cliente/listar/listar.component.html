@@ -58,7 +58,7 @@
 
 <ng-template #content let-modal>
   <div class="modal-header">
-    <h4 class="modal-title" id="modal-basic-title">New Friend</h4>
+    <h4 class="modal-title" id="modal-basic-title">Nuevo Cliente</h4>
     <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
       <span aria-hidden="true">&times;</span>
     </button>
@@ -66,12 +66,12 @@
   <div class="modal-body">
     <form #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
       <div class="form-group">
-        <label for="firstname">Firstname</label>
+        <label for="nombre">Nombre</label>
         <div class="input-group">
-          <input id="firstname" name="firstname" class="form-control" ngModel>
+          <input id="nombre" name="nombre" class="form-control" ngModel>
         </div>
         <div class="border text-center">
-          <button data-dismiss="modal" class="btn btn-info">Submit</button>
+          <button data-dismiss="modal" class="btn btn-info">Guardar</button>
         </div>
       </div>
     </form>
