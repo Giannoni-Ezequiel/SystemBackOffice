@@ -28,7 +28,7 @@ public class BienService {
         this.productoRepository = productoRepository;
         this.servicioRepository = servicioRepository;
     }
-    public List<Bien> findAll() {
+   /* public List<Bien> findAll() {
         return null;
     }
     public Bien save(Bien bien) {
@@ -39,7 +39,7 @@ public class BienService {
     }
     public int deleteById(int id) {
         return 0;
-    }
+    }*/
 
     public List<Bien>listar() {
         return (List<Bien>) this.bienRepository.findAll();
@@ -49,9 +49,9 @@ public class BienService {
         return this.bienRepository.findById(id).get();
     }
 
-    public void add(BienDTO c) {
-        if(c.getTipo().equals("Producto")){
-            this.bienRepository.save(c.toProductoEntity());
+    public void add(BienDTO bien) {
+        if(bien.getTipo().equals("Producto")){
+            this.bienRepository.save(bien.toProductoEntity());
         }}
     public Bien edit(BienDTO c) {
         return this.bienRepository.save(c.toProductoEntity());

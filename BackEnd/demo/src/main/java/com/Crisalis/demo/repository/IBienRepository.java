@@ -9,8 +9,8 @@ import java.util.List;
 @Repository
 public interface IBienRepository extends JpaRepository<Bien, Integer> {
 
-    /*public List<Bien> findAll();
+    public List<Bien> findAll();
     public Bien save(Bien bien);
-    public int update(Bien bien);
-    public int deleteById(int id);*/
+    /*public int update(Bien bien);*/
+    public int deleteById(int id);
 }

@@ -26,7 +26,7 @@ public class BienDTO {
     private Double bien_CargoSoporte;
     @JsonProperty("porcentajeDeCargo")
     private BigDecimal bien_PorcentajCarg;
-    //PRODUCTO
+
     @JsonProperty("impuesto")
     private BigDecimal prod_Impuesto;
     @JsonProperty("precioBase")
@@ -38,7 +38,7 @@ public class BienDTO {
         return new Producto(this.bien_Nombre, this.bien_Costo, this.bien_CargoSoporte, this.bien_PorcentajCarg,
                 this.prod_Impuesto, this.prod_PrecioBase, this.prod_PorcentajeGarantia);
     }
-    //SERVICIO
+
     @JsonProperty("tipoDeServicio")
     private String serv_TipoDeServicio;
     @JsonProperty("servicioEspecial")
