@@ -55,4 +55,16 @@ public class Pedido {
             cascade = CascadeType.ALL
     )
     private Set<Pedido_detalle> pedido_detalle = new HashSet<>();*/
+
+    public Pedido(Integer ord_comprobante, String ord_fecha, BigDecimal ord_TotalPedido, String ord_NomEmpEmisora,
+                  Double ord_DescuentoPorcent, BigDecimal ord_DescuentoTotal, Estado estado, Cliente cliente) {
+        this.ord_comprobante = ord_comprobante;
+        this.ord_fecha = ord_fecha;
+        this.ord_TotalPedido = ord_TotalPedido;
+        this.ord_NomEmpEmisora = ord_NomEmpEmisora;
+        this.ord_DescuentoPorcent = ord_DescuentoPorcent;
+        this.ord_DescuentoTotal = ord_DescuentoTotal;
+        this.estado = estado;
+        this.cliente = cliente;
+    }
 }

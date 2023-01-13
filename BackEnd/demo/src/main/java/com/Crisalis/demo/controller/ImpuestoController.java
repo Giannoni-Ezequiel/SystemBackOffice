@@ -49,7 +49,7 @@ public class ImpuestoController {
     @PostMapping(value = "", consumes = MediaType.APPLICATION_JSON_VALUE)
     public Impuesto saveImpuesto(@RequestBody ImpuestoDTO impuestoDTO)
     {
-        return this.impuestoService.saveImpuesto(impuestoDTO);
+        return this.impuestoService.saveImpuesto(ImpuestoDTO);
     }
  */
 }
