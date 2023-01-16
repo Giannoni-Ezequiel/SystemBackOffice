@@ -10,13 +10,13 @@ export class UsuarioService {
 
   constructor(private http:HttpClient) { }
 
-  private Url = environment.apiBaseUrl;
+  private Url = environment.apiBaseUrl + "/usuario";
 
   getUsuarios(){
     return this.http.get<LoginUsuario[]>(this.Url);
   }
   crearUsuarios(usuario:LoginUsuario){
-    return this.http.post<LoginUsuario>(this.Url+"usuario",usuario);
+    return this.http.post<LoginUsuario>(this.Url,usuario);
   }
   getUsuariosId(id:any){
     return this.http.get<LoginUsuario>(this.Url+"/"+id);

@@ -1,5 +1,6 @@
 package com.Crisalis.demo.controller;
 
+import com.Crisalis.demo.model.Cliente;
 import com.Crisalis.demo.model.DTO.UserDTO;
 import com.Crisalis.demo.model.Usuario;
 import com.Crisalis.demo.service.UsuarioService;
@@ -36,4 +37,9 @@ public class UsuarioController {
     public List<UserDTO> getAllUsers(){
         return this.usuarioService.getListAllUsersInBD();
     }
+
+    @GetMapping("")
+    public List<Usuario>listar(){
+        return this.usuarioService.listar();
+    };
 }

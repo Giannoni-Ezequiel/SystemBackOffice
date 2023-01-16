@@ -34,7 +34,7 @@ export class CrearDetalleComponent implements OnInit{
   }
 
   Volver(){
-    this.router.navigate(["Listar-detalle"])
+    this.router.navigate(["listar-detalle"])
   }
 
 }

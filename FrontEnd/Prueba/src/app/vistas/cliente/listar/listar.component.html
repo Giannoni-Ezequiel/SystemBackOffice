@@ -3,7 +3,8 @@
     <div class="container">
       <div class="border">
         <button (click)="Volver()" class="btn btn-light">Volver</button>
-<!--(click)="Crear()"--><button  class="btn btn-md btn-outline-primary" style="margin-left: 10px;" (click)="open(content)">
+<!----><button  class="btn btn-md btn-outline-primary" style="margin-left: 10px;" (click)="open(content)">
+  <button (click)="Crear()" class="btn btn-md btn-outline-primary" style="margin-left: 10px;">Crear</button>
           <i id="myicon" class="fa fa-user"></i>Nuevo</button>
       </div>
     </div>
@@ -18,6 +19,7 @@
                 <thead class="thead-light">
                   <tr class="text-center">
                     <th scope="col">#</th>
+                    <th scope="col">Tipo</th>
                     <th scope="col">Nombre</th>
                     <th scope="col">Apellido</th>
                     <th scope="col">DNI</th>
@@ -33,6 +35,7 @@
                 <tbody>
                   <tr *ngFor="let cliente of clientes">
                     <td>{{cliente.id}}</td>
+                    <td>{{cliente.tipo}}</td>
                     <td>{{cliente.nombre}}</td>
                     <td>{{cliente.apellido}}</td>
                     <td>{{cliente.dni}}</td>
@@ -58,7 +61,7 @@
 
 <ng-template #content let-modal>
   <div class="modal-header">
-    <h4 class="modal-title" id="modal-basic-title">Nuevo Cliente</h4>
+    <h4 class="modal-title" id="modal-basic-title">Nueva Persona</h4>
     <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
       <span aria-hidden="true">&times;</span>
     </button>
@@ -69,6 +72,26 @@
         <label for="nombre">Nombre</label>
         <div class="input-group">
           <input id="nombre" name="nombre" class="form-control" ngModel>
+        </div>
+        <label for="apellido">Apellido</label>
+        <div class="input-group">
+          <input id="apellido" name="apellido" class="form-control" ngModel>
+        </div>
+        <label for="DNI">DNI</label>
+        <div class="input-group">
+          <input id="DNI" name="DNI" class="form-control" ngModel>
+        </div>
+        <label for="email">Email</label>
+        <div class="input-group">
+          <input id="email" name="email" class="form-control" ngModel>
+        </div>
+        <label for="direccion">Direccion</label>
+        <div class="input-group">
+          <input id="direccion" name="direccion" class="form-control" ngModel>
+        </div>
+        <label for="telefono">Telefono</label>
+        <div class="input-group">
+          <input id="telefono" name="telefono" class="form-control" ngModel>
         </div>
         <div class="border text-center">
           <button data-dismiss="modal" class="btn btn-info">Guardar</button>

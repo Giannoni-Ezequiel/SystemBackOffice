@@ -15,7 +15,7 @@ section {
         top: -350px;
         width: 600px;
         height: 600px;
-        background: #bf4ad4;
+        background: #cb5bdf6e;
     }
 
 .colour:nth-child(2) {
@@ -23,7 +23,7 @@ section {
         width: 500px;
         height: 500px;
         bottom: -150px;
-        background: #ffa500;
+        background: #f1ac2c7c;
     }
 
 .colour:nth-child(3) {
@@ -31,7 +31,7 @@ section {
         bottom: 50px;
         width: 300px;
         height: 300px;
-        background: #2b67f3;
+        background: #306bf3c0;
     }
 
 .container {

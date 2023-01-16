@@ -7,8 +7,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
-
-import javax.persistence.Column;
 import java.math.BigDecimal;
 
 @Data

@@ -1,16 +1,17 @@
 export class Cliente
 {
   id?: number;
-  nombre: string;
+  tipo?: String;
+  nombre: String;
   apellido: String;
-  dni: string;
-  razonSocial: string;
-  email: string;
-  direccion: string;
-  cuit: string;
-  telefono: string;
+  dni: String;
+  razonSocial: String;
+  email: String;
+  direccion: String;
+  cuit: String;
+  telefono: String;
   fechaDeInicio: Date;
-  img: string;
+  img: String;
 
 
   constructor(nombre: string,apellido: String, dni: string,img: string,

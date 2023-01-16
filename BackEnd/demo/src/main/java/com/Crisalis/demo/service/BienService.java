@@ -38,13 +38,13 @@ public class BienService {
 
     public void add(BienDTO bien) {
         if(bien.getTipo().equals("Producto")){
-            this.bienRepository.save(bien.toProductoEntity());
+            this.productoRepository.save(bien.toProductoEntity());
         }else{
-            this.bienRepository.save(bien.toServicioEntity());
+            this.servicioRepository.save(bien.toServicioEntity());
         }
     }
-    public Bien edit(BienDTO c) {
-        return this.bienRepository.save(c.toProductoEntity());
+    public Bien edit(BienDTO bien) {
+        return this.bienRepository.save(bien.toProductoEntity());
     }
     public Bien delete(int id) {
         this.bienRepository.deleteById(id);

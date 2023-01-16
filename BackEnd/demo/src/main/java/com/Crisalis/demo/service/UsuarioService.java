@@ -4,6 +4,7 @@ import com.Crisalis.demo.exception.custom.EmptyElementException;
 import com.Crisalis.demo.exception.custom.NotCreatedException;
 import com.Crisalis.demo.exception.custom.UnauthorizedException;
 import com.Crisalis.demo.model.DTO.UserDTO;
+import com.Crisalis.demo.model.Pedido;
 import com.Crisalis.demo.model.Usuario;
 import com.Crisalis.demo.repository.UsuarioRepository;
 import org.apache.commons.lang3.StringUtils;
@@ -23,6 +24,9 @@ public class UsuarioService {
         this.usuarioRepository = usuarioRepository;
     }
 
+    public List<Usuario> listar() {
+        return (List<Usuario>) this.usuarioRepository.findAll();
+    }
     public Usuario saveUser(UserDTO userDTO){
         if(checkUserForSaveOrLogin(userDTO, Boolean.FALSE)){
             return this.usuarioRepository.save(new Usuario(userDTO));
