@@ -29,6 +29,7 @@ public class DetalleDTO {
     private Pedido pedido;
     public Pedido_detalle toDetalleEntity(){
         return new Pedido_detalle(this.item_cant, this.item_PrecioUnitario, this.item_PrecioTotal, this.item_Descuento
-        , this.item_Garantia, this.item_PorcGarantia, this.item_CargoSoporte, null, null, null);
+        , this.item_Garantia, this.item_PorcGarantia, this.item_CargoSoporte, this.bien,
+                this.pedido_impuesto, this.pedido);
     }
 }

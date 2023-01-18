@@ -43,4 +43,7 @@ public class ClienteDTO {
     public Empresa toEmpresaEntity(){
         return new Empresa(this.direccion, this.telefono, this.CUIT, this.razonSocial, this.fechadeinicio);
     }
+
+    public void set(int id) {
+    }
 }

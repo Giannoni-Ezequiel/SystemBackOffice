@@ -23,7 +23,7 @@ public class PedidoController {
     @GetMapping("")
     public List<Pedido> listar(){
         return this.pedidoService.listar();
-    };
+    }
     @PostMapping(value = "add", consumes = MediaType.APPLICATION_JSON_VALUE)
     public void add(@RequestBody PedidoDTO pedido){
         this.pedidoService.add(pedido);

@@ -29,11 +29,11 @@ public class ClienteController {
     public void add(@RequestBody ClienteDTO cliente){
         this.clienteService.add(cliente);
     }
-    /*@PutMapping(value = {"{id}"}, consumes = MediaType.APPLICATION_JSON_VALUE)
+    @PutMapping(value = {"{id}"}, consumes = MediaType.APPLICATION_JSON_VALUE)
     public Cliente editar(@RequestBody ClienteDTO cliente,@PathVariable("id")int id){
         cliente.set(id);
         return this.clienteService.edit(cliente);
-    }*/
+    }
     @DeleteMapping(path = {"/{id}"})
     public Cliente delete(@PathVariable("id")int id){
         return this.clienteService.delete(id);

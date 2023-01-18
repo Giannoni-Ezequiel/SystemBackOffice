@@ -18,7 +18,7 @@ public class PedidoService {
     }
 
     public List<Pedido> listar() {
-        return (List<Pedido>) this.pedidoRepository.findAll();
+        return this.pedidoRepository.findAll();
     }
     public Pedido listarId(int id) {
         return this.pedidoRepository.findById(id).get();

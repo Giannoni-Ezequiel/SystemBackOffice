@@ -1,8 +1,6 @@
 package com.Crisalis.demo.controller;
 
 import com.Crisalis.demo.model.DTO.DetalleDTO;
-import com.Crisalis.demo.model.DTO.ImpuestoDTO;
-import com.Crisalis.demo.model.Impuesto;
 import com.Crisalis.demo.model.Pedido_detalle;
 import com.Crisalis.demo.service.PedidoDetalleService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,7 +23,7 @@ public class PedidoDetalleController {
     @GetMapping("")
     public List<Pedido_detalle> listar(){
         return this.pedidoDetalleService.listar();
-    };
+    }
     @PostMapping(value = "add", consumes = MediaType.APPLICATION_JSON_VALUE)
     public void add(@RequestBody DetalleDTO detalle){
         this.pedidoDetalleService.add(detalle);

@@ -43,7 +43,7 @@ public class Pedido_detalle {
     @Column(name = "CargoSoporte")
     private BigDecimal item_CargoSoporte;
     @ManyToOne(
-            fetch = FetchType.LAZY,
+            fetch = FetchType.EAGER,
             optional = false //No puede existir un detalle sin que este en un pedido
     )
     @JoinColumn(name = "bien_fk")
@@ -51,12 +51,12 @@ public class Pedido_detalle {
     @OneToOne
     @JoinColumn(name = "item_ID")
     private Pedido_impuesto pedido_impuesto;
-    @ManyToOne(
+    /*@ManyToOne(
             fetch = FetchType.LAZY,
             cascade = CascadeType.ALL
     )
     @JoinColumn(name = "pedido_fk")
-    private Pedido pedido;
+    private Pedido pedido;*/
 
     public Pedido_detalle(String item_cant, BigDecimal item_PrecioUnitario, BigDecimal item_PrecioTotal,
                           BigDecimal item_Descuento, Integer item_Garantia, Double item_PorcGarantia,

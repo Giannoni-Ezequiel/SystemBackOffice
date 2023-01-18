@@ -1,6 +1,7 @@
 package com.Crisalis.demo.model.DTO;
 
 import com.Crisalis.demo.model.Cliente;
+import com.Crisalis.demo.model.Empresa;
 import com.Crisalis.demo.model.Estado;
 import com.Crisalis.demo.model.Pedido;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -9,22 +10,24 @@ import java.math.BigDecimal;
 
 public class PedidoDTO {
 
-    @JsonProperty()
+    @JsonProperty("ord_comprobante")
     private Integer ord_comprobante;
-    @JsonProperty()
+    @JsonProperty("ord_fecha")
     private String ord_fecha;
-    @JsonProperty()
+    @JsonProperty("ord_totalPedido")
     private BigDecimal ord_TotalPedido;
-    @JsonProperty()
+    @JsonProperty("ord_NomEmpEmisora")
     private String ord_NomEmpEmisora;
-    @JsonProperty()
+    @JsonProperty("ord_DescuentoPorcent")
     private Double ord_DescuentoPorcent;
-    @JsonProperty()
+    @JsonProperty("ord_DescuentoTotal")
     private BigDecimal ord_DescuentoTotal;
-    @JsonProperty()
+    @JsonProperty("estado")
     private Estado estado;
-    @JsonProperty()
+    @JsonProperty("cliente")
     private Cliente cliente;
+    @JsonProperty("empresa")
+    private Empresa empresa;
 
     public Pedido toPedidosEntity(){
         return new Pedido(this.ord_comprobante, this.ord_fecha, this.ord_TotalPedido, this.ord_NomEmpEmisora

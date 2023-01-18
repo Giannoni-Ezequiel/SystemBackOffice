@@ -50,11 +50,13 @@ public class Pedido {
     )
     @JoinColumn(name = "cliente_fk")
     private Cliente cliente;
-    /*@OneToMany(
+
+    @OneToMany(
             fetch = FetchType.EAGER,
             cascade = CascadeType.ALL
     )
-    private Set<Pedido_detalle> pedido_detalle = new HashSet<>();*/
+    @JoinColumn(name = "pedido_fk")
+    private Set<Pedido_detalle> pedido_detalle = new HashSet<>();
 
     public Pedido(Integer ord_comprobante, String ord_fecha, BigDecimal ord_TotalPedido, String ord_NomEmpEmisora,
                   Double ord_DescuentoPorcent, BigDecimal ord_DescuentoTotal, Estado estado, Cliente cliente) {

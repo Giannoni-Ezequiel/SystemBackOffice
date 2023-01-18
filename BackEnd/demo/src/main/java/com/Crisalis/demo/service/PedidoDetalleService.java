@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class PedidoDetalleService {
@@ -17,10 +18,14 @@ public class PedidoDetalleService {
         this.pedidoDetalleRepository = pedidoDetalleRepository;
     }
     public List<Pedido_detalle> listar() {
-        return (List<Pedido_detalle>) this.pedidoDetalleRepository.findAll();
+        return this.pedidoDetalleRepository.findAll();
     }
     public Pedido_detalle listarId(int id) {
-        return this.pedidoDetalleRepository.findById(id).get();
+        Optional<Pedido_detalle> Cualquiera = this.pedidoDetalleRepository.findById(id);
+        Pedido_detalle Retornar = null;
+        if(Cualquiera.isPresent()){
+        Retornar = Cualquiera.get();}
+        return Retornar;
     }
     public void add(DetalleDTO detalle) {
         this.pedidoDetalleRepository.save(detalle.toDetalleEntity());
