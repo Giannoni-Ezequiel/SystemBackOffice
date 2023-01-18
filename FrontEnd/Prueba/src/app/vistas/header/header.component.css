@@ -2,8 +2,12 @@
     background: black
 }
 
-.container {
+.container-fluid {
   display: flex;
   justify-content: space-between;
   align-items: center;
   }
+
+.btn-outline-light{
+  margin-right: auto;
+}

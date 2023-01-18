@@ -1,90 +1,66 @@
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
   <!--<div class="row">-->
     <div class="container-fluid">
+      <div class="navbar-nav ms-auto" id="logo">
+        <a class="nav-link active" role="button" href="/proyecto"><app-logo></app-logo></a>
+      </div>
 
-      <div class="logo">
-          <app-logo></app-logo>
-      </div>
-      <div class="navbar-nav ms-auto" id="home">
-        <a class="nav-link active" role="button" href="/proyecto">HOME</a>
-      </div>
+      <button type="button" class="btn btn-secondary dropdown-toggle" mat-button [matMenuTriggerFor]="clientes">Clientes</button>
+        <mat-menu #clientes="matMenu">
+          <!--mat-menu-item [matMenuTriggerFor]="vertebrates"-->
+          <button mat-menu-item (click)="cliente()">Persona Fisica</button>
+          <button mat-menu-item>Empresa</button>
+        </mat-menu>
+
+        <!--<mat-menu #vertebrates="matMenu">
+          <button mat-menu-item>Birds</button>
+          <button mat-menu-item>Mammals</button>
+        </mat-menu>
+
+        <mat-menu #invertebrates="matMenu">
+          <button mat-menu-item>Insects</button>
+          <button mat-menu-item>Molluscs</button>
+        </mat-menu>-->
+
+        <button type="button" class="btn btn-secondary dropdown-toggle" mat-button [matMenuTriggerFor]="Bienes">Bienes</button>
+        <mat-menu #Bienes="matMenu">
+          <button mat-menu-item  (click)="bien()">Producto</button>
+          <button mat-menu-item >Servicio</button>
+        </mat-menu>
+
+        <button type="button" class="btn btn-secondary dropdown-toggle" mat-button [matMenuTriggerFor]="Pedidos">Pedidos</button>
+        <mat-menu #Pedidos="matMenu">
+          <button mat-menu-item (click)="pedido()">Pedidos</button>
+          <button mat-menu-item (click)="detalle()">Detalles</button>
+        </mat-menu>
+
+        <button type="button" class="btn btn-secondary dropdown-toggle" mat-button [matMenuTriggerFor]="Impuestos">Impuestos</button>
+        <mat-menu #Impuestos="matMenu">
+          <button mat-menu-item (click)="impuesto()">Impuestos</button>
+        </mat-menu>
+
+        <button type="button" class="btn btn-secondary dropdown-toggle" mat-button [matMenuTriggerFor]="Usuarios">Usuarios</button>
+        <mat-menu #Usuarios="matMenu">
+          <button mat-menu-item (click)="usuario()">Usuarios</button>
+          <button mat-menu-item >Roles</button>
+        </mat-menu>
+
+        <ng-template matMenuContent let-name="name">
+          <button type="button1" class="btn btn-outline-light" mat-button [matMenuTriggerFor]="Login">INGRESAR</button>
+          <mat-menu #Login="matMenu">
+            <button mat-menu-item (click)="login()">Entrar</button>
+            <button mat-menu-item id="logout"  href="#">Salir {{name}}</button>
+          </mat-menu>
+        </ng-template>
+
+        <button type="button1" class="btn btn-outline-light" mat-button [matMenuTriggerFor]="Login">INGRESAR</button>
+          <mat-menu #Login="matMenu">
+            <button mat-menu-item (click)="login()">Entrar</button>
+            <button mat-menu-item id="logout"  href="#">Salir </button>
+          </mat-menu>
 
       <div class="collapse navbar-collapse" id="collapsibleNavbar">
-        <ul class="navbar-nav">
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Prueba</a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#" (click)="cliente()">Persona Fisica</a></li>
-              <li><a class="dropdown-item" href="#">Empresa</a></li>
-            </ul>
-          </li>
-        </ul>
-      </div>
 
-      <div class="dropdown show">
-        <a class="btn btn-secondary dropdown-toggle" role="button" id="dropdownMenuLink"
-        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
-        (click)="cliente()">
-          Clientes
-        </a>
-      </div>
-
-      <div class="dropdown show">
-        <a class="btn btn-secondary dropdown-toggle" role="button" id="dropdownMenuLink"
-        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
-        (click)="bien()">
-          Bienes
-        </a>
-      </div>
-
-      <div class="dropdown show">
-        <a class="btn btn-secondary dropdown-toggle" role="button" id="dropdownMenuLink"
-        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
-        (click)="pedido()">
-          Pedidos
-        </a>
-      </div>
-
-      <div class="dropdown show">
-        <a class="btn btn-secondary dropdown-toggle" role="button" id="dropdownMenuLink"
-        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
-        (click)="detalle()">
-          Detalle
-        </a>
-      </div>
-
-      <div class="dropdown show">
-        <a class="btn btn-secondary dropdown-toggle" role="button" id="dropdownMenuLink"
-        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
-        (click)="impuesto()">
-          Impuestos
-        </a>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-          <a class="dropdown-item" href="#">Lista</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <a class="dropdown-item" href="#">Something else here</a>
-        </div>
-      </div>
-
-      <div class="dropdown show">
-        <a class="btn btn-secondary dropdown-toggle" role="button" id="dropdownMenuLink"
-        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
-        (click)="usuario()">
-          Usuarios
-        </a>
-      </div>
-
-      <div class="boton">
-        <div>
-          <button type="button" class="btn btn-outline-light" style="margin-right: 20px;"
-          (click)="login()">
-              INGRESAR
-          </button>
-        </div>
-      </div>
-
-      <div class="navbar-nav ms-auto" id="logout">
-          <a class="nav-link" role="button" href="#">Salir</a>
       </div>
     </div>
 </nav>

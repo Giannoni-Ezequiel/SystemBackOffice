@@ -35,6 +35,8 @@ import { CrearDetalleComponent } from './vistas/detalle/crear-detalle/crear-deta
 import { EditarDetalleComponent } from './vistas/detalle/editar-detalle/editar-detalle.component';
 import { DetalleService } from './service/detalle.service';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { MatMenuModule } from '@angular/material/menu';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -68,7 +70,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule, FormsModule, NgbModule
+    ReactiveFormsModule, FormsModule, NgbModule, 
+    BrowserAnimationsModule, MatMenuModule,
   ],
   providers: [ClienteService, BienService, PedidoService, RegistrationService, UsuarioService, ImpuestoService, DetalleService],
   bootstrap: [AppComponent]

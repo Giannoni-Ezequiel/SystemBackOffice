@@ -33,7 +33,7 @@ const routes: Routes =
   {path:'listar', component: ListarComponent},
   {path:'crear', component: CrearComponent},
   {path:'editar', component: EditarComponent},
-  
+
 
   // USUARIOS
   {path:'crear-usuarios', component: CrearUsuariosComponent},
@@ -49,7 +49,7 @@ const routes: Routes =
   {path: 'crear-impuesto', component: CrearImpuestoComponent},
   {path: 'editar-impuesto', component: EditarImpuestoComponent},
   {path: 'listar-impuesto', component: ListarImpuestoComponent},
-  
+
   // PEDIDO
   {path: 'crear-pedido', component: CrearPedidoComponent},
   {path: 'editar-pedido', component: EditarPedidoComponent},
