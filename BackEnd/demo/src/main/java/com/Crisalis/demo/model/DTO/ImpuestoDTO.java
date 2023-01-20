@@ -2,15 +2,14 @@ package com.Crisalis.demo.model.DTO;
 
 import com.Crisalis.demo.model.Bien;
 import com.Crisalis.demo.model.Impuesto;
-import com.Crisalis.demo.model.Person;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
+import lombok.*;
 
 import java.util.List;
 
-@Data
+@Getter
+@Setter
+@ToString
 @AllArgsConstructor
 @Builder
 public class ImpuestoDTO {
@@ -24,5 +23,9 @@ public class ImpuestoDTO {
 
     public Impuesto toImpuestoEntity(){
         return new Impuesto(this.imp_Porcentaje, this.imp_Nombre, this.Bienes);
+    }
+
+    public void set(int id) {
+
     }
 }

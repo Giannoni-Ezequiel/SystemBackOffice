@@ -15,7 +15,7 @@ public class PedidoController {
 
     private final PedidoService pedidoService;
     @Autowired
-    public PedidoController(PedidoService pedidoService)
+    private PedidoController(PedidoService pedidoService)
     {
         this.pedidoService = pedidoService;
     }
@@ -28,11 +28,11 @@ public class PedidoController {
     public void add(@RequestBody PedidoDTO pedido){
         this.pedidoService.add(pedido);
     }
-    /*@PutMapping(value = {"{id}"}, consumes = MediaType.APPLICATION_JSON_VALUE)
+    @PutMapping(value = {"{id}"}, consumes = MediaType.APPLICATION_JSON_VALUE)
     public Pedido editar(@RequestBody PedidoDTO pedido,@PathVariable("id")int id){
         pedido.set(id);
         return this.pedidoService.edit(pedido);
-    }*/
+    }
     @DeleteMapping(path = {"/{id}"})
     public Pedido delete(@PathVariable("id")int id){
         return this.pedidoService.delete(id);

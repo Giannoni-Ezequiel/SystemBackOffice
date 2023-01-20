@@ -4,7 +4,6 @@ import com.Crisalis.demo.exception.custom.EmptyElementException;
 import com.Crisalis.demo.exception.custom.NotCreatedException;
 import com.Crisalis.demo.exception.custom.UnauthorizedException;
 import com.Crisalis.demo.model.DTO.UserDTO;
-import com.Crisalis.demo.model.Pedido;
 import com.Crisalis.demo.model.Usuario;
 import com.Crisalis.demo.repository.UsuarioRepository;
 import org.apache.commons.lang3.StringUtils;
@@ -25,7 +24,7 @@ public class UsuarioService {
     }
 
     public List<Usuario> listar() {
-        return (List<Usuario>) this.usuarioRepository.findAll();
+        return this.usuarioRepository.findAll();
     }
     public Usuario saveUser(UserDTO userDTO){
         if(checkUserForSaveOrLogin(userDTO, Boolean.FALSE)){
@@ -57,7 +56,7 @@ public class UsuarioService {
                 .map(Usuario::toDTO)
                 .collect(Collectors.toList());
     }
-
+    //Revisar
     private Boolean checkUserForSaveOrLogin(UserDTO userDTO, Boolean isForLogin){
         if(!isForLogin){
             if(StringUtils.isEmpty(userDTO.getName())) {

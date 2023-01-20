@@ -29,13 +29,16 @@ public class PedidoDTO {
     @JsonProperty("empresa")
     private Empresa empresa;
 
-    public Pedido toPedidosEntity(){
+    /*public Pedido toPedidosEntity(){
         return new Pedido(this.ord_comprobante, this.ord_fecha, this.ord_TotalPedido, this.ord_NomEmpEmisora
         ,this.ord_DescuentoPorcent, this.ord_DescuentoTotal, this.estado, this.cliente);
-    }
+    }*/
 
     public Pedido toPedidoEntity(){
         return new Pedido(this.ord_comprobante, this.ord_fecha, this.ord_TotalPedido, this.ord_NomEmpEmisora
                 ,this.ord_DescuentoPorcent, this.ord_DescuentoTotal, this.estado, null);
+    }
+
+    public void set(int id) {
     }
 }

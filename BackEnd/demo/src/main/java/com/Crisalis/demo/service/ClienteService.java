@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ClienteService {
@@ -26,11 +27,17 @@ public class ClienteService {
     }
 
     public List<Cliente>listar() {
-        return (List<Cliente>) this.clienteRepository.findAll();
+        return this.clienteRepository.findAll();
     }
 
     public Cliente listarId(int id) {
-        return this.clienteRepository.findById(id).get();
+        Optional<Cliente> cliente = this.clienteRepository.findById(id)
+                ;//.orElseThrow(()-> new RuntimeException("No se encontro Cliente"))
+        Cliente Retornar = null;
+        if(cliente.isPresent()){
+            Retornar = cliente.get();
+        }
+        return Retornar;
     }
 
     public void add(ClienteDTO c) {
@@ -49,8 +56,7 @@ public class ClienteService {
         return null;
     }
 
-    /*
-    @Override
+    /*@Override
     public List<Cliente> findAll() {
         return null;
     }
@@ -60,24 +66,12 @@ public class ClienteService {
         return null;
     }
 
-    @Override
-    public Cliente crear(Cliente c) {
-        return null;
-    }
 
     @Override
     public void borrar(Cliente c) {
 
     }
-    /*@Override
-    public List<Cliente> listar() {
-        return repo.findAll();
-    }
 
-    @Override
-    public Cliente listarId(int id) {
-        return repo.findOne(id);
-    }
 
     @Override
     public Cliente crear(Cliente c) {

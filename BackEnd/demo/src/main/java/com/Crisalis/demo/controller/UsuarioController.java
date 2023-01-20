@@ -1,6 +1,6 @@
 package com.Crisalis.demo.controller;
 
-import com.Crisalis.demo.model.Cliente;
+
 import com.Crisalis.demo.model.DTO.UserDTO;
 import com.Crisalis.demo.model.Usuario;
 import com.Crisalis.demo.service.UsuarioService;
@@ -16,7 +16,7 @@ public class UsuarioController {
 
     private final UsuarioService usuarioService;
     @Autowired
-    public UsuarioController(UsuarioService usuarioService)
+    private UsuarioController(UsuarioService usuarioService)
     {
         this.usuarioService = usuarioService;
     }
@@ -28,7 +28,7 @@ public class UsuarioController {
     }
 
     @GetMapping(value ="login", produces = MediaType.APPLICATION_JSON_VALUE)
-    public UserDTO loginUser(@RequestParam String username, @RequestParam String password)
+    public UserDTO loginUserWithCredentials(@RequestParam String username, @RequestParam String password)
     {
         return this.usuarioService.loginUserWithCredentials(username, password);
     }

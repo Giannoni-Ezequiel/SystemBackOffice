@@ -1,7 +1,5 @@
 package com.Crisalis.demo.controller;
 
-import com.Crisalis.demo.model.Cliente;
-import com.Crisalis.demo.model.DTO.ClienteDTO;
 import com.Crisalis.demo.model.DTO.ImpuestoDTO;
 import com.Crisalis.demo.model.Impuesto;
 import com.Crisalis.demo.service.ImpuestoService;
@@ -18,7 +16,7 @@ public class ImpuestoController {
 
     private final ImpuestoService impuestoService;
     @Autowired
-    public ImpuestoController(ImpuestoService impuestoService)
+    private ImpuestoController(ImpuestoService impuestoService)
     {
         this.impuestoService = impuestoService;
     }
@@ -26,16 +24,16 @@ public class ImpuestoController {
     @GetMapping("")
     public List<Impuesto> listar(){
         return this.impuestoService.listar();
-    };
+    }
     @PostMapping(value = "add", consumes = MediaType.APPLICATION_JSON_VALUE)
     public void add(@RequestBody ImpuestoDTO imp){
         this.impuestoService.add(imp);
     }
-    /*@PutMapping(value = {"{id}"}, consumes = MediaType.APPLICATION_JSON_VALUE)
+    @PutMapping(value = {"/{id}"}, consumes = MediaType.APPLICATION_JSON_VALUE)
     public Impuesto editar(@RequestBody ImpuestoDTO imp,@PathVariable("id")int id){
         imp.set(id);
         return this.impuestoService.edit(imp);
-    }*/
+    }
     @DeleteMapping(path = {"/{id}"})
     public Impuesto delete(@PathVariable("id")int id){
         return this.impuestoService.delete(id);

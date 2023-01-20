@@ -1,17 +1,15 @@
 package com.Crisalis.demo.service;
 
 import com.Crisalis.demo.model.Bien;
-import com.Crisalis.demo.model.Cliente;
 import com.Crisalis.demo.model.DTO.BienDTO;
-import com.Crisalis.demo.model.DTO.ClienteDTO;
 import com.Crisalis.demo.repository.IBienRepository;
-import com.Crisalis.demo.repository.PedidoRepository;
 import com.Crisalis.demo.repository.ProductoRepository;
 import com.Crisalis.demo.repository.ServicioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class BienService {
@@ -29,11 +27,16 @@ public class BienService {
         this.servicioRepository = servicioRepository;
     }
     public List<Bien>listar() {
-        return (List<Bien>) this.bienRepository.findAll();
+        return this.bienRepository.findAll();
     }
 
     public Bien listarId(int id) {
-        return this.bienRepository.findById(id).get();
+        Optional<Bien> bien = this.bienRepository.findById(id);
+        Bien Retornar = null;
+        if(bien.isPresent()){
+            Retornar = bien.get();
+        }
+        return Retornar;
     }
 
     public void add(BienDTO bien) {
