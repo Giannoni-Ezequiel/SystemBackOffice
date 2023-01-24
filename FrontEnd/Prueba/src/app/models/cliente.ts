@@ -1,3 +1,4 @@
+
 export class Cliente
 {
   id?: number;
@@ -12,6 +13,7 @@ export class Cliente
   telefono: String;
   fechaDeInicio: Date;
   img: String;
+
 
 
   constructor(nombre: string,apellido: String, dni: string,img: string,

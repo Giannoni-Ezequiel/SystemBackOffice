@@ -4,7 +4,6 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
-import java.util.List;
 
 @Entity
 @Table(name = "pedido_detalle")
@@ -49,7 +48,7 @@ public class Pedido_detalle {
     @JoinColumn(name = "bien_fk")
     private Bien bien;
     @OneToOne
-    @JoinColumn(name = "item_ID")
+    @JoinColumn(name = "impuesto_fk")
     private Pedido_impuesto pedido_impuesto;
     /*@ManyToOne(
             fetch = FetchType.LAZY,

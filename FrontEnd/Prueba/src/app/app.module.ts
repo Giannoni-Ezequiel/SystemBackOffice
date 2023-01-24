@@ -36,6 +36,8 @@ import { EditarDetalleComponent } from './vistas/detalle/editar-detalle/editar-d
 import { DetalleService } from './service/detalle.service';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MatMenuModule } from '@angular/material/menu';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+//import { MatMomentDateModule } from '@angular/material-moment-adapter';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
@@ -70,8 +72,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule, FormsModule, NgbModule, 
-    BrowserAnimationsModule, MatMenuModule,
+    ReactiveFormsModule, FormsModule, NgbModule,
+    BrowserAnimationsModule, MatMenuModule, MatDatepickerModule, //MatMomentDateModule,
   ],
   providers: [ClienteService, BienService, PedidoService, RegistrationService, UsuarioService, ImpuestoService, DetalleService],
   bootstrap: [AppComponent]

@@ -1,5 +1,7 @@
 package com.Crisalis.demo.service;
 
+import com.Crisalis.demo.model.DTO.BienDTO;
+import com.Crisalis.demo.model.DTO.ClienteDTO;
 import com.Crisalis.demo.model.DTO.PedidoDTO;
 import com.Crisalis.demo.model.Pedido;
 import com.Crisalis.demo.repository.PedidoRepository;
@@ -18,6 +20,8 @@ public class PedidoService {
         this.pedidoRepository = pedidoRepository;
     }
 
+
+    //CRUD
     public List<Pedido> listar() {
         return this.pedidoRepository.findAll();
     }
@@ -37,6 +41,21 @@ public class PedidoService {
     }
     public Pedido delete(int id) {
         this.pedidoRepository.deleteById(id);
+        return null;
+    }
+
+    //Logica de Negocio
+
+    public Pedido getHistorialPedidos(ClienteDTO cliente, BienDTO servicio, BienDTO producto, PedidoDTO fecha) {
+        Pedido Pedidos[] = listar().toArray(new Pedido[0]);
+        return null;
+    }
+
+    public Pedido mayorDescuento(){
+        return null;
+    }
+
+    public Pedido calcularDescTotales(){
         return null;
     }
 }

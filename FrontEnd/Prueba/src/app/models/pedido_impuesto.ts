@@ -8,4 +8,6 @@ export class Pedido_Impuesto
     this.porcentaje = porcentaje;
     this.totalImpCobrado = totalImpCobrado;
   }
+
+  
 }

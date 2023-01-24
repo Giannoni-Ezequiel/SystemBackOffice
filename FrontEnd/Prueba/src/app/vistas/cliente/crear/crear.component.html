@@ -37,7 +37,11 @@
                 </div>
                 <div class="form-group">
                   <label for="">Fecha de Inicio:</label>
-                  <input [(ngModel)]="cliente.fechaDeInicio" name="fechaDeInicio" type="text" class="form-control">
+                  <input matInput [matDatepicker]="picker" [(ngModel)]="cliente.fechaDeInicio" name="fechaDeInicio" type="date" class="form-control"
+                  style="display:inline; width:300px;">
+                  
+                  <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                  <mat-datepicker #picker></mat-datepicker>
                 </div>
                 <br>
                 <button (click)="Crear(cliente)" class="btn btn-danger">Guardar</button>

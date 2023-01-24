@@ -4,6 +4,7 @@ import lombok.*;
 //import com.Crisalis.demo.model.Estado;
 import javax.persistence.*;
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -33,7 +34,7 @@ public class Pedido {
     @Column(name = "NumeroComprobante")
     private Integer ord_comprobante;
     @Column(name = "Fecha")
-    private String ord_fecha;
+    private LocalDate ord_fecha;
     @Column(name = "TotalDelPedido")
     private BigDecimal ord_TotalPedido;
     @Column(name = "EmpresaEmisora")
@@ -58,7 +59,7 @@ public class Pedido {
     @JoinColumn(name = "pedido_fk")
     private Set<Pedido_detalle> pedido_detalle = new HashSet<>();
 
-    public Pedido(Integer ord_comprobante, String ord_fecha, BigDecimal ord_TotalPedido, String ord_NomEmpEmisora,
+    public Pedido(Integer ord_comprobante, LocalDate ord_fecha, BigDecimal ord_TotalPedido, String ord_NomEmpEmisora,
                   Double ord_DescuentoPorcent, BigDecimal ord_DescuentoTotal, Estado estado, Cliente cliente) {
         this.ord_comprobante = ord_comprobante;
         this.ord_fecha = ord_fecha;
