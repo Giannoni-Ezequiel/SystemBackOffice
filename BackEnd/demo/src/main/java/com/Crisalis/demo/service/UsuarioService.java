@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 
@@ -73,5 +74,27 @@ public class UsuarioService {
             throw new EmptyElementException("Password is empty");
         }
         return Boolean.TRUE;
+    }
+
+    //CRUD
+
+    public Usuario listarId(int id) {
+        Optional<Usuario> user = this.usuarioRepository.findById(id);
+        Usuario Retornar = null;
+        if(user.isPresent()){
+            Retornar = user.get();
+        }
+        return Retornar;
+    }
+
+    public void add(UserDTO user) {
+         this.usuarioRepository.save(user.toUsuarioEntity());
+    }
+    public Usuario edit(UserDTO user) {
+        return this.usuarioRepository.save(user.toUsuarioEntity());
+    }
+    public Usuario delete(int id) {
+        this.usuarioRepository.deleteById(id);
+        return null;
     }
 }

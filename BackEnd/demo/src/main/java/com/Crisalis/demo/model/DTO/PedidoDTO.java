@@ -5,12 +5,22 @@ import com.Crisalis.demo.model.Empresa;
 import com.Crisalis.demo.model.Estado;
 import com.Crisalis.demo.model.Pedido;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public class PedidoDTO {
 
+    @JsonProperty("id")
+    private Integer id;
     @JsonProperty("ord_comprobante")
     private Integer ord_comprobante;
     @JsonProperty("ord_fecha")
@@ -38,8 +48,5 @@ public class PedidoDTO {
     public Pedido toPedidoEntity(){
         return new Pedido(this.ord_comprobante, this.ord_fecha, this.ord_TotalPedido, this.ord_NomEmpEmisora
                 ,this.ord_DescuentoPorcent, this.ord_DescuentoTotal, this.estado, null);
-    }
-
-    public void set(int id) {
     }
 }

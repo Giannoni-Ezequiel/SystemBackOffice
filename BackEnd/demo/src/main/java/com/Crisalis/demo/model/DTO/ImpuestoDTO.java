@@ -11,9 +11,12 @@ import java.util.List;
 @Setter
 @ToString
 @AllArgsConstructor
+@NoArgsConstructor
 @Builder
 public class ImpuestoDTO {
 
+    @JsonProperty("id")
+    private Integer id;
     @JsonProperty("Porcentaje")
     private Float imp_Porcentaje;
     @JsonProperty("Nombre")
@@ -25,7 +28,4 @@ public class ImpuestoDTO {
         return new Impuesto(this.imp_Porcentaje, this.imp_Nombre, this.Bienes);
     }
 
-    public void set(int id) {
-
-    }
 }

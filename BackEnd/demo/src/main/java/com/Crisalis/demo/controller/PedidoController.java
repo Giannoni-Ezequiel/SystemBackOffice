@@ -29,8 +29,8 @@ public class PedidoController {
         this.pedidoService.add(pedido);
     }
     @PutMapping(value = {"{id}"}, consumes = MediaType.APPLICATION_JSON_VALUE)
-    public Pedido editar(@RequestBody PedidoDTO pedido,@PathVariable("id")int id){
-        pedido.set(id);
+    public Pedido editar(@RequestBody PedidoDTO pedido,@PathVariable("id")Integer id){
+        pedido.setId(id);
         return this.pedidoService.edit(pedido);
     }
     @DeleteMapping(path = {"/{id}"})

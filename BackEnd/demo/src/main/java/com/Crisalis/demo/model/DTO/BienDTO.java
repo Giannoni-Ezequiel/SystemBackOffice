@@ -3,14 +3,14 @@ package com.Crisalis.demo.model.DTO;
 import com.Crisalis.demo.model.Producto;
 import com.Crisalis.demo.model.Servicio;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
+import lombok.*;
+
 import java.math.BigDecimal;
 
-@Data
+@Getter
+@Setter
+@NoArgsConstructor
 @AllArgsConstructor
-@Builder
 public class BienDTO {
 
     @JsonProperty("id")

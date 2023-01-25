@@ -30,16 +30,16 @@ public class ClienteController {
         this.clienteService.add(cliente);
     }
     @PutMapping(value = {"{id}"}, consumes = MediaType.APPLICATION_JSON_VALUE)
-    public Cliente editar(@RequestBody ClienteDTO cliente,@PathVariable("id")int id){
-        cliente.set(id);
+    public Cliente editar(@RequestBody ClienteDTO cliente,@PathVariable("id")Integer id){
+        cliente.setId(id);
         return this.clienteService.edit(cliente);
     }
     @DeleteMapping(path = {"/{id}"})
-    public Cliente delete(@PathVariable("id")int id){
+    public Cliente delete(@PathVariable("id")Integer id){
         return this.clienteService.delete(id);
     }
     @GetMapping(path = {"/{id}"})
-        public Cliente listarId(@PathVariable("id")int id){
+        public Cliente listarId(@PathVariable("id")Integer id){
             return clienteService.listarId(id);
         }
 }

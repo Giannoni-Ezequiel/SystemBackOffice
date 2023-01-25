@@ -1,16 +1,19 @@
 package com.Crisalis.demo.model.DTO;
 
 import com.Crisalis.demo.model.UserRol;
+import com.Crisalis.demo.model.Usuario;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
+import lombok.*;
 
-@Data
+@Getter
+@Setter
+@NoArgsConstructor
 @AllArgsConstructor
 @Builder
 public class UserDTO {
 
+    @JsonProperty("id")
+    private Integer id;
     @JsonProperty("name")
     private String name;
     @JsonProperty("username")
@@ -19,4 +22,9 @@ public class UserDTO {
     private String password;
     @JsonProperty("rol")
     private UserRol rol;
+
+    public Usuario toUsuarioEntity(){
+        return new Usuario(this.id, this.name, this.username, this.password
+        , this.rol);
+    }
 }

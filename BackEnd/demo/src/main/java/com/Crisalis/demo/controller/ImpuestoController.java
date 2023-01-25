@@ -29,9 +29,9 @@ public class ImpuestoController {
     public void add(@RequestBody ImpuestoDTO imp){
         this.impuestoService.add(imp);
     }
-    @PutMapping(value = {"/{id}"}, consumes = MediaType.APPLICATION_JSON_VALUE)
-    public Impuesto editar(@RequestBody ImpuestoDTO imp,@PathVariable("id")int id){
-        imp.set(id);
+    @PutMapping(value = {"{id}"}, consumes = MediaType.APPLICATION_JSON_VALUE)
+    public Impuesto editar(@RequestBody ImpuestoDTO imp,@PathVariable("id")Integer id){
+        imp.setId(id);
         return this.impuestoService.edit(imp);
     }
     @DeleteMapping(path = {"/{id}"})

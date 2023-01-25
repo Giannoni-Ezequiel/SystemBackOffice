@@ -28,17 +28,17 @@ public class BienController {
     public void add(@RequestBody BienDTO bien){
         this.bienService.add(bien);
     }
-    @PutMapping(value = "id", consumes = MediaType.APPLICATION_JSON_VALUE)
+    @PutMapping(value = "{id}", consumes = MediaType.APPLICATION_JSON_VALUE)
     public Bien editar(@RequestBody BienDTO bien,@PathVariable("id")Integer id){
         bien.setId(id);
         return this.bienService.edit(bien);
     }
     @DeleteMapping(path = {"/{id}"})
-    public Bien delete(@PathVariable("id")int id){
+    public Bien delete(@PathVariable("id")Integer id){
         return this.bienService.delete(id);
     }
     @GetMapping(path = {"/{id}"})
-    public Bien listarId(@PathVariable("id")int id){
+    public Bien listarId(@PathVariable("id")Integer id){
         return this.bienService.listarId(id);
     }
 }
