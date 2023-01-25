@@ -7,13 +7,14 @@ import com.Crisalis.demo.model.Pedido;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 
 public class PedidoDTO {
 
     @JsonProperty("ord_comprobante")
     private Integer ord_comprobante;
     @JsonProperty("ord_fecha")
-    private String ord_fecha;
+    private LocalDate ord_fecha;
     @JsonProperty("ord_totalPedido")
     private BigDecimal ord_TotalPedido;
     @JsonProperty("ord_NomEmpEmisora")

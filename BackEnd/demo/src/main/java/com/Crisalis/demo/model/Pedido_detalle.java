@@ -28,7 +28,7 @@ public class Pedido_detalle {
     @Column(name = "ID")
     private Integer item_ID;
     @Column(name = "Cantidad")
-    private String item_cant;
+    private BigDecimal item_cant;
     @Column(name = "PrecioUnitario")
     private BigDecimal item_PrecioUnitario;
     @Column(name = "PrecioTotal")
@@ -57,9 +57,9 @@ public class Pedido_detalle {
     @JoinColumn(name = "pedido_fk")
     private Pedido pedido;*/
 
-    public Pedido_detalle(String item_cant, BigDecimal item_PrecioUnitario, BigDecimal item_PrecioTotal,
+    public Pedido_detalle(BigDecimal item_cant, BigDecimal item_PrecioUnitario, BigDecimal item_PrecioTotal,
                           BigDecimal item_Descuento, Integer item_Garantia, Double item_PorcGarantia,
-                          BigDecimal item_CargoSoporte, Bien bien, Pedido_impuesto pedido_impuesto, Pedido pedido)
+                          BigDecimal item_CargoSoporte, Bien bien, Pedido_impuesto pedido_impuesto)
     {
         this.item_cant = item_cant;
         this.item_PrecioUnitario = item_PrecioUnitario;
@@ -68,5 +68,10 @@ public class Pedido_detalle {
         this.item_Garantia = item_Garantia;
         this.item_PorcGarantia = item_PorcGarantia;
         this.item_CargoSoporte = item_CargoSoporte;
+        this.bien = bien;
+        this.pedido_impuesto = pedido_impuesto;
+
     }
+
+
 }
