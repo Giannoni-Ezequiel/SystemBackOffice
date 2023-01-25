@@ -39,7 +39,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 //import { MatMomentDateModule } from '@angular/material-moment-adapter';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import { MatNativeDateModule } from '@angular/material/core';
 @NgModule({
   declarations: [
     AppComponent,
@@ -73,7 +73,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule, FormsModule, NgbModule,
-    BrowserAnimationsModule, MatMenuModule, MatDatepickerModule, //MatMomentDateModule,
+    BrowserAnimationsModule, MatMenuModule, MatDatepickerModule, MatNativeDateModule,//MatMomentDateModule,
   ],
   providers: [ClienteService, BienService, PedidoService, RegistrationService, UsuarioService, ImpuestoService, DetalleService],
   bootstrap: [AppComponent]

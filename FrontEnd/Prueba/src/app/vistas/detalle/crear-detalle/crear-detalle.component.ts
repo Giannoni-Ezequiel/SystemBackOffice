@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { DetalleService } from 'src/app/service/detalle.service';
 import { Pedido_Detalle } from 'src/app/models/pedido_detalle';
+import { Bien } from 'src/app/models/bien';
+import { Pedido_Impuesto } from 'src/app/models/pedido_impuesto';
 
 @Component({
   selector: 'app-crear-detalle',
@@ -20,7 +22,11 @@ export class CrearDetalleComponent implements OnInit{
       garantia: 0,
       porcGarantia: 0,
       cargoSoporte: 0,
+      producto: new Bien(1,"",1,1,false,1,1),
+      servicio: new Bien(1,"",1,1,true,1,1),
+      impuestoPedido: new Pedido_Impuesto(1,1),
     }
+    
   }
 
   ngOnInit() {

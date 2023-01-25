@@ -18,7 +18,9 @@ export class CrearBienComponent implements OnInit{
       costo: 0,
       cargoSoporte: 0,
       esEspecial: false,
+      garantia: 0,
       porcentajeCarg: 0
+
     }
   }
 

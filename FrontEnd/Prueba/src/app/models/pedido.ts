@@ -36,9 +36,9 @@ export class Pedido
   public calcularDescuentoTotal(): number {
     this.DescuentoTotal += this.descuento
     return this.DescuentoTotal;
-  }*/
+  }
 
   public calcularPorcent(): number {
     return this.DescuentoPorcent;
-  }
+  }*/
 }

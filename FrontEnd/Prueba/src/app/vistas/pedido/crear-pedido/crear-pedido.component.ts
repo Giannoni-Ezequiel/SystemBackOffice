@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { PedidoService } from 'src/app/service/pedido.service';
 import { Pedido } from 'src/app/models/pedido';
+import { Pedido_Detalle } from 'src/app/models/pedido_detalle';
+import { Cliente } from 'src/app/models/cliente';
 
 @Component({
   selector: 'app-crear-pedido',
@@ -19,6 +21,8 @@ export class CrearPedidoComponent implements OnInit{
       nomEmpEmisora: 'string',
       DescuentoPorcent: 0,
       DescuentoTotal: 0,
+      pedido_detalle: [],
+      cliente: new Cliente("","","1","","","","","","", new Date()),
     }
   }
 

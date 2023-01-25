@@ -19,7 +19,8 @@
                     <th scope="col">Costo</th>
                     <th scope="col">Cargo de Soporte</th>
                     <th scope="col">¿Es Especial?</th>
-                    <th scope="col">Porcentaje Cargo</th>
+                    <th scope="col">Garantia</th>
+                    <th scope="col">Porcentaje De Garantia</th>
                     <th scope="col">ACCION</th>
                   </tr>
                 </thead>
@@ -30,6 +31,7 @@
                     <td>{{bien.costo}}</td>
                     <td>{{bien.cargoSoporte}}</td>
                     <td>{{bien.esEspecial}}</td>
+                    <td>{{bien.garantia}}</td>
                     <td>{{bien.porcentajeCarg}}</td>
                     <td>
                         <button (click)="Editar(bien)" class="btn btn-warning">Editar</button>
