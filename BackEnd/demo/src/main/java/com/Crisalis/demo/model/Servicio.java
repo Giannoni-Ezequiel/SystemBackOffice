@@ -17,17 +17,16 @@ import java.math.BigDecimal;
 @NoArgsConstructor
 public class Servicio extends Bien implements Serializable {
 
-
-    @Column(name = "TipoDeServicio")
-    private String serv_TipoDeServicio;
+    @Column(name = "CargoSoporte")
+    private Double serv_CargoSoporte;
     @Column(name = "ServicioEspecial")
     private Boolean serv_ServicioEspecial;
 
-    public Servicio(String bien_Nombre, BigDecimal bien_costo, Double bien_CargoSoporte, BigDecimal bien_PorcentajeCarg
-            , String serv_TipoDeServicio, Boolean serv_ServicioEspecial){
-        super(null, bien_Nombre, bien_costo, bien_CargoSoporte, bien_PorcentajeCarg,
+    public Servicio(String bien_Nombre, BigDecimal bien_costo, Double serv_CargoSoporte
+            , Boolean serv_ServicioEspecial){
+        super(null, bien_Nombre, bien_costo,
                 null, null);
-        this.serv_TipoDeServicio = serv_TipoDeServicio;
+        this.serv_CargoSoporte = serv_CargoSoporte;
         this.serv_ServicioEspecial = serv_ServicioEspecial;
 
     }

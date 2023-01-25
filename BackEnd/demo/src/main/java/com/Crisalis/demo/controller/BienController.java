@@ -29,9 +29,9 @@ public class BienController {
         this.bienService.add(bien);
     }
     @PutMapping(value = "id", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public Bien editar(@RequestBody BienDTO cliente,@PathVariable("id")Integer id){
-        
-        return this.bienService.edit(cliente);
+    public Bien editar(@RequestBody BienDTO bien,@PathVariable("id")Integer id){
+        bien.setId(id);
+        return this.bienService.edit(bien);
     }
     @DeleteMapping(path = {"/{id}"})
     public Bien delete(@PathVariable("id")int id){

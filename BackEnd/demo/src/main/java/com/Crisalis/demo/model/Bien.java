@@ -37,10 +37,6 @@ public abstract class Bien {
     private String bien_Nombre;
     @Column(name = "Costo")
     private BigDecimal bien_Costo;
-    @Column(name = "CargoSoporte")
-    private Double bien_CargoSoporte;
-    @Column(name = "PorcentajeDeCargo")
-    private BigDecimal bien_PorcentajCarg;
 
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(
