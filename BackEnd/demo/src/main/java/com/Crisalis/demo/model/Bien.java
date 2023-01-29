@@ -5,8 +5,6 @@ import org.hibernate.annotations.DiscriminatorOptions;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.List;
 
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
@@ -30,7 +28,7 @@ public abstract class Bien {
             generator = "bien_sequence"
     )
     @Column(name = "ID")
-    public Integer bien_ID;
+    protected Integer bien_ID;
     @Column(name = "Nombre")
     public String bien_Nombre;
     @Column(name = "Costo")
@@ -89,5 +87,10 @@ public abstract class Bien {
         this.impuesto = impuesto;
         this.cliente = cliente;
     }
+
+    public Bien(String bien_nombre, BigDecimal bien_costo) {
+
+    }
+
     public abstract BigDecimal calcularCosto();
 }

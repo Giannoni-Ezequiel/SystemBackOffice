@@ -30,7 +30,7 @@ public abstract class Cliente {
             generator = "cliente_sequence"
     )
     @Column(name = "id")
-    public Integer id;
+    protected Integer id;
     @Column(name = "direccion")
     public String direccion;
     @Column(name = "telefono")
@@ -38,7 +38,7 @@ public abstract class Cliente {
 
     @OneToMany
     @JoinColumn(name = "bien_ID")
-    public List<Bien> Bienes = new ArrayList<>();
+    protected List<Bien> Bienes = new ArrayList<>();
 
 
     /*
@@ -69,6 +69,9 @@ public abstract class Cliente {
         this.direccion = direccion;
         this.telefono = telefono;
         Bienes = bienes;
+    }
+
+    public Cliente(String direccion, String telefono) {
     }
 
     public abstract Boolean esMayorDeEdad();

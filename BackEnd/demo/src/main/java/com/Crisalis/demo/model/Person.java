@@ -26,7 +26,7 @@ public class Person extends Cliente implements Serializable {
     private String email;
 
     public Person(String direccion, String telefono, Integer DNI, String nombre, String apellido, String email){
-        super(null,direccion, telefono,null);
+        super(direccion, telefono);
         this.DNI = DNI;
         this.nombre = nombre;
         this.apellido = apellido;

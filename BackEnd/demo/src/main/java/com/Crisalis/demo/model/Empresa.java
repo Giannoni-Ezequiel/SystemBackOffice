@@ -5,7 +5,6 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.Date;
 
 @Entity
 @DiscriminatorValue("Empresa")
@@ -25,7 +24,7 @@ public class Empresa extends Cliente implements Serializable {
     private Integer fechadeinicio;
 
     public Empresa(String direccion, String telefono, Integer CUIT, String razonSocial, Integer fechadeinicio){
-        super(null, direccion, telefono, null);
+        super(direccion, telefono);
         this.CUIT = CUIT;
         this.razonSocial = razonSocial;
         this.fechadeinicio = fechadeinicio;
@@ -34,12 +33,8 @@ public class Empresa extends Cliente implements Serializable {
 
     @Override
     public Boolean esMayorDeEdad() {
-        Boolean Resultado;
-        if(CUIT > 18){
-            Resultado = true;
-        } else {
-            Resultado = false;
-        }
+        boolean Resultado;
+        Resultado = CUIT > 18;
         return Resultado;
     }
 }

@@ -24,8 +24,7 @@ public class Servicio extends Bien implements Serializable {
 
     public Servicio(String bien_Nombre, BigDecimal bien_costo, BigDecimal serv_CargoSoporte
             , Boolean serv_ServicioEspecial){
-        super(null, bien_Nombre, bien_costo,
-                null, null);
+        super(bien_Nombre, bien_costo);
         this.serv_CargoSoporte = serv_CargoSoporte;
         this.serv_ServicioEspecial = serv_ServicioEspecial;
 
@@ -33,7 +32,6 @@ public class Servicio extends Bien implements Serializable {
 
     @Override
     public BigDecimal calcularCosto() {
-        BigDecimal resultado = bien_Costo.subtract(serv_CargoSoporte);
-        return resultado;
+        return bien_Costo.subtract(serv_CargoSoporte);
     }
 }
