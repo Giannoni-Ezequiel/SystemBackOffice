@@ -19,10 +19,10 @@
                     <th scope="col">#</th>
                     <th scope="col">N° Comprobante</th>
                     <th scope="col">Fecha</th>
-                    <th scope="col">Total del Pedido</th>
-                    <th scope="col">Nombre de Empresa Emisora</th>
-                    <th scope="col">Porcentaje del Descuento</th>
-                    <th scope="col">Total del Descuento</th>
+                    <th scope="col">Total</th>
+                    <th scope="col">Empresa Emisora</th>
+                    <th scope="col">Descuento</th>
+                    <th scope="col">Total Desc.</th>
                     <th scope="col">ACCION</th>
                   </tr>
                 </thead>
@@ -31,6 +31,7 @@
                     <td>{{pedido.id}}</td>
                     <td>{{pedido.Ncomprobante}}</td>
                     <td>{{pedido.fecha}}</td>
+                    <td>{{pedido.totalPedido}}</td>
                     <td>{{pedido.nomEmpEmisora}}</td>
                     <td>{{pedido.DescuentoPorcent}}</td>
                     <td>{{pedido.DescuentoTotal}}</td>
@@ -45,7 +46,7 @@
     </div>
   </div>
 </mat-grid-tile>
-<mat-grid-tile>Cliente</mat-grid-tile>
-  <mat-grid-tile>Detalles</mat-grid-tile>
+<mat-grid-tile>Detalles</mat-grid-tile>
+  <mat-grid-tile>Cliente</mat-grid-tile>
   <mat-grid-tile>Impuesto</mat-grid-tile>
 </mat-grid-list>

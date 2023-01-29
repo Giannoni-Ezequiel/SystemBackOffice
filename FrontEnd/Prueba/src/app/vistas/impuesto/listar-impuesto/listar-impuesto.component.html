@@ -1,8 +1,12 @@
 <div class="container">
     <br>
       <div class="container">
-        <button (click)="Volver()" class="btn btn-light">Volver</button>
-        <button (click)="Crear()" class="btn btn-primary" style="margin-left: 10px;">Nuevo</button>
+        <div class="border">
+          <button (click)="Volver()" class="btn btn-light">Volver</button>
+          <button  class="btn btn-md btn-outline-primary" style="margin-left: 10px;" (click)="Crear()">
+   <!-- <button (click)="Crear()" class="btn btn-md btn-outline-primary" style="margin-left: 10px;">Crear</button>-->
+            <i id="myicon" class="fa fa-user"></i> Nuevo</button>
+        </div>
       </div>
       <br>
     <div class="card">
@@ -11,25 +15,28 @@
         </div>
         <br>
         <div class="card-body">
-            <table class="table">
-                <thead class="thead-light">
-                  <tr class="text-center">
+            <table class="table table-bordered table-striped">
+              <thead class="thead-light">
+                <tr class="text-center">
                     <th scope="col">#</th>
                     <th scope="col">Porcentaje</th>
                     <th scope="col">Nombre</th>
-                    <th scope="col">Nombre</th>
+                    <th scope="col">Bien</th>
                     <th scope="col">ACCION</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr *ngFor="let impuesto of impuesto" class="text-center">
-                    <td>{{impuesto.bien.id}}</td>
+                    
                     <td>{{impuesto.id}}</td>
                     <td>{{impuesto.porcentaje}}</td>
                     <td>{{impuesto.nombre}}</td>
+                    <!--<td>{{impuesto.bien.id}}</td>-->
                     <td>
-                        <button (click)="Editar(impuesto)" class="btn btn-warning">Editar</button>
-                        <button (click)="Delete(impuesto)" class="btn btn-warning" style="margin-left: 10px">Delete</button>
+                        <button (click)="Editar(impuesto)" class="btn btn-warning">
+                        <i id="myicon1" class="fa fa-edit"></i> Editar</button>
+                        <button (click)="Delete(impuesto)" class="btn btn-warning" style="margin-left: 10px">
+                        <i id="myicon2" class="fa fa-remove"></i> Borrar</button>
                     </td>
                   </tr>
                 </tbody>
