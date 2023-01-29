@@ -25,7 +25,8 @@ public class Impuesto {
     private Float imp_Porcentaje;
     @Column(name = "Nombre")
     private String imp_Nombre;
-    @ManyToMany
+    /*@ManyToMany*/
+    @OneToMany
     @JoinColumn(name = "bien_ID")
     private List<Bien> Bienes = new ArrayList<>();
 

@@ -31,7 +31,7 @@ public class BienDTO {
                 this.prod_Impuesto, this.prod_PorcentajeGarantia);
     }
     @JsonProperty("cargoSoporte")
-    private Double serv_CargoSoporte;
+    private BigDecimal serv_CargoSoporte;
     @JsonProperty("servicioEspecial")
     private Boolean serv_ServicioEspecial;
 

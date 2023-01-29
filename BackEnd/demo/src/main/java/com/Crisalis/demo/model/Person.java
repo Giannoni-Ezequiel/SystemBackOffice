@@ -10,6 +10,7 @@ import java.io.Serializable;
 @DiscriminatorValue("Persona Fisica")
 @Getter
 @Setter
+@ToString
 @AllArgsConstructor
 @NoArgsConstructor
 //@Builder
@@ -25,13 +26,19 @@ public class Person extends Cliente implements Serializable {
     private String email;
 
     public Person(String direccion, String telefono, Integer DNI, String nombre, String apellido, String email){
-        super(null,direccion, telefono);
+        super(null,direccion, telefono,null);
         this.DNI = DNI;
         this.nombre = nombre;
         this.apellido = apellido;
         this.email = email;
     }
 
+    @Override
+    public Boolean esMayorDeEdad() {
+        boolean Resultant;
+        Resultant = DNI > 18;
+        return Resultant;
+    }
 }
 
     /*public PersonParam toDto(){

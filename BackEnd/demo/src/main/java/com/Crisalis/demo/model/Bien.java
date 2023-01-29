@@ -16,8 +16,6 @@ import java.util.List;
 @Getter
 @Setter
 @ToString
-@AllArgsConstructor
-@NoArgsConstructor
 public abstract class Bien {
 
     @Id
@@ -32,13 +30,13 @@ public abstract class Bien {
             generator = "bien_sequence"
     )
     @Column(name = "ID")
-    private Integer bien_ID;
+    public Integer bien_ID;
     @Column(name = "Nombre")
-    private String bien_Nombre;
+    public String bien_Nombre;
     @Column(name = "Costo")
-    private BigDecimal bien_Costo;
+    public BigDecimal bien_Costo;
 
-    @ManyToMany(fetch = FetchType.LAZY)
+    /*@ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(
             name = "Bien_Impuesto",
             joinColumns = {
@@ -48,9 +46,15 @@ public abstract class Bien {
                     @JoinColumn(name = "fk_Impuesto")
             }
     )
-    private List<Impuesto> impuestoList = new ArrayList<>();
+    private List<Impuesto> impuestoList = new ArrayList<>();*/
+    @ManyToOne(
+            fetch = FetchType.EAGER
+            //optional = false No puede existir un detalle sin que este en un pedido
+    )
+    @JoinColumn(name = "impuesto_fk")
+    public Impuesto impuesto;
 
-    @ManyToMany(fetch = FetchType.LAZY)
+    /*@ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(
             name = "Cliente_bien_Servicio",
             joinColumns = {
@@ -60,7 +64,13 @@ public abstract class Bien {
                     @JoinColumn(name = "fk_Cliente")
             }
     )
-    private List<Cliente> clienteList = new ArrayList<>();
+    private List<Cliente> clienteList = new ArrayList<>();*/
+    @ManyToOne(
+            fetch = FetchType.EAGER
+            //optional = false No puede existir un detalle sin que este en un pedido
+    )
+    @JoinColumn(name = "cliente_fk")
+    public Cliente cliente;
     /*
     @OneToMany(
             fetch = FetchType.EAGER,
@@ -70,4 +80,14 @@ public abstract class Bien {
                                                                 // no cuenta con ordenamiento
 
  */
+    protected Bien() {}
+
+    protected Bien(Integer bien_ID, String bien_Nombre, BigDecimal bien_Costo, Impuesto impuesto, Cliente cliente) {
+        this.bien_ID = bien_ID;
+        this.bien_Nombre = bien_Nombre;
+        this.bien_Costo = bien_Costo;
+        this.impuesto = impuesto;
+        this.cliente = cliente;
+    }
+    public abstract BigDecimal calcularCosto();
 }

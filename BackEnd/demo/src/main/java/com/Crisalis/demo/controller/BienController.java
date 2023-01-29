@@ -23,7 +23,7 @@ public class BienController {
     @GetMapping("")
     public List<Bien> listar(){
         return this.bienService.listar();
-    };
+    }
     @PostMapping(value = "add", consumes = MediaType.APPLICATION_JSON_VALUE)
     public void add(@RequestBody BienDTO bien){
         this.bienService.add(bien);

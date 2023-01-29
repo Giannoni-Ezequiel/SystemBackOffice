@@ -25,7 +25,7 @@ public class ClienteController {
     public List<Cliente>listar(){
         return this.clienteService.listar();
     };
-    @PostMapping(value = "", consumes = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(value = "add", consumes = MediaType.APPLICATION_JSON_VALUE)
     public void add(@RequestBody ClienteDTO cliente){
         this.clienteService.add(cliente);
     }

@@ -29,4 +29,9 @@ public class Producto extends Bien implements Serializable {
         this.prod_Impuesto = prod_Impuesto;
         this.prod_PorcentajeGarantia = prod_PorcentajeGarantia;
     }
+    @Override
+    public BigDecimal calcularCosto() {
+        BigDecimal resultado = bien_Costo.subtract(prod_Impuesto);
+        return resultado;
+    }
 }
