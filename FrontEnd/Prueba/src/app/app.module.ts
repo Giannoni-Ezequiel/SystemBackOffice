@@ -40,6 +40,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 //import { MatMomentDateModule } from '@angular/material-moment-adapter';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatNativeDateModule } from '@angular/material/core';
+import {MatGridListModule} from '@angular/material/grid-list';
 @NgModule({
   declarations: [
     AppComponent,
@@ -73,9 +74,11 @@ import { MatNativeDateModule } from '@angular/material/core';
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule, FormsModule, NgbModule,
-    BrowserAnimationsModule, MatMenuModule, MatDatepickerModule, MatNativeDateModule,//MatMomentDateModule,
+    BrowserAnimationsModule, MatMenuModule, MatDatepickerModule,
+    MatNativeDateModule, MatGridListModule,//MatMomentDateModule,
   ],
-  providers: [ClienteService, BienService, PedidoService, RegistrationService, UsuarioService, ImpuestoService, DetalleService],
+  providers: [ClienteService, BienService, PedidoService,
+    RegistrationService, UsuarioService, ImpuestoService, DetalleService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

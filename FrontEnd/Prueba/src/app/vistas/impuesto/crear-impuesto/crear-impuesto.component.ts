@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ImpuestoService } from 'src/app/service/impuesto.service';
 import { Impuesto } from 'src/app/models/impuesto';
+import { Bien } from 'src/app/models/bien';
 
 @Component({
   selector: 'app-crear-impuesto',
@@ -15,6 +16,7 @@ export class CrearImpuestoComponent implements OnInit{
     this.impuesto = {
       porcentaje: 0,
       nombre: '',
+      bien: new Bien(1,'',1,1,true,1,1,1),
     }
   }
 

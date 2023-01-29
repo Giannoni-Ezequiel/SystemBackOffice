@@ -8,7 +8,8 @@ import { environment } from '../enviroments/enviroment';
 })
 export class DetalleService {
 
-  private Url = environment.apiBaseUrl;
+  //private Url = environment.apiBaseUrl;
+  Url = 'http://localhost:8080/detalle';
 
   constructor(private http:HttpClient) { }
 
@@ -16,7 +17,7 @@ export class DetalleService {
     return this.http.get<Pedido_Detalle[]>(this.Url);
   }
   crearDetalle(detalle:Pedido_Detalle){
-    return this.http.post<Pedido_Detalle>(this.Url+"detalle",detalle);
+    return this.http.post<Pedido_Detalle>(this.Url,detalle);
   }
   getDetalleId(id:any){
     return this.http.get<Pedido_Detalle>(this.Url+"/"+id);
@@ -26,5 +27,8 @@ export class DetalleService {
   }
   deleteDetalle(detalle:Pedido_Detalle){
     return this.http.delete<Pedido_Detalle>(this.Url+"/"+detalle.id);
+  }
+  getSubTotal(detalle:Pedido_Detalle){
+    return this.http.put<Pedido_Detalle>(this.Url+"/calcular"+detalle.id,detalle);
   }
 }

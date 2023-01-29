@@ -10,13 +10,14 @@ export class ImpuestoService {
 
   constructor(private http:HttpClient) { }
 
-  private Url = environment.apiBaseUrl;
+  //private Url = environment.apiBaseUrl;
+  Url = 'http://localhost:8080/impuestos';
 
   getImpuesto(){
     return this.http.get<Impuesto[]>(this.Url);
   }
   crearImpuesto(impuesto:Impuesto){
-    return this.http.post<Impuesto>(this.Url+"impuesto",impuesto);
+    return this.http.post<Impuesto>(this.Url,impuesto);
   }
   getImpuestoId(id:any){
     return this.http.get<Impuesto>(this.Url+"/"+id);

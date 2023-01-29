@@ -1,13 +1,43 @@
 .row{
     background: black
 }
-
+nav {
+  display: flex;
+  justify-content: flex-end;
+}
+#logo
+  {
+    display: flex;
+    justify-content: flex-start;
+  }
+.nav-link{
+  padding-top: 8px;
+    border-left-width: 50px;
+    margin-right: 50px;
+    margin-left: 50px;
+}
+.btn-outline-light, .btn-secondary, .navbar-nav
+  {
+    display: inline-block;
+    margin-left: 5px;
+    margin-right: 5px;
+  }
 .container-fluid {
   display: flex;
-  justify-content: space-between;
+
   align-items: center;
+  text-align: center;
   }
 
-.btn-outline-light{
-  margin-right: auto;
+button {
+  margin-left: 5px;
+  margin-right: 5px;
 }
+
+@media (max-width: 600px)
+ {
+  .row
+    {
+      background-color: aliceblue;
+    }
+ }

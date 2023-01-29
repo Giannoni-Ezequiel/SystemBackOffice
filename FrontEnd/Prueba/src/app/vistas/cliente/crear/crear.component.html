@@ -1,4 +1,4 @@
-<div class="container col-md-6">
+<!--<div class="container col-md-6">
   <br>
     <div class="card">
         <div class="card-header">
@@ -39,7 +39,7 @@
                   <label for="">Fecha de Inicio:</label>
                   <input matInput [matDatepicker]="picker" [(ngModel)]="cliente.fechaDeInicio" name="fechaDeInicio" type="date" class="form-control"
                   style="display:inline; width:300px;">
-                  
+
                   <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
                   <mat-datepicker #picker></mat-datepicker>
                 </div>
@@ -49,4 +49,48 @@
             </form>
         </div>
     </div>
-</div>
+</div>-->
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Nueva Persona</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
+      <div class="form-group">
+        <label for="nombre">Nombre</label>
+        <div class="input-group">
+          <input id="nombre" name="nombre" class="form-control" ngModel>
+        </div>
+        <label for="apellido">Apellido</label>
+        <div class="input-group">
+          <input id="apellido" name="apellido" class="form-control" ngModel>
+        </div>
+        <label for="DNI">DNI</label>
+        <div class="input-group">
+          <input id="DNI" name="DNI" class="form-control" ngModel>
+        </div>
+        <label for="email">Email</label>
+        <div class="input-group">
+          <input id="email" name="email" class="form-control" ngModel>
+        </div>
+        <label for="direccion">Direccion</label>
+        <div class="input-group">
+          <input id="direccion" name="direccion" class="form-control" ngModel>
+        </div>
+        <label for="telefono">Telefono</label>
+        <div class="input-group">
+          <input id="telefono" name="telefono" class="form-control" ngModel>
+        </div>
+        <div class="border text-center">
+          <button data-dismiss="modal" class="btn btn-info">Guardar</button>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="Crear(cliente); modal.close('Save click')">Save</button>
+  </div>
+</ng-template>

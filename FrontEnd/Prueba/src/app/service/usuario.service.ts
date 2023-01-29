@@ -10,7 +10,7 @@ export class UsuarioService {
 
   constructor(private http:HttpClient) { }
 
-  private Url = environment.apiBaseUrl + "/usuario";
+  Url = 'http://localhost:8080/usuario';
 
   getUsuarios(){
     return this.http.get<LoginUsuario[]>(this.Url);

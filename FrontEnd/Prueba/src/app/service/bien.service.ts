@@ -11,7 +11,7 @@ export class BienService {
   //private Url = environment.apiBaseUrl + 'bien';
 
   constructor(private http:HttpClient) { }
-  Url = 'http://localhost:8080/clientes';
+  Url = 'http://localhost:8080/bien';
 
   getBien(){
     return this.http.get<Bien[]>(this.Url);

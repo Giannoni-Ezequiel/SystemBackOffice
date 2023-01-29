@@ -8,6 +8,7 @@ footer
 {
     color: #fefefe;
     font-size: 14px;
+    padding: 1em;
     display: flex;
     flex-direction: column;
     text-align: center;

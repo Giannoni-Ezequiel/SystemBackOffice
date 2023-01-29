@@ -17,11 +17,13 @@
                     <th scope="col">#</th>
                     <th scope="col">Porcentaje</th>
                     <th scope="col">Nombre</th>
+                    <th scope="col">Nombre</th>
                     <th scope="col">ACCION</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr *ngFor="let impuesto of impuesto" class="text-center">
+                    <td>{{impuesto.bien.id}}</td>
                     <td>{{impuesto.id}}</td>
                     <td>{{impuesto.porcentaje}}</td>
                     <td>{{impuesto.nombre}}</td>

@@ -1,1 +1,22 @@
+.jumbotron
+  {
 
+    text-align: center;
+  }
+.container {
+  text-align: center;
+}
+#img-1 {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+body {
+  padding-top: 150px;
+  position: relative;
+  padding-bottom: 2.5em;
+  text-align: center;
+  display: grid;
+  min-height: 100vh;
+  grid-template-rows: auto 1fr auto;
+}

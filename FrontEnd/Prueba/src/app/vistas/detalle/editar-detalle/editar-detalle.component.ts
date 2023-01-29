@@ -22,8 +22,8 @@ export class EditarDetalleComponent implements OnInit{
       garantia: 0,
       porcGarantia: 0,
       cargoSoporte: 0,
-      producto: new Bien(1,"",1,1,false,1,1),
-      servicio: new Bien(1,"",1,1,true,1,1),
+      producto: new Bien(1,"",1,1,false,1,1,1),
+      servicio: new Bien(1,"",1,1,true,1,1,1),
       impuestoPedido: new Pedido_Impuesto(1,1),
     }
   }

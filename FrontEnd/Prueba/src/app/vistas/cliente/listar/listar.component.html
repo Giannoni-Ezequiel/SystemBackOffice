@@ -3,9 +3,9 @@
     <div class="container">
       <div class="border">
         <button (click)="Volver()" class="btn btn-light">Volver</button>
-<!----><button  class="btn btn-md btn-outline-primary" style="margin-left: 10px;" (click)="open(content)">
-  <button (click)="Crear()" class="btn btn-md btn-outline-primary" style="margin-left: 10px;">Crear</button>
-          <i id="myicon" class="fa fa-user"></i>Nuevo</button>
+<button  class="btn btn-md btn-outline-primary" style="margin-left: 10px;" (click)="open(content)">
+ <!-- <button (click)="Crear()" class="btn btn-md btn-outline-primary" style="margin-left: 10px;">Crear</button>-->
+          <i id="myicon" class="fa fa-user"></i> Nuevo</button>
       </div>
     </div>
     <br>
@@ -48,9 +48,9 @@
                     <td>{{cliente.fechaDeInicio}}</td>
                     <td>
                         <button (click)="Editar(cliente)" class="btn btn-sm btn-warning">
-                          <i id="myicon1" class="fa fa-edit"></i>Editar</button>
+                          <i id="myicon1" class="fa fa-edit"></i> Editar</button>
                         <button (click)="Delete(cliente)" class="btn btn-sm btn-danger">
-                          <i id="myicon2" class="fa fa-remove"></i>Delete</button>
+                          <i id="myicon2" class="fa fa-remove"></i> Borrar</button>
                     </td>
                   </tr>
                 </tbody>
@@ -93,13 +93,11 @@
         <div class="input-group">
           <input id="telefono" name="telefono" class="form-control" ngModel>
         </div>
-        <div class="border text-center">
-          <button data-dismiss="modal" class="btn btn-info">Guardar</button>
-        </div>
+
       </div>
     </form>
   </div>
   <div class="modal-footer">
-    <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
+    <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Guardar</button>
   </div>
 </ng-template>

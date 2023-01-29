@@ -9,7 +9,8 @@ import { environment } from '../enviroments/enviroment';
 })
 export class PedidoService {
 
-  private Url = environment.apiBaseUrl;
+  //private Url = environment.apiBaseUrl;
+  Url = 'http://localhost:8080/pedidos';
 
   constructor(private http:HttpClient) { }
 
@@ -17,7 +18,7 @@ export class PedidoService {
     return this.http.get<Pedido[]>(this.Url);
   }
   crearPedido(pedido:Pedido){
-    return this.http.post<Pedido>(this.Url+"pedido",pedido);
+    return this.http.post<Pedido>(this.Url,pedido);
   }
   getPedidoId(id:any){
     return this.http.get<Pedido>(this.Url+"/"+id);
@@ -34,5 +35,5 @@ export class PedidoService {
   public save(pedido: Pedido): Observable<any>{
       return this.httpClient.post<any>(this.URL + 'create', pedido);
     }*/
-  
+
   }
