@@ -2,24 +2,22 @@
 export class Cliente
 {
   id?: number;
-  tipo?: String;
-  nombre: String;
-  apellido: String;
-  dni: String;
-  razonSocial: String;
-  email: String;
-  direccion: String;
-  cuit: String;
-  telefono: String;
+  tipo?: string;
+  nombre: string;
+  apellido: string;
+  dni: string;
+  razonSocial: string;
+  email: string;
+  direccion: string;
+  cuit: string;
+  telefono: string;
   fechaDeInicio: Date;
-  img: String;
+  img: string;
 
-
-
-  constructor(nombre: string,apellido: String, dni: string,img: string,
+  constructor(nombre: string,apellido: string, dni: string,img: string,
     razonSocial: string,email: string,direccion: string,cuit: string,
-    telefono: string,fechaDeInicio: Date, ){
-
+    telefono: string,fechaDeInicio: Date, )
+    {
       this.nombre = nombre;
       this.dni = dni;
       this.apellido = apellido;
@@ -30,7 +28,6 @@ export class Cliente
       this.cuit = cuit;
       this.telefono = telefono;
       this.fechaDeInicio = fechaDeInicio;
-
     }
 
   /*PersonaFisica(nombre: string, dni: number,apellido: string,img: string,

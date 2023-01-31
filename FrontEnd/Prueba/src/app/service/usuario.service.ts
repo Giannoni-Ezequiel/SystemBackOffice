@@ -27,4 +27,9 @@ export class UsuarioService {
   deleteUsuarios(usuario:LoginUsuario){
     return this.http.delete<LoginUsuario>(this.Url+"/"+usuario.id);
   }
+
+  getUserData(username: any, password: any)
+  {
+    return this.http.get(this.Url+username+password);
+  }
 }

@@ -13,7 +13,9 @@ import { Pedido_Impuesto } from 'src/app/models/pedido_impuesto';
 export class CrearDetalleComponent implements OnInit{
 
   detalle:Pedido_Detalle;
-  constructor(private router:Router, private service:DetalleService){
+  constructor(
+    private router:Router, 
+    private service:DetalleService){
     this.detalle = {
       cant: 0,
       precioUnitario: 0,

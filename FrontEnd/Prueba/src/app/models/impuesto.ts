@@ -15,9 +15,9 @@ export class Impuesto
     this.bien = bien;
   }
 
-  constructorPlus(id: number,porcentaje: number, nombre: string){
+  /*constructorPlus(id: number,porcentaje: number, nombre: string){
     this.id = id;
     this.porcentaje = porcentaje;
     this.nombre = nombre;
-  }
+  }*/
 }

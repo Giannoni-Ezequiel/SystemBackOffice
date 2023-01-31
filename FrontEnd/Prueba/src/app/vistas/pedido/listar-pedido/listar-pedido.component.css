@@ -1,0 +1,39 @@
+table 
+{
+    width: 100%;
+}
+#card1 {
+    width: 80%;
+    top: 5px;
+    margin-bottom: 0px;
+}
+#card2
+{
+    bottom: 70px;
+}
+
+.col-2 
+{
+    padding-top: 5px;
+    padding-bottom: 10px;
+    justify-content: center;
+    align-items: center;
+    
+}
+#pedido, #cliente 
+{
+    width: 100px;
+}
+
+#pedido
+{
+    bottom: 25px;
+}
+.card-header
+{
+    height: 70px;
+    padding-left: 8px;
+    padding-right: 8px;
+    align-items: center;
+ text-align: center;
+}

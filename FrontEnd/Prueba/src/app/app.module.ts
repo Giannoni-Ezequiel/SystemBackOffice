@@ -41,6 +41,13 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatNativeDateModule } from '@angular/material/core';
 import {MatGridListModule} from '@angular/material/grid-list';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import { MatTableModule } from '@angular/material/table';
+import { MatInputModule } from '@angular/material/input';
+import {MatButtonModule} from '@angular/material/button';
+import {MatPaginatorModule} from '@angular/material/paginator';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -75,7 +82,9 @@ import {MatGridListModule} from '@angular/material/grid-list';
     HttpClientModule,
     ReactiveFormsModule, FormsModule, NgbModule,
     BrowserAnimationsModule, MatMenuModule, MatDatepickerModule,
-    MatNativeDateModule, MatGridListModule,//MatMomentDateModule,
+    MatNativeDateModule, MatGridListModule, MatTableModule, MatInputModule,
+    MatButtonModule, MatPaginatorModule,
+    MatAutocompleteModule, MatFormFieldModule//MatMomentDateModule,
   ],
   providers: [ClienteService, BienService, PedidoService,
     RegistrationService, UsuarioService, ImpuestoService, DetalleService],

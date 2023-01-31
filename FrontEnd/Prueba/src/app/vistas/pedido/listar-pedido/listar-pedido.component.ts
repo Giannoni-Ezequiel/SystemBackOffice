@@ -2,6 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { PedidoService } from 'src/app/service/pedido.service';
 import { Pedido } from 'src/app/models/pedido';
+import { DetalleService } from 'src/app/service/detalle.service';
+import { Pedido_Detalle } from 'src/app/models/pedido_detalle';
+import { Cliente } from 'src/app/models/cliente';
+import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
   selector: 'app-listar-pedido',
@@ -9,13 +13,51 @@ import { Pedido } from 'src/app/models/pedido';
   styleUrls: ['./listar-pedido.component.css']
 })
 export class ListarPedidoComponent implements OnInit{
-
   pedido:Pedido[] = [];
-  constructor(private service:PedidoService, private router:Router){}
-
+  detalle:Pedido_Detalle[] = [];
+  columnas: string[] = ['nombre', 'apellido', 'empresa']
+  cliente: Cliente[] = [
+    new Cliente('','','','','','','','','', new Date)
+  ];
+  constructor(
+    private service1:PedidoService, 
+    private service2:DetalleService,
+    private router:Router,
+    )
+    {}
+  dataSource: any;
   ngOnInit(){
-    this.service.getPedido().subscribe(data=>{
+   
+    this.service1.getPedido().subscribe(data=>{
       this.pedido=data;
+      this.service2.getDetalle().subscribe(data=>{
+        this.detalle=data;
+      })
+    })
+    this.dataSource = new MatTableDataSource(this.cliente);
+  }
+
+  filtrar(event: Event) {
+    const filtro = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filtro.trim().toLowerCase();
+  }
+
+  EditarDetalle(detalle:Pedido_Detalle):void{
+    localStorage.setItem("id",detalle.id!.toString());
+    this.router.navigate(["editar-detalle"]);
+  }
+
+  DeleteDetalle(detalle:Pedido_Detalle){
+    this.service2.deleteDetalle(detalle).subscribe(data=>{
+      this.detalle=this.detalle?.filter(d=>d!==detalle);
+      alert("PedidoDetalle eliminado!!!")
+    })
+  }
+
+  CrearDetalle(detalle:Pedido_Detalle){
+    this.service2.crearDetalle(detalle).subscribe(data=>{
+      alert("Se agrego con exito!!!");
+      this.router.navigate(["listar-detalle"]);
     })
   }
 
@@ -25,7 +67,7 @@ export class ListarPedidoComponent implements OnInit{
   }
 
   Delete(pedido:Pedido){
-    this.service.deletePedido(pedido).subscribe(data=>{
+    this.service1.deletePedido(pedido).subscribe(data=>{
       this.pedido=this.pedido?.filter(p=>p!==pedido);
       alert("Pedido eliminado!!!")
     })

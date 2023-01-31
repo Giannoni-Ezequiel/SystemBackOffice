@@ -1,17 +1,135 @@
 <mat-grid-list cols="2" rowHeight="2:1">
-  <mat-grid-tile>1
-<div class="container">
-    <br>
-      <div class="container">
+  <mat-grid-tile id="cliente">
+    <div class="card" id="card1">
+    <mat-form-field>
+      <mat-label>Buscar Cliente</mat-label>
+      <input type="text" matInput (keyup)="filtrar($event)" placeholder="buscar">
+    </mat-form-field>
+    <div class="mat-elevation-z8">
+      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+        <ng-container matColumnDef="nombre">
+          <th mat-header-cell *matHeaderCellDef>Nombre</th>
+          <td mat-cell *matCellDef="let cliente">{{cliente.nombre}}</td>
+        </ng-container>
+        <ng-container matColumnDef="apellido">
+          <th mat-header-cell *matHeaderCellDef>Apellido</th>
+          <td mat-cell *matCellDef="let cliente">{{cliente.apellido}}</td>
+        </ng-container>
+        <ng-container matColumnDef="empresa">
+          <th mat-header-cell *matHeaderCellDef>Empresa</th>
+          <td mat-cell *matCellDef="let cliente">{{cliente.razonSocial}}</td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="columnas"></tr>
+        <tr mat-row *matRowDef="let row; columns: columnas"></tr>
+      </table>
+    </div>
+    <!--<div class="card-body">
+        <table class="table table-bordered table-striped">
+            <thead class="thead-light">
+              <tr class="text-center">
+                <th scope="col">#</th>
+                <th scope="col">Tipo</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Apellido</th>
+                <th scope="col">Razon Social</th>
+                <th scope="col">Email</th>
+                <th scope="col">Direccion</th>
+                <th scope="col">Telefono</th>
+                <th scope="col">ACCION</th>
+              </tr>
+            </thead>
+            </table>
+            </div>-->
+            </div>
+            <br>
+            
+</mat-grid-tile>
+<mat-grid-tile id="detalle">
+  <div class="container">
+  <!--<div class="container">
+   <button (click)="Crear()" class="btn btn-primary" style="margin-left: 10px;">Nuevo</button>
+  </div>
+  <br>-->
+<div class="card">
+    <div class="card-header">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-2">
+            <h2 class="text-justify">Detalle</h2>
+          </div>
+          <div class="col-8"></div>
+          <div class="col-2">
+            <button (click)="Crear()" mat-mini-fab matTooltip="Primary" color="primary">+
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+        <table class="table">
+            <thead class="thead-light">
+              <tr class="text-center">
+                <th scope="col">#</th>
+                <th scope="col">Cantidad</th>
+                <th scope="col">Precio Unitario</th>
+                <th scope="col">Precio Total</th>
+                <th scope="col">Descuento</th>
+                <th scope="col">Garantia</th>
+                <th scope="col">Porcentaje Garantia</th>
+                <th scope="col">Cargo Soporte</th>
+                <th scope="col">ACCION</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let detalle of detalle" class="text-center">
+                <td>{{detalle.id}}</td>
+                <td>{{detalle.cant}}</td>
+                <td>{{detalle.precioUnitario}}</td>
+                <td>{{detalle.precioTotal}}</td>
+                <td>{{detalle.descuento}}</td>
+                <td>{{detalle.garantia}}</td>
+                <td>{{detalle.porcGarantia}}</td>
+                <td>{{detalle.cargoSoporte}}</td>
+                <td>
+                    <button (click)="EditarDetalle(detalle)" class="btn btn-warning">Editar</button>
+                    <button (click)="DeleteDetalle(detalle)" class="btn btn-warning" style="margin-left: 10px">Delete</button>
+                </td>
+              </tr>
+            
+            </tbody>
+            
+          </table>
+          <mat-paginator [length]="15"
+              [pageSize]="5"
+              [pageSizeOptions]="[5, 10, 25, 100]"
+              aria-label="Select page">
+            </mat-paginator>
+    </div>
+    </div>
+</div><br>
+    </mat-grid-tile>
+  <mat-grid-tile id="pedido">
+    <div class="container">
+      <!--<div class="container">
         <button (click)="Volver()" class="btn btn-light">Volver</button>
         <button (click)="Crear()" class="btn btn-primary" style="margin-left: 10px;">Nuevo</button>
-      </div>
-      <br>
-    <div class="card">
+      </div>-->
+    <div class="card" id="card2">
         <div class="card-header">
-            <h3>Pedidos</h3>
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-2">
+                <h2 class="text-justify">Pedido</h2>
+              </div>
+              <div class="col-8"></div>
+              <div class="col-2">
+                <button (click)="Crear()" mat-mini-fab matTooltip="Primary" color="primary">+
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
-        <br>
         <div class="card-body">
             <table class="table">
                 <thead class="thead-light">
@@ -46,7 +164,6 @@
     </div>
   </div>
 </mat-grid-tile>
-<mat-grid-tile>Detalles</mat-grid-tile>
-  <mat-grid-tile>Cliente</mat-grid-tile>
-  <mat-grid-tile>Impuesto</mat-grid-tile>
+
+  
 </mat-grid-list>

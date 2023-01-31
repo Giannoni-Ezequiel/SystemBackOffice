@@ -4,6 +4,7 @@ import { LoginUsuario } from 'src/app/models/usuario';
 import { RegistrationService } from 'src/app/service/registration.service';
 import { Router } from '@angular/router'
 import { ResponseI } from 'src/app/models/response.interface';
+import { UsuarioService } from 'src/app/service/usuario.service';
 
 @Component({
   selector: 'app-login',
@@ -23,11 +24,24 @@ export class LoginComponent implements OnInit {
   nombreUsuario!: string;
   password!: string;
   name!: string;
+  getData!: boolean;
 
-  constructor(private registrationService: RegistrationService, private router:Router){}
+  constructor(
+    private registrationService: RegistrationService, 
+    private router:Router,
+    private usuarioService: UsuarioService){}
 
   ngOnInit(): void{}
+  login()
+  {
+    this.usuarioService.getUserData(this.nombreUsuario,this.password).subscribe(res => {
+      let getData = res;
 
+      if(getData == true){
+        this.router.navigate(["/proyecto"])
+      }
+    });
+  }
   onLogin(): void
   {
     this.LoginUsuario = new LoginUsuario(this.nombreUsuario, this.password, this.name);
@@ -41,4 +55,5 @@ export class LoginComponent implements OnInit {
     //this.registrationService.loginByEmail
   }
 
+  
 }
