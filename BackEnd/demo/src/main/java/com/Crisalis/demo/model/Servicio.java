@@ -18,16 +18,20 @@ import java.math.BigDecimal;
 public class Servicio extends Bien implements Serializable {
 
     @Column(name = "CargoSoporte")
-    private Double serv_CargoSoporte;
+    private BigDecimal serv_CargoSoporte;
     @Column(name = "ServicioEspecial")
     private Boolean serv_ServicioEspecial;
 
-    public Servicio(String bien_Nombre, BigDecimal bien_costo, Double serv_CargoSoporte
+    public Servicio(String bien_Nombre, BigDecimal bien_costo, BigDecimal serv_CargoSoporte
             , Boolean serv_ServicioEspecial){
-        super(null, bien_Nombre, bien_costo,
-                null, null);
+        super(bien_Nombre, bien_costo);
         this.serv_CargoSoporte = serv_CargoSoporte;
         this.serv_ServicioEspecial = serv_ServicioEspecial;
 
+    }
+
+    @Override
+    public BigDecimal calcularCosto() {
+        return bien_Costo.subtract(serv_CargoSoporte);
     }
 }

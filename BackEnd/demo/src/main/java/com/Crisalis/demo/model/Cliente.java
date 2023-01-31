@@ -1,9 +1,7 @@
 package com.Crisalis.demo.model;
 
 //import com.Crisalis.demo.model.DTO.ClienteDTO;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.hibernate.annotations.DiscriminatorOptions;
 
 import javax.persistence.*;
@@ -15,9 +13,9 @@ import java.util.List;
 @DiscriminatorColumn(name="Tipo")
 @DiscriminatorOptions(force = true)
 @Table(name = "cliente")
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
+@Getter
+@Setter
+@ToString
 public abstract class Cliente {
 
     @Id
@@ -32,11 +30,15 @@ public abstract class Cliente {
             generator = "cliente_sequence"
     )
     @Column(name = "id")
-    private Integer id;
+    protected Integer id;
     @Column(name = "direccion")
-    private String direccion;
+    public String direccion;
     @Column(name = "telefono")
-    private String telefono;
+    public String telefono;
+
+    @OneToMany
+    @JoinColumn(name = "bien_ID")
+    protected List<Bien> Bienes = new ArrayList<>();
 
 
     /*
@@ -58,4 +60,19 @@ public abstract class Cliente {
                         .telefono(this.telefono)
                         .build();
     }*/
+
+    protected Cliente() {
+    }
+
+    protected Cliente(Integer id, String direccion, String telefono, List<Bien> bienes) {
+        this.id = id;
+        this.direccion = direccion;
+        this.telefono = telefono;
+        Bienes = bienes;
+    }
+
+    public Cliente(String direccion, String telefono) {
+    }
+
+    public abstract Boolean esMayorDeEdad();
 }

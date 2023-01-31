@@ -10,6 +10,7 @@ import java.io.Serializable;
 @DiscriminatorValue("Empresa")
 @Getter
 @Setter
+@ToString
 @AllArgsConstructor
 @NoArgsConstructor
 //@Builder
@@ -23,12 +24,18 @@ public class Empresa extends Cliente implements Serializable {
     private Integer fechadeinicio;
 
     public Empresa(String direccion, String telefono, Integer CUIT, String razonSocial, Integer fechadeinicio){
-        super(null, direccion, telefono);
+        super(direccion, telefono);
         this.CUIT = CUIT;
         this.razonSocial = razonSocial;
         this.fechadeinicio = fechadeinicio;
     }
 
 
+    @Override
+    public Boolean esMayorDeEdad() {
+        boolean Resultado;
+        Resultado = CUIT > 18;
+        return Resultado;
+    }
 }
 

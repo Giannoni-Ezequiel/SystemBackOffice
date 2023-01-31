@@ -5,8 +5,6 @@ import com.Crisalis.demo.model.Person;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
 
-import javax.persistence.Column;
-
 @Getter
 @Setter
 @NoArgsConstructor

@@ -24,9 +24,12 @@ public class Producto extends Bien implements Serializable {
 
     public Producto(String bien_Nombre, BigDecimal bien_costo
                     , BigDecimal prod_Impuesto, Double prod_PorcentajeGarantia){
-        super(null, bien_Nombre, bien_costo,
-                null, null);
+        super(bien_Nombre, bien_costo);
         this.prod_Impuesto = prod_Impuesto;
         this.prod_PorcentajeGarantia = prod_PorcentajeGarantia;
+    }
+    @Override
+    public BigDecimal calcularCosto() {
+        return bien_Costo.subtract(prod_Impuesto);
     }
 }

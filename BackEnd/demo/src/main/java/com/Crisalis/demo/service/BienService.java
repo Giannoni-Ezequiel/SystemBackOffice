@@ -42,12 +42,20 @@ public class BienService {
     public void add(BienDTO bien) {
         if(bien.getTipo().equals("Producto")){
             this.productoRepository.save(bien.toProductoEntity());
-        }else{
+        }if(bien.getTipo().equals("Servicio")){
             this.servicioRepository.save(bien.toServicioEntity());
+        } else {
+            this.servicioRepository.save(null);
         }
     }
     public Bien edit(BienDTO bien) {
-        return this.bienRepository.save(bien.toProductoEntity());
+        if(bien.getTipo().equals("Producto")){
+           return  this.productoRepository.save(bien.toProductoEntity());
+        }if(bien.getTipo().equals("Servicio")){
+            return this.servicioRepository.save(bien.toServicioEntity());
+        } else {
+            return this.servicioRepository.save(null);
+        }
     }
     public Bien delete(int id) {
         this.bienRepository.deleteById(id);

@@ -58,6 +58,7 @@ public class Pedido {
     )
     @JoinColumn(name = "pedido_fk")
     private Set<Pedido_detalle> pedido_detalle = new HashSet<>();
+    //List<Pedido_detalle> lista = new ArrayList<Pedido_detalle> ();
 
     public Pedido(Integer ord_comprobante, LocalDate ord_fecha, BigDecimal ord_TotalPedido, String ord_NomEmpEmisora,
                   Double ord_DescuentoPorcent, BigDecimal ord_DescuentoTotal, Estado estado, Cliente cliente) {
