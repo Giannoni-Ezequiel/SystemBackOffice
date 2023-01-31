@@ -1,3 +1,19 @@
+.col-2 
+{
+    padding-top: 5px;
+    padding-bottom: 10px;
+    justify-content: center;
+    align-items: center;
+}
+.card-header
+{
+    height: 70px;
+    padding-left: 8px;
+    padding-right: 8px;
+    align-items: center;
+  text-align: center;
+}
+
 table .btn{
     margin: 2px;
   }
