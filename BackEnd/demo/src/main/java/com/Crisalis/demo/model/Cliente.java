@@ -31,6 +31,8 @@ public abstract class Cliente {
     )
     @Column(name = "id")
     public Integer id;
+    @Column(name = "email")
+    public String email;
     @Column(name = "direccion")
     public String direccion;
     @Column(name = "telefono")
@@ -61,17 +63,25 @@ public abstract class Cliente {
                         .build();
     }*/
 
-    protected Cliente() {
+    public Cliente() {
     }
 
-    protected Cliente(Integer id, String direccion, String telefono, List<Bien> bienes) {
+    public Cliente(Integer id, String email, String direccion, String telefono) {
         this.id = id;
+        this.email = email;
+        this.direccion = direccion;
+        this.telefono = telefono;
+    }
+
+    public Cliente(Integer id, String email, String direccion, String telefono, List<Bien> bienes) {
+        this.id = id;
+        this.email = email;
         this.direccion = direccion;
         this.telefono = telefono;
         Bienes = bienes;
     }
 
-    public Cliente(String direccion, String telefono) {
+    public Cliente(String email, String direccion, String telefono) {
     }
 
     public abstract Boolean esMayorDeEdad();

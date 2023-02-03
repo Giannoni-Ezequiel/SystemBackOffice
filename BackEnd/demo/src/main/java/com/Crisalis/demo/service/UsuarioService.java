@@ -24,9 +24,7 @@ public class UsuarioService {
         this.usuarioRepository = usuarioRepository;
     }
 
-    public List<Usuario> listar() {
-        return this.usuarioRepository.findAll();
-    }
+
     public Usuario saveUser(UserDTO userDTO){
         if(checkUserForSaveOrLogin(userDTO, Boolean.FALSE)){
             return this.usuarioRepository.save(new Usuario(userDTO));
@@ -78,6 +76,9 @@ public class UsuarioService {
 
     //CRUD
 
+    public List<Usuario> listar() {
+        return this.usuarioRepository.findAll();
+    }
     public Usuario listarId(int id) {
         Optional<Usuario> user = this.usuarioRepository.findById(id);
         Usuario Retornar = null;

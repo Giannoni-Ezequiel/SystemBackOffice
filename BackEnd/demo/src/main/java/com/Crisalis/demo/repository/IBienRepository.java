@@ -1,6 +1,7 @@
 package com.Crisalis.demo.repository;
 
 import com.Crisalis.demo.model.Bien;
+import com.Crisalis.demo.model.Cliente;
 import com.Crisalis.demo.model.DTO.BienDTO;
 import com.Crisalis.demo.model.Impuesto;
 import com.Crisalis.demo.model.Servicio;
@@ -11,13 +12,12 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface IBienRepository extends CrudRepository<Servicio, Integer> {
+public interface IBienRepository extends JpaRepository<Servicio, Integer> {
 
-    List<Servicio> findAll();
-    Servicio save(BienDTO bien);
-    BienDTO findById(int id);
+    Bien save(Bien bien);
+    void delete(Bien bien);
     /*void edit();
     void edita(BienDTO Producto);
     void editar(BienDTO Servicio);*/
-    int deleteById(int id);
+    void deleteById(int id);
 }

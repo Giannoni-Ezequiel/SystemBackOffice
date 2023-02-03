@@ -21,17 +21,6 @@ public class DemoApplication {
 		SpringApplication.run(DemoApplication.class, args);
 	}
 
-	@Autowired
-	private IBienRepository bienRepository;
-
-
-	public void run(String... args) throws Exception {
-		BienDTO bien = new BienDTO();
-		bien.setBien_Costo(BigDecimal.valueOf(500));
-		bien.getBien_Nombre();
-		bienRepository.save(bien);
-
-	}
 	@Bean
 	public CorsFilter corsFilter() {
 		UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();

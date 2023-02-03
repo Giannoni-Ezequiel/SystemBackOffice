@@ -15,7 +15,7 @@ import java.math.BigDecimal;
 @ToString
 @Builder
 @AllArgsConstructor
-
+@NoArgsConstructor
 public class Producto extends Bien implements Serializable {
 
     @Column(name = "Impuesto")
@@ -23,13 +23,18 @@ public class Producto extends Bien implements Serializable {
     @Column(name = "PorcentajeGarantia")
     private BigDecimal prod_PorcentajeGarantia;
 
-    public Producto(String bien_Nombre, String bien_nombre, BigDecimal bien_costo
+    public Producto(String bien_Nombre, BigDecimal bien_Costo
                     , BigDecimal prod_Impuesto, BigDecimal prod_PorcentajeGarantia){
-        super(bien_Nombre, bien_costo);
+        super(bien_Nombre, bien_Costo);
+        this.bien_Nombre = bien_Nombre;
+        this.bien_Costo = bien_Costo;
         this.prod_Impuesto = prod_Impuesto;
         this.prod_PorcentajeGarantia = prod_PorcentajeGarantia;
     }
-    public Producto(){}
+    public Producto(String bien_Nombre, BigDecimal bien_Costo)
+    {
+        super(bien_Nombre, bien_Costo);
+    }
 
 
     /*public BienDTO toDTO() {

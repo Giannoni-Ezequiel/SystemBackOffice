@@ -15,22 +15,22 @@ import java.io.Serializable;
 @NoArgsConstructor
 //@Builder
 public class Empresa extends Cliente implements Serializable {
-
-    @Column(name = "CUIT")
-    private Integer CUIT;
     @Column(name = "razon_social")
     private String razonSocial;
+    @Column(name = "CUIT")
+    private Integer CUIT;
     @Column(name = "fecha_de_inicio")
     private Integer fechadeinicio;
 
-    public Empresa(String direccion, String telefono, Integer CUIT, String razonSocial, Integer fechadeinicio){
-        super(direccion, telefono);
-        this.CUIT = CUIT;
+    public Empresa( String razonSocial,Integer CUIT,  Integer fechadeinicio,String email,String direccion, String telefono){
+        super(email, direccion, telefono);
+        this.email = email;
+        this.direccion = direccion;
+        this.telefono = telefono;
         this.razonSocial = razonSocial;
+        this.CUIT = CUIT;
         this.fechadeinicio = fechadeinicio;
     }
-
-
     @Override
     public Boolean esMayorDeEdad() {
         boolean Resultado;

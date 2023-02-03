@@ -11,8 +11,7 @@ import java.util.Optional;
 @Repository
 public interface ClienteRepository extends JpaRepository<Cliente, Integer> {
 
-
-    public void deleteById(int id);
+    void deleteById(int id);
     Cliente save(Cliente c);
     /*void edit (Cliente c);*/
     void delete(Cliente c);

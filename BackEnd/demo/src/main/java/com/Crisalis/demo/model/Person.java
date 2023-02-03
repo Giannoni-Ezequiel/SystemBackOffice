@@ -22,17 +22,21 @@ public class Person extends Cliente implements Serializable {
     private String nombre;
     @Column(name = "apellido")
     private String apellido;
-    @Column(name = "email")
-    private String email;
 
-    public Person(String direccion, String telefono, Integer DNI, String nombre, String apellido, String email){
-        super(direccion, telefono);
-        this.DNI = DNI;
+
+    public Person(String nombre, String apellido, Integer DNI,String email,String direccion, String telefono){
+        super(email, direccion, telefono);
+        this.email = email;
+        this.direccion = direccion;
+        this.telefono = telefono;
         this.nombre = nombre;
         this.apellido = apellido;
-        this.email = email;
-    }
+        this.DNI = DNI;
 
+    }
+    public Person(String email,String direccion, String telefono){
+        super(email, direccion, telefono);
+    }
     @Override
     public Boolean esMayorDeEdad() {
         boolean Resultant;

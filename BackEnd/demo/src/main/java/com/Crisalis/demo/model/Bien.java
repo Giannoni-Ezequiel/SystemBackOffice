@@ -18,7 +18,6 @@ import java.util.List;
 @Setter
 @ToString
 public abstract class Bien {
-
     @Id
     @SequenceGenerator(
             name = "bien_sequence",
@@ -81,11 +80,11 @@ public abstract class Bien {
                                                                 // no cuenta con ordenamiento
 
  */
-    public Bien(Integer bien_ID, String bien_Nombre, BigDecimal bien_Costo, List<Integer> imp_ID) {
+    public Bien(Integer bien_ID, String bien_Nombre, BigDecimal bien_Costo, Impuesto impuestos) {
         this.bien_ID = bien_ID;
         this.bien_Nombre = bien_Nombre;
         this.bien_Costo = bien_Costo;
-        List<Integer> imp = new ArrayList<>();
+        impuesto = impuestos;
         //this.cliente = cliente;
     }
     public Bien(Integer bien_ID,String bien_Nombre, BigDecimal bien_Costo)
@@ -95,13 +94,8 @@ public abstract class Bien {
         this.bien_Costo = bien_Costo;
     }
     public Bien(String bien_Nombre, BigDecimal bien_Costo)
-    {
-        this.bien_Nombre = bien_Nombre;
-        this.bien_Costo = bien_Costo;
-    }
-    public Bien() {
-
-    }
+    {}
+    public Bien() {}
 
     //public abstract BienDTO toDTO();
     public abstract BigDecimal calcularCosto();

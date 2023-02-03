@@ -1,8 +1,7 @@
 package com.Crisalis.demo.service;
 
-import com.Crisalis.demo.model.Bien;
+import com.Crisalis.demo.model.*;
 import com.Crisalis.demo.model.DTO.BienDTO;
-import com.Crisalis.demo.model.Servicio;
 import com.Crisalis.demo.repository.IBienRepository;
 import com.Crisalis.demo.repository.ProductoRepository;
 import com.Crisalis.demo.repository.ServicioRepository;
@@ -27,26 +26,32 @@ public class BienService {
         this.productoRepository = productoRepository;
         this.servicioRepository = servicioRepository;
     }
-    public List<Servicio>listar() {
-        return this.bienRepository.findAll();
+    /* public List<Bien>listar() {
+         return this.bienRepository.findAll();
+     }
+
+   /*public Bien listarId(int id) {
+         Optional<Bien> bien = this.bienRepository.findById(id);
+         Bien Retornar = null;
+         if(bien.isPresent()){
+             Retornar = bien.get();
+         }
+         return Retornar;
+     }*/
+    public List<Producto>listarProducto() {
+        return this.productoRepository.findAll();
     }
 
-    /*public Bien listarId(int id) {
-        Optional<Bien> bien = this.bienRepository.findById(id);
-        Bien Retornar = null;
-        if(bien.isPresent()){
-            Retornar = bien.get();
-        }
-        return Retornar;
-    }*/
-
-    public BienDTO findById(int id)
+    public List<Servicio>listarServicio() {
+        return this.servicioRepository.findAll();
+    }
+    /*public BienDTO findById(int id)
     {
-        return this.bienRepository.findById(id);/*
+        return this.bienRepository.findById(id);
                 .orElseThrow(
                         () -> new UnauthorizedException("No existe.")
-                ).toDTO();*/
-    }
+                ).toDTO();
+    }*/
 
     public Bien add(BienDTO bien) {
         if(bien.getTipo().equals("Producto")){

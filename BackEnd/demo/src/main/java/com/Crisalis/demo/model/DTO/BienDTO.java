@@ -28,7 +28,7 @@ public class BienDTO {
     public BigDecimal prod_PorcentajeGarantia;
 
     public Producto toProductEntity(){
-        return new Producto(this.tipo, this.bien_Nombre, this.bien_Costo,
+        return new Producto(this.bien_Nombre, this.bien_Costo,
                 this.prod_Impuesto, this.prod_PorcentajeGarantia);
     }
     @JsonProperty("cargoSoporte")
@@ -37,7 +37,7 @@ public class BienDTO {
     private Boolean serv_ServicioEspecial;
 
     public Servicio toServiceEntity(){
-        return new Servicio(this.tipo, this.bien_Nombre, this.bien_Costo, this.serv_CargoSoporte,
+        return new Servicio(this.bien_Nombre, this.bien_Costo, this.serv_CargoSoporte,
                  this.serv_ServicioEspecial);
     }
 }

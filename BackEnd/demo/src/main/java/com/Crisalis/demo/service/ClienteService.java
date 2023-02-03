@@ -2,6 +2,8 @@ package com.Crisalis.demo.service;
 
 import com.Crisalis.demo.model.Cliente;
 import com.Crisalis.demo.model.DTO.ClienteDTO;
+import com.Crisalis.demo.model.Empresa;
+import com.Crisalis.demo.model.Person;
 import com.Crisalis.demo.repository.ClienteRepository;
 import com.Crisalis.demo.repository.EmpresaRepository;
 import com.Crisalis.demo.repository.PersonRepository;
@@ -26,8 +28,12 @@ public class ClienteService {
         this.empresaRepository = empresaRepository;
     }
 
-    public List<Cliente>listar() {
-        return this.clienteRepository.findAll();
+    public List<Person>listarPersona() {
+        return this.personRepository.findAll();
+    }
+
+    public List<Empresa>listarEmpresa() {
+        return this.empresaRepository.findAll();
     }
 
     public Cliente listarId(int id) {
@@ -43,11 +49,12 @@ public class ClienteService {
     public Cliente add(ClienteDTO c) {
         if(c.getTipo().equals("Persona")){
            return this.personRepository.save(c.toPersonEntity());
-        } else {
+        } else if(c.getTipo().equals("Empresa")){
            return this.empresaRepository.save(c.toEmpresaEntity());
             }
+            return null;
         }
-        //return this.clienteRepository.save(c);
+
 
     public void edit(ClienteDTO c)
     {

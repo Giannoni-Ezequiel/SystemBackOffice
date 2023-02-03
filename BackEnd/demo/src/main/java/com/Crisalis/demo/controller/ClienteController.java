@@ -3,6 +3,8 @@ package com.Crisalis.demo.controller;
 
 import com.Crisalis.demo.model.Cliente;
 import com.Crisalis.demo.model.DTO.ClienteDTO;
+import com.Crisalis.demo.model.Empresa;
+import com.Crisalis.demo.model.Person;
 import com.Crisalis.demo.service.ClienteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -21,10 +23,15 @@ public class ClienteController {
     {
         this.clienteService = clienteService;
     }
-    @GetMapping("")
-    public List<Cliente>listar()
+    @GetMapping("/person")
+    public List<Person>listarPersona()
     {
-        return this.clienteService.listar();
+        return this.clienteService.listarPersona();
+    }
+    @GetMapping("/empresa")
+    public List<Empresa>listarEmpresa()
+    {
+        return this.clienteService.listarEmpresa();
     }
     @GetMapping(path = {"/{id}"})
     public Cliente listarId(@PathVariable("id")Integer id)

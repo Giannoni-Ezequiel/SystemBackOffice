@@ -1,5 +1,6 @@
 package com.Crisalis.demo.controller;
 
+import com.Crisalis.demo.model.Cliente;
 import com.Crisalis.demo.model.DTO.UserDTO;
 import com.Crisalis.demo.model.Usuario;
 import com.Crisalis.demo.service.UsuarioService;
@@ -33,8 +34,15 @@ public class UsuarioController {
     }
 
     @GetMapping(value = "list", produces = MediaType.APPLICATION_JSON_VALUE)
-    public List<UserDTO> getAllUsers(){
+    public List<UserDTO> getListAllUsersInBD(){
         return this.usuarioService.getListAllUsersInBD();
+    }
+
+    //CRUD
+    @GetMapping("")
+    public List<Usuario>listar()
+    {
+        return this.usuarioService.listar();
     }
     @GetMapping(path = {"/{id}"})
     public Usuario listarId(@PathVariable("id")Integer id){

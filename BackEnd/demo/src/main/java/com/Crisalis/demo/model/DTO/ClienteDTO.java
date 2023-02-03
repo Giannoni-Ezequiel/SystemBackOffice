@@ -15,30 +15,31 @@ public class ClienteDTO {
     private Integer id;
     @JsonProperty("tipo")
     private String tipo;
-    @JsonProperty("direccion")
-    private String direccion;
-    @JsonProperty("telefono")
-    private String telefono;
-    @JsonProperty("DNI")
-    private Integer DNI;
     @JsonProperty("nombre")
     private String nombre;
     @JsonProperty("apellido")
     private String apellido;
+    @JsonProperty("DNI")
+    private Integer DNI;
     @JsonProperty("email")
     private String email;
-    @JsonProperty("cuit")
-    private Integer CUIT;
+    @JsonProperty("direccion")
+    private String direccion;
+    @JsonProperty("telefono")
+    private String telefono;
     @JsonProperty("razon_social")
     private String razonSocial;
+    @JsonProperty("cuit")
+    private Integer CUIT;
+
     @JsonProperty("fecha_de_inicio")
     private Integer fechadeinicio;
 
     public Person toPersonEntity(){
-        return new Person(this.direccion, this.telefono, this.DNI, this.nombre, this.apellido, this.email);
+        return new Person(this.nombre, this.apellido, this.DNI ,this.email,this.direccion, this.telefono  );
     }
     public Empresa toEmpresaEntity(){
-        return new Empresa(this.direccion, this.telefono, this.CUIT, this.razonSocial, this.fechadeinicio);
+        return new Empresa( this.razonSocial, this.CUIT,  this.fechadeinicio, this.email, this.direccion, this.telefono);
     }
 
 }
