@@ -19,12 +19,12 @@ public class Usuario {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Integer id;
+    @Column(name = "name")
+    private String name;
     @Column(name = "username")
     private String username;
     @Column(name = "pass")
     private String password;
-    @Column(name = "name")
-    private String name;
 
     @Column(name = "rol")
     private UserRol rol;
