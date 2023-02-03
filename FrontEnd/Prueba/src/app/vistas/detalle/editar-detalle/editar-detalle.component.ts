@@ -12,34 +12,23 @@ import { Pedido_Impuesto } from 'src/app/models/pedido_impuesto';
 })
 export class EditarDetalleComponent implements OnInit{
 
-  detalle:Pedido_Detalle;
+  detalle!:Pedido_Detalle;
   constructor(private router:Router, private service:DetalleService){
-    this.detalle = {
-      cant: 0,
-      precioUnitario: 0,
-      precioTotal: 0,
-      descuento: 0,
-      garantia: 0,
-      porcGarantia: 0,
-      cargoSoporte: 0,
-      producto: new Bien(1,"",1,1,false,1,1,1),
-      servicio: new Bien(1,"",1,1,true,1,1,1),
-      impuestoPedido: new Pedido_Impuesto(1,1),
-    }
+
   }
 
-  ngOnInit(){
+  ngOnInit(): void{
     this.Editar();
   }
 
-  Editar(){
+  Editar(): void{
     let id=localStorage.getItem("id");
     this.service.getDetalleId(id).subscribe(data=>{
       this.detalle=data;
     })
   }
 
-  Actualizar(detalle:Pedido_Detalle){
+  Actualizar(detalle:Pedido_Detalle): void{
     this.service.updateDetalle(detalle).subscribe(data=>{
       this.detalle = data;
       alert("Se actualizo correctamente!!!");
@@ -47,7 +36,7 @@ export class EditarDetalleComponent implements OnInit{
     })
   }
 
-  Volver(){
+  Volver(): void{
     this.router.navigate(["listar-detalle"])
   }
 }

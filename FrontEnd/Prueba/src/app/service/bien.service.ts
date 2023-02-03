@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-//import { Observable } from 'rxjs';
+import { Observable } from 'rxjs';
 import { Bien } from '../models/bien';
 import { environment } from '../enviroments/enviroment';
 
@@ -13,8 +13,8 @@ export class BienService {
   constructor(private http:HttpClient) { }
   Url = 'http://localhost:8080/bien';
 
-  getBien(){
-    return this.http.get<Bien[]>(this.Url);
+  getBien(): Observable<any> {
+    return this.http.get(this.Url);//<Bien[]>
   }
   crearBien(bien:Bien){
     return this.http.post<Bien>(this.Url,bien);

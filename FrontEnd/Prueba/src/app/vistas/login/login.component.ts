@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms'
-import { LoginUsuario } from 'src/app/models/usuario';
+import { LoginUsuario } from 'src/app/models/loginusuario';
 import { RegistrationService } from 'src/app/service/registration.service';
 import { Router } from '@angular/router'
 import { ResponseI } from 'src/app/models/response.interface';
@@ -14,12 +14,13 @@ import { UsuarioService } from 'src/app/service/usuario.service';
 
 export class LoginComponent implements OnInit {
 
-  loginForm = new FormGroup
+  /*loginForm = new FormGroup
   ({
     usuario: new FormControl('', Validators.required),
     password: new FormControl('', Validators.required),
-  })
+  })*/
 
+  usuario:LoginUsuario;
   LoginUsuario!: LoginUsuario;
   nombreUsuario!: string;
   password!: string;
@@ -27,22 +28,33 @@ export class LoginComponent implements OnInit {
   getData!: boolean;
 
   constructor(
-    private registrationService: RegistrationService, 
+    private registrationService: RegistrationService,
     private router:Router,
-    private usuarioService: UsuarioService){}
+    private usuarioService: UsuarioService){
+      this.usuario = {
+        nombreUsuario : '',
+        password : '',
+        name : '',
+      }
+    }
 
-  ngOnInit(): void{}
-  login()
+  ngOnInit(): void{
+
+  }
+  login(): void
   {
-    this.usuarioService.getUserData(this.nombreUsuario,this.password).subscribe(res => {
-      let getData = res;
+    const nombreUsuario = this.nombreUsuario;
+    const password = this.password;
+    console.log(this.usuario.nombreUsuario,this.usuario.password)
+    this.usuarioService.getUserData(nombreUsuario, password).subscribe(data => {
+      this.LoginUsuario = data;
 
-      if(getData == true){
+      if(data != null){
         this.router.navigate(["/proyecto"])
       }
     });
   }
-  onLogin(): void
+  /*onLogin(): void
   {
     this.LoginUsuario = new LoginUsuario(this.nombreUsuario, this.password, this.name);
     this.registrationService.login(this.LoginUsuario).subscribe(data => {
@@ -53,7 +65,7 @@ export class LoginComponent implements OnInit {
       }
     });
     //this.registrationService.loginByEmail
-  }
+  }*/
 
-  
+
 }

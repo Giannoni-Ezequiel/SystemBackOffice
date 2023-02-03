@@ -5,10 +5,10 @@
         <a class="nav-link active" role="button" href="/proyecto"><app-logo></app-logo></a>
       </div>
 
-      <button type="button" class="btn btn-secondary dropdown-toggle" mat-button [matMenuTriggerFor]="clientes">Clientes</button>
+      <button type="button" class="btn btn-secondary dropdown-toggle" mat-button [matMenuTriggerFor]="clientes" (click)="cliente()">Clientes</button>
         <mat-menu #clientes="matMenu">
           <!--mat-menu-item [matMenuTriggerFor]="vertebrates"-->
-          <button mat-menu-item (click)="cliente()">Persona Fisica</button>
+          <button mat-menu-item (click)="cliente()">Clientes</button>
           <button mat-menu-item>Empresa</button>
         </mat-menu>
 
@@ -42,7 +42,6 @@
         <button type="button" class="btn btn-secondary dropdown-toggle" mat-button [matMenuTriggerFor]="Usuarios">Usuarios</button>
         <mat-menu #Usuarios="matMenu">
           <button mat-menu-item (click)="usuario()">Usuarios</button>
-          <button mat-menu-item >Roles</button>
         </mat-menu>
 
         <ng-template matMenuContent let-name="name">

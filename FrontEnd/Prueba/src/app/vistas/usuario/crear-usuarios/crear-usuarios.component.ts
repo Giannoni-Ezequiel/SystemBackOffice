@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { UsuarioService } from 'src/app/service/usuario.service';
-import { LoginUsuario } from 'src/app/models/usuario';
+import { LoginUsuario } from 'src/app/models/loginusuario';
 
 @Component({
   selector: 'app-crear-usuarios',

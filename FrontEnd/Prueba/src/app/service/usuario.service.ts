@@ -1,7 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { LoginUsuario } from '../models/usuario';
+import { LoginUsuario } from '../models/loginusuario';
 import { environment } from '../enviroments/enviroment';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -11,11 +12,13 @@ export class UsuarioService {
   constructor(private http:HttpClient) { }
 
   Url = 'http://localhost:8080/usuario';
+  url1 = 'http://localhost:8080/usuario/login?username=Eze&password=123456';
 
-  getUsuarios(){
-    return this.http.get<LoginUsuario[]>(this.Url);
+  getUsuarios(): Observable<any> {
+    return this.http.get(this.Url);//<LoginUsuario[]>
   }
   crearUsuarios(usuario:LoginUsuario){
+    console.log(usuario)
     return this.http.post<LoginUsuario>(this.Url,usuario);
   }
   getUsuariosId(id:any){
@@ -28,8 +31,9 @@ export class UsuarioService {
     return this.http.delete<LoginUsuario>(this.Url+"/"+usuario.id);
   }
 
-  getUserData(username: any, password: any)
+  getUserData(nombreUsuario: string, password: string): Observable<any>
   {
-    return this.http.get(this.Url+username+password);
+    //return this.http.get(this.url1);
+    return this.http.get(this.Url+"/login?username="+nombreUsuario+"&password="+password);
   }
 }

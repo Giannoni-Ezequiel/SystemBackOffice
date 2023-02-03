@@ -17,7 +17,7 @@
         </ng-container>
         <ng-container matColumnDef="empresa">
           <th mat-header-cell *matHeaderCellDef>Empresa</th>
-          <td mat-cell *matCellDef="let cliente">{{cliente.razonSocial}}</td>
+          <td mat-cell *matCellDef="let cliente">{{cliente.razonSocial | uppercase}}</td>
         </ng-container>
 
         <tr mat-header-row *matHeaderRowDef="columnas"></tr>
@@ -43,7 +43,7 @@
             </div>-->
             </div>
             <br>
-            
+
 </mat-grid-tile>
 <mat-grid-tile id="detalle">
   <div class="container">
@@ -60,7 +60,7 @@
           </div>
           <div class="col-8"></div>
           <div class="col-2">
-            <button (click)="Crear()" mat-mini-fab matTooltip="Primary" color="primary">+
+            <button (click)="CargarDetalle(bien)" mat-mini-fab matTooltip="Primary" color="primary">+
             </button>
           </div>
         </div>
@@ -78,27 +78,27 @@
                 <th scope="col">Garantia</th>
                 <th scope="col">Porcentaje Garantia</th>
                 <th scope="col">Cargo Soporte</th>
-                <th scope="col">ACCION</th>
+                <th scope="col" class="accion">ACCION</th>
               </tr>
             </thead>
             <tbody>
               <tr *ngFor="let detalle of detalle" class="text-center">
                 <td>{{detalle.id}}</td>
                 <td>{{detalle.cant}}</td>
-                <td>{{detalle.precioUnitario}}</td>
-                <td>{{detalle.precioTotal}}</td>
-                <td>{{detalle.descuento}}</td>
+                <td>{{detalle.precioUnitario | currency}}</td>
+                <td>{{detalle.precioTotal | currency}}</td>
+                <td>{{detalle.descuento | percent}}</td>
                 <td>{{detalle.garantia}}</td>
-                <td>{{detalle.porcGarantia}}</td>
-                <td>{{detalle.cargoSoporte}}</td>
+                <td>{{detalle.porcGarantia | percent}}</td>
+                <td>{{detalle.cargoSoporte | currency}}</td>
                 <td>
                     <button (click)="EditarDetalle(detalle)" class="btn btn-warning">Editar</button>
                     <button (click)="DeleteDetalle(detalle)" class="btn btn-warning" style="margin-left: 10px">Delete</button>
                 </td>
               </tr>
-            
+
             </tbody>
-            
+
           </table>
           <mat-paginator [length]="15"
               [pageSize]="5"
@@ -148,11 +148,11 @@
                   <tr *ngFor="let pedido of pedido" class="text-center">
                     <td>{{pedido.id}}</td>
                     <td>{{pedido.Ncomprobante}}</td>
-                    <td>{{pedido.fecha}}</td>
-                    <td>{{pedido.totalPedido}}</td>
-                    <td>{{pedido.nomEmpEmisora}}</td>
-                    <td>{{pedido.DescuentoPorcent}}</td>
-                    <td>{{pedido.DescuentoTotal}}</td>
+                    <td>{{pedido.fecha | date:'mediumDate'}}</td>
+                    <td>{{pedido.totalPedido | currency}}</td>
+                    <td>{{pedido.nomEmpEmisora | uppercase}}</td>
+                    <td>{{pedido.DescuentoPorcent | percent}}</td>
+                    <td>{{pedido.DescuentoTotal | percent}}</td>
                     <td>
                         <button (click)="Editar(pedido)" class="btn btn-warning">Editar</button>
                         <button (click)="Delete(pedido)" class="btn btn-warning" style="margin-left: 10px">Delete</button>
@@ -161,9 +161,16 @@
                 </tbody>
               </table>
         </div>
+        <div class="card-footer">
+          <div class="row">
+            <div class="col-sm-6">
+              <button onclick="print()" class="btn btn-success">Imprimir</button>
+            </div>
+          </div>
+        </div>
     </div>
   </div>
 </mat-grid-tile>
 
-  
+
 </mat-grid-list>

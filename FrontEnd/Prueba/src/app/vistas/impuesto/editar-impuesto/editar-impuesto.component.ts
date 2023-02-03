@@ -11,27 +11,26 @@ import { Bien } from 'src/app/models/bien';
 })
 export class EditarImpuestoComponent implements OnInit{
 
-  impuesto:Impuesto;
-  constructor(private router:Router, private service:ImpuestoService){
-    this.impuesto = {
-      porcentaje: 0,
-      nombre: '',
-      bien: new Bien(1,'',1,1,true,1,1,1),
-    }
+  impuesto!:Impuesto;
+
+  constructor(
+    private router:Router,
+    private service:ImpuestoService)
+    {
   }
 
-  ngOnInit(){
+  ngOnInit(): void{
     this.Editar();
   }
 
-  Editar(){
+  Editar(): void{
     let id=localStorage.getItem("id");
     this.service.getImpuestoId(id).subscribe(data=>{
       this.impuesto=data;
     })
   }
 
-  Actualizar(impuesto:Impuesto){
+  Actualizar(impuesto:Impuesto): void{
     this.service.updateImpuesto(impuesto).subscribe(data=>{
       this.impuesto = data;
       alert("Se actualizo correctamente!!!");
@@ -39,7 +38,7 @@ export class EditarImpuestoComponent implements OnInit{
     })
   }
 
-  Volver(){
+  Volver(): void{
     this.router.navigate(["listar-impuesto"])
   }
 }

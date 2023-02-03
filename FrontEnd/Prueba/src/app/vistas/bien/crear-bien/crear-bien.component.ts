@@ -11,32 +11,27 @@ import { Bien } from 'src/app/models/bien';
 
 export class CrearBienComponent implements OnInit{
 
-  bien:Bien;
-  constructor(private router:Router, private service:BienService){
-    this.bien = {
-      nombre: "string",
-      costo: 0,
-      cargoSoporte: 0,
-      esEspecial: false,
-      garantia: 0,
-      porcentajeCarg: 0,
-      impuesto: 0,
-      clientes: [],
-      impuestos: []
-    }
+  bien!:Bien;
+
+  constructor(
+    private router:Router,
+    private service:BienService)
+    {
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
   }
 
-  Crear(bien:Bien){
+  Crear(bien:Bien): void
+  {
     this.service.crearBien(bien).subscribe(data=>{
       alert("Se agrego con exito!!!");
       this.router.navigate(["listar-bien"]);
     })
   }
 
-  Volver(){
+  Volver(): void
+  {
     this.router.navigate(["listar-bien"])
   }
 

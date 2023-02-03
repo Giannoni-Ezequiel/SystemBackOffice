@@ -47,6 +47,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatInputModule } from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
 import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 
 @NgModule({
   declarations: [
@@ -83,7 +84,7 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     ReactiveFormsModule, FormsModule, NgbModule,
     BrowserAnimationsModule, MatMenuModule, MatDatepickerModule,
     MatNativeDateModule, MatGridListModule, MatTableModule, MatInputModule,
-    MatButtonModule, MatPaginatorModule,
+    MatButtonModule, MatPaginatorModule, MatCheckboxModule,
     MatAutocompleteModule, MatFormFieldModule//MatMomentDateModule,
   ],
   providers: [ClienteService, BienService, PedidoService,

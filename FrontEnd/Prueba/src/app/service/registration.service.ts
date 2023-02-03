@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from '../enviroments/enviroment';
-import { LoginUsuario } from '../models/usuario';
+import { LoginUsuario } from '../models/loginusuario';
 import { Observable } from 'rxjs';
 import { ResponseI } from '../models/response.interface';
 

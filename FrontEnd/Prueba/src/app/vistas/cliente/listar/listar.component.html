@@ -1,3 +1,5 @@
+<mat-grid-list cols="1" rowHeight="4:1">
+  <mat-grid-tile id="cliente">
 <div class="container">
    <!--  <br>
     <div class="container">
@@ -14,7 +16,7 @@
           <div class="container-fluid">
             <div class="row">
               <div class="col-2">
-                <h2 class="text-justify">Clientes</h2>
+                <h2 class="text-justify">Persona Fisica</h2>
               </div>
               <div class="col-8"></div>
               <div class="col-2">
@@ -35,29 +37,23 @@
                     <th scope="col">Nombre</th>
                     <th scope="col">Apellido</th>
                     <th scope="col">DNI</th>
-                    <th scope="col">Razon Social</th>
                     <th scope="col">Email</th>
                     <th scope="col">Direccion</th>
-                    <th scope="col">CUIT</th>
                     <th scope="col">Telefono</th>
-                    <th scope="col">Fecha de Inicio</th>
                     <th scope="col">ACCION</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr *ngFor="let cliente of clientes">
+                  <tr *ngFor="let cliente of clientes" class="text-center">
                     <td>{{cliente.id}}</td>
-                    <td>{{cliente.tipo}}</td>
+                    <td>{{cliente.tipo | uppercase}}</td>
                     <td>{{cliente.nombre}}</td>
                     <td>{{cliente.apellido}}</td>
                     <td>{{cliente.dni}}</td>
                     <!--<td>{{cliente.img}}</td>-->
-                    <td>{{cliente.razonSocial}}</td>
                     <td>{{cliente.email}}</td>
                     <td>{{cliente.direccion}}</td>
-                    <td>{{cliente.cuit}}</td>
                     <td>{{cliente.telefono}}</td>
-                    <td>{{cliente.fechaDeInicio}}</td>
                     <td>
                         <button (click)="Editar(cliente)" class="btn btn-sm btn-warning">
                           <i id="myicon1" class="fa fa-edit"></i> Editar</button>
@@ -75,6 +71,73 @@
         </div>
     </div>
 </div>
+</mat-grid-tile>
+<mat-grid-tile>
+  <div class="container">
+    <div class="card">
+      <div class="card-header">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-2">
+              <h2 class="text-justify">Empresa</h2>
+            </div>
+            <div class="col-8"></div>
+            <div class="col-2">
+              <button (click)="Crear()" mat-mini-fab matTooltip="Primary" color="primary">
+                <i id="myicon" class="fa fa-user"></i>+
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br>
+      <div class="card-body">
+          <table class="table table-bordered table-striped">
+              <thead class="thead-light">
+                <tr class="text-center">
+                  <th scope="col">#</th>
+                  <th scope="col">Tipo</th>
+                  <th scope="col">Razon Social</th>
+                  <th scope="col">Email</th>
+                  <th scope="col">Direccion</th>
+                  <th scope="col">CUIT</th>
+                  <th scope="col">Telefono</th>
+                  <th scope="col">Fecha de Inicio</th>
+                  <th scope="col">ACCION</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let cliente of clientes" class="text-center">
+                  <td>{{cliente.id}}</td>
+                  <td>{{cliente.tipo | uppercase}}</td>
+                  <!--<td>{{cliente.img}}</td>-->
+                  <td>{{cliente.razonSocial | uppercase}}</td>
+                  <td>{{cliente.email}}</td>
+                  <td>{{cliente.direccion}}</td>
+                  <td>{{cliente.cuit}}</td>
+                  <td>{{cliente.telefono}}</td>
+                  <td>{{cliente.fechaDeInicio | date:'mediumDate'}}</td>
+                  <td>
+                      <button (click)="Editar(cliente)" class="btn btn-sm btn-warning">
+                        <i id="myicon1" class="fa fa-edit"></i> Editar</button>
+                      <button (click)="Delete(cliente)" class="btn btn-sm btn-danger">
+                        <i id="myicon2" class="fa fa-remove"></i> Borrar</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <mat-paginator [length]="15"
+            [pageSize]="5"
+            [pageSizeOptions]="[5, 10, 25, 100]"
+            aria-label="Select page">
+          </mat-paginator>
+      </div>
+  </div>
+</div>
+</mat-grid-tile>
+</mat-grid-list>
+
+
 
 <ng-template #content let-modal>
   <div class="modal-header">

@@ -19,7 +19,6 @@ export class EditarBienComponent implements OnInit{
       esEspecial: false,
       garantia: 0,
       porcentajeCarg: 0,
-      impuesto: 0,
       clientes: [],
       impuestos: []
     }

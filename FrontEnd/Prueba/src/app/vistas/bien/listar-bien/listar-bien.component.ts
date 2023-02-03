@@ -12,13 +12,16 @@ import { Router } from '@angular/router';
 })
 export class ListarBienComponent implements OnInit {
 
-  bien: Bien[] = [];
+  bien!: Bien[];
 
   cliente: Cliente[] = [];
 
-  constructor(private service: BienService, private clienteService: ClienteService, private router:Router) { }
+  constructor(
+    private service: BienService,
+    private clienteService: ClienteService,
+    private router:Router) { }
 
-  ngOnInit(){
+  ngOnInit(): void{
     this.service.getBien().subscribe(data=>{
       this.bien=data;
     })

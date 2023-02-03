@@ -12,36 +12,23 @@ import { Pedido_Impuesto } from 'src/app/models/pedido_impuesto';
 })
 export class CrearDetalleComponent implements OnInit{
 
-  detalle:Pedido_Detalle;
+  detalle!:Pedido_Detalle;
   constructor(
-    private router:Router, 
+    private router:Router,
     private service:DetalleService){
-    this.detalle = {
-      cant: 0,
-      precioUnitario: 0,
-      precioTotal: 0,
-      descuento: 0,
-      garantia: 0,
-      porcGarantia: 0,
-      cargoSoporte: 0,
-      producto: new Bien(1,"",1,1,false,1,1,1),
-      servicio: new Bien(1,"",1,1,true,1,1,1),
-      impuestoPedido: new Pedido_Impuesto(1,1),
-    }
-
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
   }
 
-  Crear(detalle:Pedido_Detalle){
+  Crear(detalle:Pedido_Detalle): void{
     this.service.crearDetalle(detalle).subscribe(data=>{
       alert("Se agrego con exito!!!");
       this.router.navigate(["listar-detalle"]);
     })
   }
 
-  Volver(){
+  Volver(): void{
     this.router.navigate(["listar-detalle"])
   }
 

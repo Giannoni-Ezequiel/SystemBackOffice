@@ -6,6 +6,8 @@ import { DetalleService } from 'src/app/service/detalle.service';
 import { Pedido_Detalle } from 'src/app/models/pedido_detalle';
 import { Cliente } from 'src/app/models/cliente';
 import { MatTableDataSource } from '@angular/material/table';
+import { BienService } from 'src/app/service/bien.service';
+import { Bien } from 'src/app/models/bien';
 
 @Component({
   selector: 'app-listar-pedido',
@@ -19,15 +21,28 @@ export class ListarPedidoComponent implements OnInit{
   cliente: Cliente[] = [
     new Cliente('','','','','','','','','', new Date)
   ];
+  bien: Bien;
   constructor(
-    private service1:PedidoService, 
+    private service1:PedidoService,
     private service2:DetalleService,
+    private service3:BienService,
     private router:Router,
     )
-    {}
+    {
+      this.bien = {
+        nombre: "",
+        costo: 0,
+        cargoSoporte: 0,
+        esEspecial: false,
+        garantia: 0,
+        porcentajeCarg: 0,
+        clientes: [],
+        impuestos: []
+      }
+    }
   dataSource: any;
   ngOnInit(){
-   
+
     this.service1.getPedido().subscribe(data=>{
       this.pedido=data;
       this.service2.getDetalle().subscribe(data=>{
@@ -35,6 +50,12 @@ export class ListarPedidoComponent implements OnInit{
       })
     })
     this.dataSource = new MatTableDataSource(this.cliente);
+  }
+  CargarDetalle(bien:Bien){
+    this.service3.crearBien(bien).subscribe(data=>{
+      alert("Se agrego con exito!!!");
+      this.router.navigate(["crear-bien"]);
+    })
   }
 
   filtrar(event: Event) {

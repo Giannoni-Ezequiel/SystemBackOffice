@@ -35,11 +35,11 @@
                   <tr *ngFor="let detalle of detalle" class="text-center">
                     <td>{{detalle.id}}</td>
                     <td>{{detalle.cant}}</td>
-                    <td>{{detalle.precioUnitario}}</td>
-                    <td>{{detalle.precioTotal}}</td>
-                    <td>{{detalle.descuento}}</td>
+                    <td>{{detalle.precioUnitario | currency}}</td>
+                    <td>{{detalle.precioTotal | currency}}</td>
+                    <td>{{detalle.descuento | percent}}</td>
                     <td>{{detalle.garantia}}</td>
-                    <td>{{detalle.porcGarantia}}</td>
+                    <td>{{detalle.porcGarantia | percent}}</td>
                     <td>{{detalle.cargoSoporte}}</td>
                     <td>
                         <button (click)="Editar(detalle)" class="btn btn-warning">Editar</button>

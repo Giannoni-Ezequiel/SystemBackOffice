@@ -11,26 +11,21 @@ import { Bien } from 'src/app/models/bien';
 })
 export class CrearImpuestoComponent implements OnInit{
 
-  impuesto:Impuesto;
+  impuesto!:Impuesto;
   constructor(private router:Router, private service:ImpuestoService){
-    this.impuesto = {
-      porcentaje: 0,
-      nombre: '',
-      bien: new Bien(1,'',1,1,true,1,1,1),
-    }
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
   }
 
-  Crear(impuesto:Impuesto){
+  Crear(impuesto:Impuesto): void{
     this.service.crearImpuesto(impuesto).subscribe(data=>{
       alert("Se agrego con exito!!!");
       this.router.navigate(["listar-impuesto"]);
     })
   }
 
-  Volver(){
+  Volver(): void{
     this.router.navigate(["listar-impuesto"])
   }
 }

@@ -11,14 +11,14 @@
     </div>
     <div class="form">
       <form>
-        <form (ngSubmit)="onLogin()" novalidate>
+        <form action=""><!-- Email input -->
           <!-- Email input -->
           <div class="form-outline mb-4">
-            <input type="nombreUsuario" id="login" class="form-control" placeholder="login" formControlName="usuario" [(ngModel)]="nombreUsuario" required/>
+            <input type="nombreUsuario" id="login" class="form-control" placeholder="login" formControlName="nombreUsuario" [(ngModel)]="usuario.nombreUsuario" required/>
           </div>
             <!-- Password input -->
           <div class="form-outline mb-4">
-            <input type="password" id="form2Example2" class="form-control" placeholder="password" formControlName="password" [(ngModel)]="password" required/> <!-- -->
+            <input type="password" id="form2Example2" class="form-control" placeholder="password" formControlName="password" [(ngModel)]="usuario.password" required/> <!-- -->
           </div>
           <div class="row mb-4">
             <div class="col d-flex justify-content-center">
@@ -35,6 +35,7 @@
           </div>
             <!-- Submit button -->
           <button type="button" class="btn btn-primary btn-block mb-4" (click)="login()">Ingresar</button>
+
         </form>
       </form>
     </div>

@@ -17,7 +17,7 @@ export class ClienteService {
     return this.http.get<Cliente[]>(this.Url);
   }
   crearCliente(cliente:Cliente){
-    return this.http.post<Cliente>(this.Url,cliente);
+    return this.http.post<Cliente>(this.Url+"/add",cliente);
   }
   getClienteId(id:any){
     return this.http.get<Cliente>(this.Url+"/"+id);

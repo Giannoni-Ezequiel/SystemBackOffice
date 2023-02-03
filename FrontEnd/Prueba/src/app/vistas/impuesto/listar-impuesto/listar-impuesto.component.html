@@ -20,18 +20,17 @@
             <table class="table table-bordered table-striped">
               <thead class="thead-light">
                 <tr class="text-center">
-                    <th scope="col">#</th>
-                    <th scope="col">Porcentaje</th>
-                    <th scope="col">Nombre</th>
-                    <th scope="col">Bien</th>
-                    <th scope="col">ACCION</th>
+                    <th scope="col-1">#</th>
+                    <th scope="col-4">Porcentaje</th>
+                    <th scope="col-4">Nombre</th>
+                    <th scope="col-3">ACCION</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr *ngFor="let impuesto of impuesto" class="text-center">
-                    
+
                     <td>{{impuesto.id}}</td>
-                    <td>{{impuesto.porcentaje}}</td>
+                    <td>{{impuesto.porcentaje | percent}}</td>
                     <td>{{impuesto.nombre}}</td>
                     <!--<td>{{impuesto.bien.id}}</td>-->
                     <td>

@@ -20,18 +20,20 @@ export class ListarComponent implements OnInit{
     private modalService: NgbModal,
     ){}
 
-  ngOnInit(){
+  ngOnInit(): void{
     this.service.getClientes().subscribe(data=>{
       this.clientes=data;
     })
   }
-
+  Listar(): void{
+    this.router.navigate(["listar"])
+  }
   Editar(cliente:Cliente):void{
     localStorage.setItem("id",cliente.id!.toString());
     this.router.navigate(["editar"]);
   }
 
-  Delete(cliente:Cliente){
+  Delete(cliente:Cliente): void{
     this.service.deleteCliente(cliente).subscribe(data=>{
       this.clientes=this.clientes?.filter(c=>c!==cliente);
       alert("Cliente eliminado!!!")
@@ -39,7 +41,7 @@ export class ListarComponent implements OnInit{
     })
   }
 
-  Volver(){
+  Volver(): void{
     this.router.navigate(["proyecto"])
   }
   Crear(){

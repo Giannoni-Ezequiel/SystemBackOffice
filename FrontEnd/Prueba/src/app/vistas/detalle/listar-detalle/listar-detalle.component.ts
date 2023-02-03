@@ -10,10 +10,14 @@ import { Pedido_Detalle } from 'src/app/models/pedido_detalle';
 })
 export class ListarDetalleComponent implements OnInit{
 
-  detalle:Pedido_Detalle[] = [];
-  constructor(private service:DetalleService, private router:Router){}
+  detalle!:Pedido_Detalle[];
 
-  ngOnInit(){
+  constructor(
+    private service:DetalleService,
+    private router:Router)
+    {}
+
+  ngOnInit(): void{
     this.service.getDetalle().subscribe(data=>{
       this.detalle=data;
     })

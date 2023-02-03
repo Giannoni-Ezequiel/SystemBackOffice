@@ -1,4 +1,4 @@
-<!--<div class="container col-md-6">
+<div class="container col-md-6">
   <br>
     <div class="card">
         <div class="card-header">
@@ -36,7 +36,11 @@
                   <input [(ngModel)]="cliente.telefono" name="telefono" type="text" class="form-control">
                 </div>
                 <div class="form-group">
-                  <label for="">Fecha de Inicio:</label>
+                  <label for="">Direccion:</label>
+                  <input [(ngModel)]="cliente.direccion" name="direccion" type="text" class="form-control">
+                </div>
+                <div class="form-group">
+                  <label for="">Fecha de Inicio:</label><br>
                   <input matInput [matDatepicker]="picker" [(ngModel)]="cliente.fechaDeInicio" name="fechaDeInicio" type="date" class="form-control"
                   style="display:inline; width:300px;">
 
@@ -49,7 +53,7 @@
             </form>
         </div>
     </div>
-</div>-->
+</div>
 <ng-template #content let-modal>
   <div class="modal-header">
     <h4 class="modal-title" id="modal-basic-title">Nueva Persona</h4>
