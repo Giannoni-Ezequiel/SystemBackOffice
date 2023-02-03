@@ -4,50 +4,77 @@ import com.Crisalis.demo.model.DTO.BienDTO;
 import com.Crisalis.demo.model.DTO.ClienteDTO;
 import com.Crisalis.demo.model.DTO.PedidoDTO;
 import com.Crisalis.demo.model.Pedido;
+import com.Crisalis.demo.repository.ClienteRepository;
+import com.Crisalis.demo.repository.PedidoDetalleRepository;
 import com.Crisalis.demo.repository.PedidoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class PedidoService {
 
     private final PedidoRepository pedidoRepository;
+    private final PedidoDetalleRepository pedidoDetalleRepository;
+    private final ClienteRepository clienteRepository;
     @Autowired
-    public PedidoService(PedidoRepository pedidoRepository){
+    public PedidoService(PedidoRepository pedidoRepository, PedidoDetalleRepository pedidoDetalleRepository,
+                         ClienteRepository clienteRepository)
+    {
         this.pedidoRepository = pedidoRepository;
+        this.pedidoDetalleRepository = pedidoDetalleRepository;
+        this.clienteRepository = clienteRepository;
     }
-
-
     //CRUD
-    public List<Pedido> listar() {
-        return this.pedidoRepository.findAll();
+    public List<PedidoDTO> findAll()
+    {
+        return this.pedidoRepository
+                .findAll()
+                .stream()
+                .map(Pedido::toDTO)
+                .collect(Collectors.toList());
     }
-    public Pedido listarId(int id) {
-        Optional<Pedido> pedido =  this.pedidoRepository.findById(id);
-        Pedido Retornar = null;
-        if(pedido.isPresent()){
-            Retornar = pedido.get();
+    /*public List<PedidoDTO> findByClient(String identification)
+    {
+        List<PedidoDTO> pedidoDTOLista = new ArrayList<>();
+        List<Pedido> pedidoLista = this.pedidoRepository.findByClient(this.clienteRepository
+                .findByIdenfication(identification).orElseThrow(
+                        () -> new RuntimeException("Cliente no encontrado")
+                ));
+        for(Pedido pedido : pedidoLista)
+        {
+            pedidoDTOLista.add(pedido.toDTO());
         }
-        return Retornar;
-    }
-    public void add(PedidoDTO pedido) {
-        this.pedidoRepository.save(pedido.toPedidoEntity());
-    }
-    public Pedido edit(PedidoDTO pedido) {
+        return pedidoDTOLista;
+    }*/
+
+    public Pedido add(PedidoDTO pedido, List<Integer> pedidoDetalleId, Integer clienteId)
+    {
+        for(Integer iterator : pedidoDetalleId){
+            pedido.getPedido_detalle().add(this.pedidoDetalleRepository.findById(iterator).orElseThrow(
+
+                    () -> new RuntimeException("Detalle Orden no encontrado")
+            ));
+        }
+        /*pedido.setCliente(this.clienteRepository.findByIdenficationNumber(clienteId).orElseThrow(
+                () -> new RuntimeException("Cliente no encontrado")
+        ));*/
         return this.pedidoRepository.save(pedido.toPedidoEntity());
     }
-    public Pedido delete(int id) {
+    public void delete(int id)
+    {
         this.pedidoRepository.deleteById(id);
-        return null;
     }
+
 
     //Logica de Negocio
 
     public Pedido getHistorialPedidos(ClienteDTO cliente, BienDTO servicio, BienDTO producto, PedidoDTO fecha) {
-        Pedido Pedidos[] = listar().toArray(new Pedido[0]);
+
         return null;
     }
 

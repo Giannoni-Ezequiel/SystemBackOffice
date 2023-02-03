@@ -11,9 +11,9 @@ import java.util.List;
 @Repository
 public interface ImpuestoRepository extends JpaRepository<Impuesto, Integer> {
 
-    public void deleteById(int id);
+    void deleteById(int id);
     Impuesto save(Impuesto imp);
     void delete(Impuesto imp);
 
-    public List<Impuesto> findAll();
+    List<Impuesto> findAll();
 }

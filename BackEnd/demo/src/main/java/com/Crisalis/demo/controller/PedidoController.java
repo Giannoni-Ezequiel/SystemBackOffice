@@ -20,26 +20,27 @@ public class PedidoController {
         this.pedidoService = pedidoService;
     }
 
-    @GetMapping("")
-    public List<Pedido> listar(){
-        return this.pedidoService.listar();
+    @GetMapping(value = "list", produces = MediaType.APPLICATION_JSON_VALUE)
+    public List<PedidoDTO> listar()
+    {
+        return this.pedidoService.findAll();
     }
+    /*@GetMapping(value = "get_by_id", produces = MediaType.APPLICATION_JSON_VALUE)
+    public PedidoDTO findByCliente(@RequestParam String identification)
+    {
+        return (PedidoDTO) this.pedidoService.findByCliente(identification);
+    }*/
     @PostMapping(value = "add", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public void add(@RequestBody PedidoDTO pedido){
-        this.pedidoService.add(pedido);
+    public Pedido add(@RequestBody PedidoDTO pedido, @RequestParam List<Integer> pedidoDetalleId, Integer clienteId)
+    {
+        return this.pedidoService.add(pedido, pedidoDetalleId, clienteId);
     }
-    @PutMapping(value = {"{id}"}, consumes = MediaType.APPLICATION_JSON_VALUE)
-    public Pedido editar(@RequestBody PedidoDTO pedido,@PathVariable("id")Integer id){
-        pedido.setId(id);
-        return this.pedidoService.edit(pedido);
-    }
+
     @DeleteMapping(path = {"/{id}"})
-    public Pedido delete(@PathVariable("id")int id){
-        return this.pedidoService.delete(id);
+    public void delete(@PathVariable("id")int id)
+    {
+        this.pedidoService.delete(id);
     }
-    @GetMapping(path = {"/{id}"})
-    public Pedido listarId(@PathVariable("id")int id){
-        return this.pedidoService.listarId(id);
-    }
+
 
 }

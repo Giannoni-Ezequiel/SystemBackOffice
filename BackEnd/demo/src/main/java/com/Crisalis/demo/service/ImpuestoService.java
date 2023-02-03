@@ -15,10 +15,12 @@ public class ImpuestoService {
     private final ImpuestoRepository impuestoRepository;
 
     @Autowired
-    public ImpuestoService(ImpuestoRepository impuestoRepository) {
+    public ImpuestoService(ImpuestoRepository impuestoRepository)
+    {
         this.impuestoRepository = impuestoRepository;
     }
-    public List<Impuesto> listar() {
+    public List<Impuesto> listar()
+    {
         return this.impuestoRepository.findAll();
     }
 
@@ -31,15 +33,17 @@ public class ImpuestoService {
         return Retornar;
     }
 
-    public void add(ImpuestoDTO imp) {
-            this.impuestoRepository.save(imp.toImpuestoEntity());
-    }
-    public Impuesto edit(ImpuestoDTO imp) {
+    public Impuesto add(ImpuestoDTO imp)
+    {
         return this.impuestoRepository.save(imp.toImpuestoEntity());
     }
-    public Impuesto delete(int id) {
+    public void edit(ImpuestoDTO imp)
+    {
+        this.impuestoRepository.save(imp.toImpuestoEntity());
+    }
+    public void delete(int id)
+    {
         this.impuestoRepository.deleteById(id);
-        return null;
     }
     /*
     private Boolean checkImpuesto(ImpuestoDTO impuestoDTO, boolean check){

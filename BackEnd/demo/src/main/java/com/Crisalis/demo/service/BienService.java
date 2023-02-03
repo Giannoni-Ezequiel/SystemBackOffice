@@ -2,14 +2,15 @@ package com.Crisalis.demo.service;
 
 import com.Crisalis.demo.model.Bien;
 import com.Crisalis.demo.model.DTO.BienDTO;
+import com.Crisalis.demo.model.Servicio;
 import com.Crisalis.demo.repository.IBienRepository;
 import com.Crisalis.demo.repository.ProductoRepository;
 import com.Crisalis.demo.repository.ServicioRepository;
+import com.sun.istack.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class BienService {
@@ -26,39 +27,44 @@ public class BienService {
         this.productoRepository = productoRepository;
         this.servicioRepository = servicioRepository;
     }
-    public List<Bien>listar() {
+    public List<Servicio>listar() {
         return this.bienRepository.findAll();
     }
 
-    public Bien listarId(int id) {
+    /*public Bien listarId(int id) {
         Optional<Bien> bien = this.bienRepository.findById(id);
         Bien Retornar = null;
         if(bien.isPresent()){
             Retornar = bien.get();
         }
         return Retornar;
+    }*/
+
+    public BienDTO findById(int id)
+    {
+        return this.bienRepository.findById(id);/*
+                .orElseThrow(
+                        () -> new UnauthorizedException("No existe.")
+                ).toDTO();*/
     }
 
-    public void add(BienDTO bien) {
+    public Bien add(BienDTO bien) {
         if(bien.getTipo().equals("Producto")){
-            this.productoRepository.save(bien.toProductoEntity());
-        }if(bien.getTipo().equals("Servicio")){
-            this.servicioRepository.save(bien.toServicioEntity());
-        } else {
-            this.servicioRepository.save(null);
+            return this.productoRepository.save(bien.toProductEntity());
+        }else if(bien.getTipo().equals("Servicio")){
+            return this.servicioRepository.save(bien.toServiceEntity());
         }
-    }
-    public Bien edit(BienDTO bien) {
-        if(bien.getTipo().equals("Producto")){
-           return  this.productoRepository.save(bien.toProductoEntity());
-        }if(bien.getTipo().equals("Servicio")){
-            return this.servicioRepository.save(bien.toServicioEntity());
-        } else {
-            return this.servicioRepository.save(null);
-        }
-    }
-    public Bien delete(int id) {
-        this.bienRepository.deleteById(id);
         return null;
+    }
+    /*@NotNull
+    public void edit(BienDTO bien) {
+        if(bien.getTipo().equals("Producto")){
+           this.productoRepository.edit(bien.toProductEntity());
+        } else if (bien.getTipo().equals("Servicio")) {
+            this.servicioRepository.edit(bien.toServiceEntity());
+        }
+    }*/
+    public void delete(int id) {
+        this.bienRepository.deleteById(id);
     }
 }

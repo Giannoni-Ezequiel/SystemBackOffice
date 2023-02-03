@@ -26,17 +26,19 @@ public class ImpuestoController {
         return this.impuestoService.listar();
     }
     @PostMapping(value = "add", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public void add(@RequestBody ImpuestoDTO imp){
-        this.impuestoService.add(imp);
+    public Impuesto add(@RequestBody ImpuestoDTO imp)
+    {
+        return this.impuestoService.add(imp);
     }
     @PutMapping(value = {"{id}"}, consumes = MediaType.APPLICATION_JSON_VALUE)
-    public Impuesto editar(@RequestBody ImpuestoDTO imp,@PathVariable("id")Integer id){
+    public void editar(@RequestBody ImpuestoDTO imp,@PathVariable("id")Integer id){
         imp.setId(id);
-        return this.impuestoService.edit(imp);
+        this.impuestoService.edit(imp);
     }
     @DeleteMapping(path = {"/{id}"})
-    public Impuesto delete(@PathVariable("id")int id){
-        return this.impuestoService.delete(id);
+    public void delete(@PathVariable("id")int id)
+    {
+         this.impuestoService.delete(id);
     }
     @GetMapping(path = {"/{id}"})
     public Impuesto listarId(@PathVariable("id")int id){

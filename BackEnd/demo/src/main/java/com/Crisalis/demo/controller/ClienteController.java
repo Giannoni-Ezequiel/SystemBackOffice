@@ -22,24 +22,29 @@ public class ClienteController {
         this.clienteService = clienteService;
     }
     @GetMapping("")
-    public List<Cliente>listar(){
+    public List<Cliente>listar()
+    {
         return this.clienteService.listar();
-    };
-    @PostMapping(value = "add", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public void add(@RequestBody ClienteDTO cliente){
-        this.clienteService.add(cliente);
-    }
-    @PutMapping(value = {"{id}"}, consumes = MediaType.APPLICATION_JSON_VALUE)
-    public Cliente editar(@RequestBody ClienteDTO cliente,@PathVariable("id")Integer id){
-        cliente.setId(id);
-        return this.clienteService.edit(cliente);
-    }
-    @DeleteMapping(path = {"/{id}"})
-    public Cliente delete(@PathVariable("id")Integer id){
-        return this.clienteService.delete(id);
     }
     @GetMapping(path = {"/{id}"})
-        public Cliente listarId(@PathVariable("id")Integer id){
-            return clienteService.listarId(id);
-        }
+    public Cliente listarId(@PathVariable("id")Integer id)
+    {
+        return clienteService.listarId(id);
+    }
+    @PostMapping(value = "add", consumes = MediaType.APPLICATION_JSON_VALUE)
+    public Cliente add(@RequestBody ClienteDTO cliente)
+    {
+      return this.clienteService.add(cliente);
+    }
+    @PutMapping(value = {"{id}"}, consumes = MediaType.APPLICATION_JSON_VALUE)
+    public void editar(@RequestBody ClienteDTO cliente,@PathVariable("id")Integer id){
+        cliente.setId(id);
+         this.clienteService.edit(cliente);
+    }
+    @DeleteMapping(path = {"/{id}"})
+    public void delete(@PathVariable("id")Integer id)
+    {
+        this.clienteService.delete(id);
+    }
+
 }

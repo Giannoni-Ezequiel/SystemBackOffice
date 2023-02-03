@@ -9,9 +9,9 @@ import java.util.List;
 
 @Repository
 public interface PedidoDetalleRepository extends JpaRepository<Pedido_detalle, Integer> {
-    public void deleteById(int id);
+     void deleteById(int id);
     Pedido_detalle save(Pedido_detalle detalle);
     void delete(Pedido_detalle detalle);
-
-    public List<Pedido_detalle> findAll();
+    /*void edit(Pedido_detalle detalle);*/
+    List<Pedido_detalle> findAll();
 }

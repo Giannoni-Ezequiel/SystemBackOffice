@@ -9,25 +9,26 @@ import java.math.BigDecimal;
 
 @Getter
 @Setter
+@ToString
 @NoArgsConstructor
 @AllArgsConstructor
 public class BienDTO {
 
     @JsonProperty("id")
-    private Integer id;
+    public Integer id;
     @JsonProperty("tipo")
-    private String tipo;
+    public String tipo;
     @JsonProperty("nombre")
-    private String bien_Nombre;
+    public String bien_Nombre;
     @JsonProperty("costo")
-    private BigDecimal bien_Costo;
+    public BigDecimal bien_Costo;
     @JsonProperty("impuesto")
-    private BigDecimal prod_Impuesto;
+    public BigDecimal prod_Impuesto;
     @JsonProperty("porcentajeGarantia")
-    private Double prod_PorcentajeGarantia;
+    public BigDecimal prod_PorcentajeGarantia;
 
-    public Producto toProductoEntity(){
-        return new Producto(this.bien_Nombre, this.bien_Costo,
+    public Producto toProductEntity(){
+        return new Producto(this.tipo, this.bien_Nombre, this.bien_Costo,
                 this.prod_Impuesto, this.prod_PorcentajeGarantia);
     }
     @JsonProperty("cargoSoporte")
@@ -35,8 +36,8 @@ public class BienDTO {
     @JsonProperty("servicioEspecial")
     private Boolean serv_ServicioEspecial;
 
-    public Servicio toServicioEntity(){
-        return new Servicio(this.bien_Nombre, this.bien_Costo, this.serv_CargoSoporte,
+    public Servicio toServiceEntity(){
+        return new Servicio(this.tipo, this.bien_Nombre, this.bien_Costo, this.serv_CargoSoporte,
                  this.serv_ServicioEspecial);
     }
 }

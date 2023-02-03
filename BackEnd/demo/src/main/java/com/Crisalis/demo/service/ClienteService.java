@@ -40,20 +40,26 @@ public class ClienteService {
         return Retornar;
     }
 
-    public void add(ClienteDTO c) {
+    public Cliente add(ClienteDTO c) {
         if(c.getTipo().equals("Persona")){
-            this.personRepository.save(c.toPersonEntity());
+           return this.personRepository.save(c.toPersonEntity());
         } else {
-            this.empresaRepository.save(c.toEmpresaEntity());}
+           return this.empresaRepository.save(c.toEmpresaEntity());
+            }
         }
         //return this.clienteRepository.save(c);
 
-    public Cliente edit(ClienteDTO c) {
-        return this.clienteRepository.save(c.toPersonEntity());
+    public void edit(ClienteDTO c)
+    {
+        if(c.getTipo().equals("Persona")){
+             this.personRepository.save(c.toPersonEntity());
+        } else {
+            this.empresaRepository.save(c.toEmpresaEntity());
+        }
     }
-    public Cliente delete(int id) {
+    public void delete(int id)
+    {
         this.clienteRepository.deleteById(id);
-        return null;
     }
 
     /*@Override

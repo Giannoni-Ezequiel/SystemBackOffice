@@ -36,28 +36,25 @@ public class UsuarioController {
     public List<UserDTO> getAllUsers(){
         return this.usuarioService.getListAllUsersInBD();
     }
-
-    @GetMapping("")
-    public List<Usuario>listar(){
-        return this.usuarioService.listar();
-    }
-
-    @PostMapping(value = "add", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public void add(@RequestBody UserDTO user){
-        this.usuarioService.add(user);
-    }
-    @PutMapping(value = "{id}", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public Usuario editar(@RequestBody UserDTO user, @PathVariable("id")Integer id){
-        user.setId(id);
-        return this.usuarioService.edit(user);
-    }
-    @DeleteMapping(path = {"/{id}"})
-    public Usuario delete(@PathVariable("id")Integer id){
-        return this.usuarioService.delete(id);
-    }
     @GetMapping(path = {"/{id}"})
     public Usuario listarId(@PathVariable("id")Integer id){
         return this.usuarioService.listarId(id);
     }
+    @PostMapping(value = "add", consumes = MediaType.APPLICATION_JSON_VALUE)
+    public Usuario add(@RequestBody UserDTO user)
+    {
+        return this.usuarioService.add(user);
+    }
+    @PutMapping(value = "{id}", consumes = MediaType.APPLICATION_JSON_VALUE)
+    public void editar(@RequestBody UserDTO user, @PathVariable("id")Integer id){
+        user.setId(id);
+        this.usuarioService.edit(user);
+    }
+    @DeleteMapping(path = {"/{id}"})
+    public void delete(@PathVariable("id")Integer id)
+    {
+        this.usuarioService.delete(id);
+    }
+
 
 }

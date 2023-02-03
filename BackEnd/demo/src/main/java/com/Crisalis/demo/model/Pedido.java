@@ -1,12 +1,11 @@
 package com.Crisalis.demo.model;
 
+import com.Crisalis.demo.model.DTO.PedidoDTO;
 import lombok.*;
-//import com.Crisalis.demo.model.Estado;
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -16,6 +15,7 @@ import java.util.Set;
 @ToString
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 public class Pedido {
 
     @Id
@@ -61,7 +61,8 @@ public class Pedido {
     //List<Pedido_detalle> lista = new ArrayList<Pedido_detalle> ();
 
     public Pedido(Integer ord_comprobante, LocalDate ord_fecha, BigDecimal ord_TotalPedido, String ord_NomEmpEmisora,
-                  Double ord_DescuentoPorcent, BigDecimal ord_DescuentoTotal, Estado estado, Cliente cliente) {
+                  Double ord_DescuentoPorcent, BigDecimal ord_DescuentoTotal, Estado estado,
+                  Set<Pedido_detalle> pedido_detalle, Cliente cliente) {
         this.ord_comprobante = ord_comprobante;
         this.ord_fecha = ord_fecha;
         this.ord_TotalPedido = ord_TotalPedido;
@@ -69,6 +70,24 @@ public class Pedido {
         this.ord_DescuentoPorcent = ord_DescuentoPorcent;
         this.ord_DescuentoTotal = ord_DescuentoTotal;
         this.estado = estado;
+        this.pedido_detalle = pedido_detalle;
         this.cliente = cliente;
     }
+
+    public PedidoDTO toDTO()
+    {
+        return
+                PedidoDTO
+                        .builder()
+                        .ord_comprobante(this.ord_comprobante)
+                        .ord_fecha(this.ord_fecha)
+                        .ord_TotalPedido(this.ord_TotalPedido)
+                        .ord_DescuentoPorcent(this.ord_DescuentoPorcent)
+                        .ord_DescuentoTotal(this.ord_DescuentoTotal)
+                        .estado(this.estado)
+                        .pedido_detalle(this.pedido_detalle)
+                        .cliente(this.cliente)
+                        .build();
+    }
+
 }

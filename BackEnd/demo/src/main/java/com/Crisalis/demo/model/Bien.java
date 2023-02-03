@@ -1,10 +1,13 @@
 package com.Crisalis.demo.model;
 
+import com.Crisalis.demo.model.DTO.BienDTO;
 import lombok.*;
 import org.hibernate.annotations.DiscriminatorOptions;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
@@ -28,7 +31,7 @@ public abstract class Bien {
             generator = "bien_sequence"
     )
     @Column(name = "ID")
-    protected Integer bien_ID;
+    public Integer bien_ID;
     @Column(name = "Nombre")
     public String bien_Nombre;
     @Column(name = "Costo")
@@ -63,13 +66,13 @@ public abstract class Bien {
             }
     )
     private List<Cliente> clienteList = new ArrayList<>();*/
-    @ManyToOne(
+      /*@ManyToOne(
             fetch = FetchType.EAGER
             //optional = false No puede existir un detalle sin que este en un pedido
     )
     @JoinColumn(name = "cliente_fk")
     public Cliente cliente;
-    /*
+
     @OneToMany(
             fetch = FetchType.EAGER,
             cascade = CascadeType.ALL //no altere el orden de los inserts
@@ -78,19 +81,28 @@ public abstract class Bien {
                                                                 // no cuenta con ordenamiento
 
  */
-    protected Bien() {}
-
-    protected Bien(Integer bien_ID, String bien_Nombre, BigDecimal bien_Costo, Impuesto impuesto, Cliente cliente) {
+    public Bien(Integer bien_ID, String bien_Nombre, BigDecimal bien_Costo, List<Integer> imp_ID) {
         this.bien_ID = bien_ID;
         this.bien_Nombre = bien_Nombre;
         this.bien_Costo = bien_Costo;
-        this.impuesto = impuesto;
-        this.cliente = cliente;
+        List<Integer> imp = new ArrayList<>();
+        //this.cliente = cliente;
+    }
+    public Bien(Integer bien_ID,String bien_Nombre, BigDecimal bien_Costo)
+    {
+        this.bien_ID = bien_ID;
+        this.bien_Nombre = bien_Nombre;
+        this.bien_Costo = bien_Costo;
+    }
+    public Bien(String bien_Nombre, BigDecimal bien_Costo)
+    {
+        this.bien_Nombre = bien_Nombre;
+        this.bien_Costo = bien_Costo;
+    }
+    public Bien() {
+
     }
 
-    public Bien(String bien_nombre, BigDecimal bien_costo) {
-
-    }
-
+    //public abstract BienDTO toDTO();
     public abstract BigDecimal calcularCosto();
 }

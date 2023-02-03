@@ -30,7 +30,7 @@ public abstract class Cliente {
             generator = "cliente_sequence"
     )
     @Column(name = "id")
-    protected Integer id;
+    public Integer id;
     @Column(name = "direccion")
     public String direccion;
     @Column(name = "telefono")

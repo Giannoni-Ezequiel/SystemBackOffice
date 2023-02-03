@@ -15,7 +15,7 @@ public class PedidoDetalleController {
 
     private final PedidoDetalleService pedidoDetalleService;
     @Autowired
-    public PedidoDetalleController(PedidoDetalleService pedidoDetalleService)
+    private PedidoDetalleController(PedidoDetalleService pedidoDetalleService)
     {
         this.pedidoDetalleService = pedidoDetalleService;
     }
@@ -24,22 +24,25 @@ public class PedidoDetalleController {
     public List<Pedido_detalle> listar(){
         return this.pedidoDetalleService.listar();
     }
+    @GetMapping(path = {"/{id}"})
+    public Pedido_detalle listarId(@PathVariable("id")int id)
+    {
+        return this.pedidoDetalleService.listarId(id);
+    }
     @PostMapping(value = "add", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public void add(@RequestBody DetalleDTO detalle){
-        this.pedidoDetalleService.add(detalle);
+    public Pedido_detalle add(@RequestBody DetalleDTO detalle)
+    {
+        return this.pedidoDetalleService.add(detalle);
     }
     @PutMapping(value = {"{id}"}, consumes = MediaType.APPLICATION_JSON_VALUE)
-    public Pedido_detalle editar(@RequestBody DetalleDTO detalle,@PathVariable("id")Integer id){
+    public void editar(@RequestBody DetalleDTO detalle,@PathVariable("id")Integer id){
         detalle.setId(id);
-        return this.pedidoDetalleService.edit(detalle);
+        this.pedidoDetalleService.edit(detalle);
     }
     @DeleteMapping(path = {"/{id}"})
-    public Pedido_detalle delete(@PathVariable("id")int id){
-        return this.pedidoDetalleService.delete(id);
-    }
-    @GetMapping(path = {"/{id}"})
-    public Pedido_detalle listarId(@PathVariable("id")int id){
-        return this.pedidoDetalleService.listarId(id);
+    public void delete(@PathVariable("id")int id)
+    {
+         this.pedidoDetalleService.delete(id);
     }
 
     @PutMapping(value = {"{id}/calcular"}, consumes = MediaType.APPLICATION_JSON_VALUE)

@@ -2,7 +2,6 @@ package com.Crisalis.demo.service;
 
 import com.Crisalis.demo.model.DTO.DetalleDTO;
 import com.Crisalis.demo.model.Pedido_detalle;
-import com.Crisalis.demo.model.Servicio;
 import com.Crisalis.demo.repository.PedidoDetalleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -29,15 +28,15 @@ public class PedidoDetalleService {
         Retornar = Cualquiera.get();}
         return Retornar;
     }
-    public void add(DetalleDTO detalle) {
-        this.pedidoDetalleRepository.save(detalle.toDetalleEntity());
-    }
-    public Pedido_detalle edit(DetalleDTO detalle) {
+    public Pedido_detalle add(DetalleDTO detalle)
+    {
         return this.pedidoDetalleRepository.save(detalle.toDetalleEntity());
     }
-    public Pedido_detalle delete(int id) {
+    public void edit(DetalleDTO detalle) {
+        this.pedidoDetalleRepository.save(detalle.toDetalleEntity());
+    }
+    public void delete(int id) {
         this.pedidoDetalleRepository.deleteById(id);
-        return null;
     }
     //Calculos en DTO para que no guarde en base de datos. Para que cuando se cancele por x razon, no persista.
     public Pedido_detalle calcularSubTotal(){

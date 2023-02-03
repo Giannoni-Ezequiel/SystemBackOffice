@@ -1,22 +1,19 @@
 package com.Crisalis.demo.model.DTO;
 
-import com.Crisalis.demo.model.Cliente;
-import com.Crisalis.demo.model.Empresa;
-import com.Crisalis.demo.model.Estado;
-import com.Crisalis.demo.model.Pedido;
+import com.Crisalis.demo.model.*;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.HashSet;
+import java.util.Set;
 
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 public class PedidoDTO {
 
     @JsonProperty("id")
@@ -37,8 +34,8 @@ public class PedidoDTO {
     private Estado estado;
     @JsonProperty("cliente")
     private Cliente cliente;
-    @JsonProperty("empresa")
-    private Empresa empresa;
+    @JsonProperty("detalle")
+    private Set<Pedido_detalle> pedido_detalle = new HashSet<>();
 
     /*public Pedido toPedidosEntity(){
         return new Pedido(this.ord_comprobante, this.ord_fecha, this.ord_TotalPedido, this.ord_NomEmpEmisora
@@ -47,6 +44,7 @@ public class PedidoDTO {
 
     public Pedido toPedidoEntity(){
         return new Pedido(this.ord_comprobante, this.ord_fecha, this.ord_TotalPedido, this.ord_NomEmpEmisora
-                ,this.ord_DescuentoPorcent, this.ord_DescuentoTotal, this.estado, null);
+                ,this.ord_DescuentoPorcent, this.ord_DescuentoTotal, this.estado, (Set<Pedido_detalle>) this.cliente,
+                (Cliente) this.pedido_detalle);
     }
 }

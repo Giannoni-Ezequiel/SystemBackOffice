@@ -87,14 +87,13 @@ public class UsuarioService {
         return Retornar;
     }
 
-    public void add(UserDTO user) {
-         this.usuarioRepository.save(user.toUsuarioEntity());
+    public Usuario add(UserDTO user) {
+         return this.usuarioRepository.save(user.toUsuarioEntity());
     }
-    public Usuario edit(UserDTO user) {
-        return this.usuarioRepository.save(user.toUsuarioEntity());
+    public void edit(UserDTO user) {
+        this.usuarioRepository.save(user.toUsuarioEntity());
     }
-    public Usuario delete(int id) {
+    public void delete(int id) {
         this.usuarioRepository.deleteById(id);
-        return null;
     }
 }

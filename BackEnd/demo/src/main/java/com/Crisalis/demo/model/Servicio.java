@@ -13,8 +13,6 @@ import java.math.BigDecimal;
 @Getter
 @Setter
 @ToString
-@AllArgsConstructor
-@NoArgsConstructor
 public class Servicio extends Bien implements Serializable {
 
     @Column(name = "CargoSoporte")
@@ -22,6 +20,7 @@ public class Servicio extends Bien implements Serializable {
     @Column(name = "ServicioEspecial")
     private Boolean serv_ServicioEspecial;
 
+    public Servicio(String tipo, String bien_Nombre, BigDecimal bien_Costo, BigDecimal serv_CargoSoporte, Boolean serv_ServicioEspecial){}
     public Servicio(String bien_Nombre, BigDecimal bien_costo, BigDecimal serv_CargoSoporte
             , Boolean serv_ServicioEspecial){
         super(bien_Nombre, bien_costo);
@@ -29,8 +28,19 @@ public class Servicio extends Bien implements Serializable {
         this.serv_ServicioEspecial = serv_ServicioEspecial;
 
     }
+    /*@Override
+    public BienDTO toDTO() {
+        return
+                BienDTO
+                        .builder()
+                        .id(this.bien_ID)
+                        .bien_Nombre(this.bien_Nombre)
+                        .bien_Costo(this.bien_Costo)
+                        .serv_CargoSoporte(this.serv_CargoSoporte)
+                        .serv_ServicioEspecial(this.serv_ServicioEspecial)
+                        .build();
+    }*/
 
-    @Override
     public BigDecimal calcularCosto() {
         return bien_Costo.subtract(serv_CargoSoporte);
     }
