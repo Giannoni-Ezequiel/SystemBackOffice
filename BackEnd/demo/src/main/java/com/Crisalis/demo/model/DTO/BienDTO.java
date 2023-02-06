@@ -32,7 +32,7 @@ public class BienDTO {
 
     public Producto toProductEntity(){
         return new Producto(this.bien_Nombre, this.bien_Costo,
-               this.prod_PorcentajeGarantia, this.impuestoList);
+               this.prod_PorcentajeGarantia);
     }
     @JsonProperty("cargoSoporte")
     private BigDecimal serv_CargoSoporte;

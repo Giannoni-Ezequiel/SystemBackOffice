@@ -32,7 +32,7 @@ public class Servicio extends Bien implements Serializable {
                     @JoinColumn(name = "impuestos_fk")
             }
     )
-    private List<Impuesto> taxList = new ArrayList<>();
+    private List<Impuesto> impuestoList = new ArrayList<>();
 
     public Servicio(String bien_Nombre, BigDecimal bien_Costo, BigDecimal serv_CargoSoporte
             , Boolean serv_ServicioEspecial){

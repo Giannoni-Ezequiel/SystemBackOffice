@@ -31,15 +31,14 @@ public class Producto extends Bien implements Serializable {
                     @JoinColumn(name = "impuestos_fk")
             }
     )
-    private List<Impuesto> taxList = new ArrayList<>();
+    private List<Impuesto> impuestoList = new ArrayList<>();
 
     public Producto(String bien_Nombre, BigDecimal bien_Costo
-                    , BigDecimal prod_PorcentajeGarantia, List<Impuesto> taxList){
+                    , BigDecimal prod_PorcentajeGarantia){
         super(bien_Nombre, bien_Costo);
         this.bien_Nombre = bien_Nombre;
         this.bien_Costo = bien_Costo;
         this.prod_PorcentajeGarantia = prod_PorcentajeGarantia;
-        this.taxList = taxList;
     }
     public Producto(String bien_Nombre, BigDecimal bien_Costo)
     {
@@ -60,6 +59,6 @@ public class Producto extends Bien implements Serializable {
     }*/
 
     public BigDecimal calcularCosto() {
-        return bien_Costo.subtract((BigDecimal) taxList);
+        return bien_Costo.subtract((BigDecimal) impuestoList);
     }
 }

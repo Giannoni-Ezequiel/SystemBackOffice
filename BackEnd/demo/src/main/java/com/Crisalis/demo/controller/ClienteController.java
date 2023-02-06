@@ -23,8 +23,13 @@ public class ClienteController {
     {
         this.clienteService = clienteService;
     }
+    @GetMapping("")
+    public List<Cliente>listar()
+    {
+        return this.clienteService.listar();
+    }
     @GetMapping("/person")
-    public List<Person>listarPersona()
+    public List<Person>listarpersona()
     {
         return this.clienteService.listarPersona();
     }

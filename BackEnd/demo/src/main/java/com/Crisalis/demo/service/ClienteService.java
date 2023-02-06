@@ -27,7 +27,9 @@ public class ClienteService {
         this.personRepository = personRepository;
         this.empresaRepository = empresaRepository;
     }
-
+    public List<Cliente>listar() {
+        return this.clienteRepository.findAll();
+    }
     public List<Person>listarPersona() {
         return this.personRepository.findAll();
     }
