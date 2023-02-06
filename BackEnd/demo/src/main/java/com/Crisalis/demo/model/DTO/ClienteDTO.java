@@ -5,6 +5,8 @@ import com.Crisalis.demo.model.Person;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
 
+import java.time.LocalDate;
+
 @Getter
 @Setter
 @NoArgsConstructor
@@ -30,16 +32,18 @@ public class ClienteDTO {
     @JsonProperty("razon_social")
     private String razonSocial;
     @JsonProperty("cuit")
-    private Integer CUIT;
+    private String CUIT;
 
     @JsonProperty("fecha_de_inicio")
-    private Integer fechadeinicio;
+    private LocalDate fechadeinicio;
+    private Person persona;
 
     public Person toPersonEntity(){
         return new Person(this.nombre, this.apellido, this.DNI ,this.email,this.direccion, this.telefono  );
     }
     public Empresa toEmpresaEntity(){
-        return new Empresa( this.razonSocial, this.CUIT,  this.fechadeinicio, this.email, this.direccion, this.telefono);
+        return new Empresa(this.razonSocial, this.CUIT,  this.fechadeinicio, this.email, this.direccion,
+                this.telefono, this.persona);
     }
 
 }

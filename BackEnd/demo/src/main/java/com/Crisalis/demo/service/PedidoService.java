@@ -1,7 +1,9 @@
 package com.Crisalis.demo.service;
 
+import com.Crisalis.demo.exception.custom.NotFoundException;
 import com.Crisalis.demo.model.DTO.BienDTO;
 import com.Crisalis.demo.model.DTO.ClienteDTO;
+import com.Crisalis.demo.model.DTO.DetalleDTO;
 import com.Crisalis.demo.model.DTO.PedidoDTO;
 import com.Crisalis.demo.model.Pedido;
 import com.Crisalis.demo.repository.ClienteRepository;
@@ -30,13 +32,17 @@ public class PedidoService {
         this.clienteRepository = clienteRepository;
     }
     //CRUD
-    public List<PedidoDTO> findAll()
+    public List<DetalleDTO> findAll()
     {
-        return this.pedidoRepository
-                .findAll()
+        List<Pedido> pedidos = pedidoRepository.findAll();
+        if(pedidos.isEmpty()){
+            throw new NotFoundException("Pedidos no encontrados");
+        }
+        List<DetalleDTO> pedidoDetalleDtoList = pedidos
                 .stream()
-                .map(Pedido::toDTO)
+                .map(pedido -> PedidoDTO.pedidoDetalleToDto(pedido, null))
                 .collect(Collectors.toList());
+        return pedidoDetalleDtoList;
     }
     /*public List<PedidoDTO> findByClient(String identification)
     {
@@ -52,25 +58,33 @@ public class PedidoService {
         return pedidoDTOLista;
     }*/
 
-    public Pedido add(PedidoDTO pedido, List<Integer> pedidoDetalleId, Integer clienteId)
-    {
-        for(Integer iterator : pedidoDetalleId){
+    public Pedido add(PedidoDTO pedido, List<Integer> pedidoDetalleId, Integer clienteId) {
+        for (Integer iterator : pedidoDetalleId) {
             pedido.getPedido_detalle().add(this.pedidoDetalleRepository.findById(iterator).orElseThrow(
 
                     () -> new RuntimeException("Detalle Orden no encontrado")
             ));
         }
+        return null;
+    }
         /*pedido.setCliente(this.clienteRepository.findByIdenficationNumber(clienteId).orElseThrow(
                 () -> new RuntimeException("Cliente no encontrado")
-        ));*/
+        ));
         return this.pedidoRepository.save(pedido.toPedidoEntity());
-    }
-    public void delete(int id)
-    {
-        this.pedidoRepository.deleteById(id);
-    }
+    }*/
+        public void anular (Integer id)
+        {
+            Optional<Pedido> pedido = pedidoRepository.findById(id);
+            if(pedido.isPresent()){
+                Pedido pedidoAnulado = pedido.get();
+                pedidoAnulado.setEstado(false);
+                pedidoRepository.save(pedidoAnulado);
+            } else {
+                throw new NotFoundException("Pedido con ID " +id+" no existe");
+            }
+        }
 
-
+/*
     //Logica de Negocio
 
     public Pedido getHistorialPedidos(ClienteDTO cliente, BienDTO servicio, BienDTO producto, PedidoDTO fecha) {
@@ -84,5 +98,5 @@ public class PedidoService {
 
     public Pedido calcularDescTotales(){
         return null;
-    }
+    }*/
 }

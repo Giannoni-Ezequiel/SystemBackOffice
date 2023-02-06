@@ -2,11 +2,11 @@ package com.Crisalis.demo.model;
 
 import lombok.*;
 
-import javax.persistence.Column;
-import javax.persistence.DiscriminatorValue;
-import javax.persistence.Entity;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @DiscriminatorValue("Producto")
@@ -18,18 +18,28 @@ import java.math.BigDecimal;
 @NoArgsConstructor
 public class Producto extends Bien implements Serializable {
 
-    @Column(name = "Impuesto")
-    private BigDecimal prod_Impuesto;
     @Column(name = "PorcentajeGarantia")
     private BigDecimal prod_PorcentajeGarantia;
 
+    @ManyToMany
+    @JoinTable(
+            name = "bien_impuesto",
+            joinColumns = {
+                    @JoinColumn(name = "bienes_fk")
+            },
+            inverseJoinColumns = {
+                    @JoinColumn(name = "impuestos_fk")
+            }
+    )
+    private List<Impuesto> taxList = new ArrayList<>();
+
     public Producto(String bien_Nombre, BigDecimal bien_Costo
-                    , BigDecimal prod_Impuesto, BigDecimal prod_PorcentajeGarantia){
+                    , BigDecimal prod_PorcentajeGarantia, List<Impuesto> taxList){
         super(bien_Nombre, bien_Costo);
         this.bien_Nombre = bien_Nombre;
         this.bien_Costo = bien_Costo;
-        this.prod_Impuesto = prod_Impuesto;
         this.prod_PorcentajeGarantia = prod_PorcentajeGarantia;
+        this.taxList = taxList;
     }
     public Producto(String bien_Nombre, BigDecimal bien_Costo)
     {
@@ -50,6 +60,6 @@ public class Producto extends Bien implements Serializable {
     }*/
 
     public BigDecimal calcularCosto() {
-        return bien_Costo.subtract(prod_Impuesto);
+        return bien_Costo.subtract((BigDecimal) taxList);
     }
 }

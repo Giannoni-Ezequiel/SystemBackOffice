@@ -1,13 +1,19 @@
 package com.Crisalis.demo.controller;
 
+import com.Crisalis.demo.model.DTO.DetalleDTO;
 import com.Crisalis.demo.model.DTO.PedidoDTO;
 import com.Crisalis.demo.model.Pedido;
+import com.Crisalis.demo.model.Pedido_detalle;
 import com.Crisalis.demo.service.PedidoService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+
+import static org.springframework.http.ResponseEntity.status;
 
 @RestController
 @RequestMapping("pedido")
@@ -21,9 +27,14 @@ public class PedidoController {
     }
 
     @GetMapping(value = "list", produces = MediaType.APPLICATION_JSON_VALUE)
-    public List<PedidoDTO> listar()
+    public ResponseEntity<?> listar()
     {
-        return this.pedidoService.findAll();
+        List<DetalleDTO> pedidoDetalleDtoList = pedidoService.findAll();
+        if(pedidoDetalleDtoList.isEmpty()){
+            return status(HttpStatus.NOT_FOUND)
+                    .body("Pedido no encontrado");
+        }
+        return status(HttpStatus.OK).body(pedidoDetalleDtoList);
     }
     /*@GetMapping(value = "get_by_id", produces = MediaType.APPLICATION_JSON_VALUE)
     public PedidoDTO findByCliente(@RequestParam String identification)
@@ -36,10 +47,11 @@ public class PedidoController {
         return this.pedidoService.add(pedido, pedidoDetalleId, clienteId);
     }
 
-    @DeleteMapping(path = {"/{id}"})
-    public void delete(@PathVariable("id")int id)
+    @DeleteMapping(value = "/{id}")
+    public ResponseEntity<?> anularPedido(@PathVariable(value = "id")Integer id)
     {
-        this.pedidoService.delete(id);
+        this.pedidoService.anular(id);
+        return ResponseEntity.status(HttpStatus.OK).body("Pedido con id "+id+" fue anulado con Exito");
     }
 
 

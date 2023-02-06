@@ -1,11 +1,14 @@
 package com.Crisalis.demo.model.DTO;
 
+import com.Crisalis.demo.model.Impuesto;
 import com.Crisalis.demo.model.Producto;
 import com.Crisalis.demo.model.Servicio;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 
 @Getter
 @Setter
@@ -23,13 +26,13 @@ public class BienDTO {
     @JsonProperty("costo")
     public BigDecimal bien_Costo;
     @JsonProperty("impuesto")
-    public BigDecimal prod_Impuesto;
+    public List<Impuesto> impuestoList = new ArrayList<>();
     @JsonProperty("porcentajeGarantia")
     public BigDecimal prod_PorcentajeGarantia;
 
     public Producto toProductEntity(){
         return new Producto(this.bien_Nombre, this.bien_Costo,
-                this.prod_Impuesto, this.prod_PorcentajeGarantia);
+               this.prod_PorcentajeGarantia, this.impuestoList);
     }
     @JsonProperty("cargoSoporte")
     private BigDecimal serv_CargoSoporte;

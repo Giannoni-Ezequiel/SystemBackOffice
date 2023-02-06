@@ -1,5 +1,6 @@
 package com.Crisalis.demo.controller;
 
+import com.Crisalis.demo.model.DTO.BienDTO;
 import com.Crisalis.demo.model.DTO.DetalleDTO;
 import com.Crisalis.demo.model.Pedido_detalle;
 import com.Crisalis.demo.service.PedidoDetalleService;
@@ -29,15 +30,15 @@ public class PedidoDetalleController {
     {
         return this.pedidoDetalleService.listarId(id);
     }
-    @PostMapping(value = "add", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public Pedido_detalle add(@RequestBody DetalleDTO detalle)
+    /*@PostMapping(value = "add", consumes = MediaType.APPLICATION_JSON_VALUE)
+    public Pedido_detalle add(@RequestBody DetalleDTO detalle, @RequestParam BienDTO bien)
     {
-        return this.pedidoDetalleService.add(detalle);
+        return this.pedidoDetalleService.add(detalle, bien);
     }
     @PutMapping(value = {"{id}"}, consumes = MediaType.APPLICATION_JSON_VALUE)
-    public void editar(@RequestBody DetalleDTO detalle,@PathVariable("id")Integer id){
+    public void editar(@RequestBody DetalleDTO detalle, @RequestParam BienDTO bien, @PathVariable("id")Integer id){
         detalle.setId(id);
-        this.pedidoDetalleService.edit(detalle);
+        this.pedidoDetalleService.edit(detalle, bien);
     }
     @DeleteMapping(path = {"/{id}"})
     public void delete(@PathVariable("id")int id)
@@ -46,9 +47,9 @@ public class PedidoDetalleController {
     }
 
     @PutMapping(value = {"{id}/calcular"}, consumes = MediaType.APPLICATION_JSON_VALUE)
-    public Pedido_detalle calcular(@RequestBody DetalleDTO detalle,@PathVariable("id")Integer id){
+    public Pedido_detalle calcular(@RequestBody DetalleDTO detalle, @RequestParam BienDTO bien,@PathVariable("id")Integer id){
         detalle.setId(id);
-        return this.pedidoDetalleService.calcular(detalle);
-    }
+        return this.pedidoDetalleService.calcular(detalle, bien);
+    }*/
 
 }

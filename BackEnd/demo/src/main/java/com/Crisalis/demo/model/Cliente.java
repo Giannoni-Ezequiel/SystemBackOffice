@@ -37,13 +37,13 @@ public abstract class Cliente {
     public String direccion;
     @Column(name = "telefono")
     public String telefono;
-
+    /*
     @OneToMany
     @JoinColumn(name = "bien_ID")
     protected List<Bien> Bienes = new ArrayList<>();
 
 
-    /*
+
     @ManyToMany
     private List<Bien> bienList = new ArrayList<>();*/
 
@@ -73,13 +73,13 @@ public abstract class Cliente {
         this.telefono = telefono;
     }
 
-    public Cliente(Integer id, String email, String direccion, String telefono, List<Bien> bienes) {
+    /*public Cliente(Integer id, String email, String direccion, String telefono, List<Bien> bienes) {
         this.id = id;
         this.email = email;
         this.direccion = direccion;
         this.telefono = telefono;
         Bienes = bienes;
-    }
+    }*/
 
     public Cliente(String email, String direccion, String telefono) {
     }

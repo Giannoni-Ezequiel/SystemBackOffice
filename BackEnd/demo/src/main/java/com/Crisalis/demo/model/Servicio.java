@@ -2,11 +2,11 @@ package com.Crisalis.demo.model;
 
 import lombok.*;
 
-import javax.persistence.Column;
-import javax.persistence.DiscriminatorValue;
-import javax.persistence.Entity;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @DiscriminatorValue("Servicio")
@@ -21,6 +21,18 @@ public class Servicio extends Bien implements Serializable {
     private BigDecimal serv_CargoSoporte;
     @Column(name = "ServicioEspecial")
     private Boolean serv_ServicioEspecial;
+
+    @ManyToMany
+    @JoinTable(
+            name = "bien_impuesto",
+            joinColumns = {
+                    @JoinColumn(name = "bienes_fk")
+            },
+            inverseJoinColumns = {
+                    @JoinColumn(name = "impuestos_fk")
+            }
+    )
+    private List<Impuesto> taxList = new ArrayList<>();
 
     public Servicio(String bien_Nombre, BigDecimal bien_Costo, BigDecimal serv_CargoSoporte
             , Boolean serv_ServicioEspecial){

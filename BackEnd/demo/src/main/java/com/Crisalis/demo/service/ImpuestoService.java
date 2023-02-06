@@ -1,9 +1,11 @@
 package com.Crisalis.demo.service;
 
+import com.Crisalis.demo.exception.custom.NotFoundException;
 import com.Crisalis.demo.model.DTO.ImpuestoDTO;
 import com.Crisalis.demo.model.Impuesto;
 import com.Crisalis.demo.repository.ImpuestoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.crossstore.ChangeSetPersister;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -37,13 +39,24 @@ public class ImpuestoService {
     {
         return this.impuestoRepository.save(imp.toImpuestoEntity());
     }
-    public void edit(ImpuestoDTO imp)
+    public Impuesto edit(Integer id, Impuesto imp)
     {
-        this.impuestoRepository.save(imp.toImpuestoEntity());
+        if(impuestoRepository.existsById(id)){
+            imp.setImp_ID(id);
+            Impuesto impActualizado = impuestoRepository.save(imp);
+            return impActualizado;
+        } else{
+            throw new NotFoundException("Impuesto con ID " +id+" no existe");
+        }
+
     }
     public void delete(int id)
     {
-        this.impuestoRepository.deleteById(id);
+        if(impuestoRepository.existsById(id)){
+            this.impuestoRepository.deleteById(id);
+        } else {
+            throw new NotFoundException("Impuesto con ID " +id+" no existe");
+        }
     }
     /*
     private Boolean checkImpuesto(ImpuestoDTO impuestoDTO, boolean check){

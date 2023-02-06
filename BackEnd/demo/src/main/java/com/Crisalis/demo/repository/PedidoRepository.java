@@ -17,5 +17,5 @@ public interface PedidoRepository extends JpaRepository<Pedido, Integer> {
     Optional<Pedido> findById(Integer integer);
     List<Pedido> findAll();
 
-    List<Pedido> findByCliente(Cliente nombre);
+    /*List<Pedido> findByCliente(Cliente nombre);*/
 }

@@ -7,6 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,19 +22,20 @@ public class Impuesto {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID")
     private Integer imp_ID;
-    @Column(name = "Porcentaje")
-    private Float imp_Porcentaje;
     @Column(name = "Nombre")
     private String imp_Nombre;
-    /*@ManyToMany*/
+    @Column(name = "Porcentaje")
+    private BigDecimal imp_Porcentaje;
+
+    /*@ManyToMany
     @OneToMany
     @JoinColumn(name = "bien_ID")
-    private List<Bien> Bienes = new ArrayList<>();
+    private List<Bien> Bienes = new ArrayList<>();*/
 
-    public Impuesto(Float imp_Porcentaje, String imp_Nombre, List<Bien> Bienes){
+    public Impuesto(String imp_Nombre,BigDecimal imp_Porcentaje){
         this.imp_Nombre = imp_Nombre;
         this.imp_Porcentaje = imp_Porcentaje;
-        this.Bienes = Bienes;
+
     }
     public ImpuestoDTO toDTO(){
         return
@@ -41,7 +43,6 @@ public class Impuesto {
                         .builder()
                         .imp_Nombre(this.imp_Nombre)
                         .imp_Porcentaje(this.imp_Porcentaje)
-                        .Bienes(this.Bienes)
                         .build();
     }
 }

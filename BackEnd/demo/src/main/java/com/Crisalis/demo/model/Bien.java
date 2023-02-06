@@ -23,7 +23,7 @@ public abstract class Bien {
             name = "bien_sequence",
             sequenceName = "bien_sequence",
             allocationSize = 1,
-            initialValue = 0
+            initialValue = 1
     )
     @GeneratedValue(
             strategy = GenerationType.SEQUENCE,
@@ -46,13 +46,13 @@ public abstract class Bien {
                     @JoinColumn(name = "fk_Impuesto")
             }
     )
-    private List<Impuesto> impuestoList = new ArrayList<>();*/
+    private List<Impuesto> impuestoList = new ArrayList<>();
     @ManyToOne(
             fetch = FetchType.EAGER
             //optional = false No puede existir un detalle sin que este en un pedido
     )
     @JoinColumn(name = "impuesto_fk")
-    public Impuesto impuesto;
+    public Impuesto impuesto;*/
 
     /*@ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(
@@ -80,19 +80,14 @@ public abstract class Bien {
                                                                 // no cuenta con ordenamiento
 
  */
-    public Bien(Integer bien_ID, String bien_Nombre, BigDecimal bien_Costo, Impuesto impuestos) {
+    public Bien(Integer bien_ID, String bien_Nombre, BigDecimal bien_Costo) {
         this.bien_ID = bien_ID;
         this.bien_Nombre = bien_Nombre;
         this.bien_Costo = bien_Costo;
-        impuesto = impuestos;
+        //impuesto = impuestos;
         //this.cliente = cliente;
     }
-    public Bien(Integer bien_ID,String bien_Nombre, BigDecimal bien_Costo)
-    {
-        this.bien_ID = bien_ID;
-        this.bien_Nombre = bien_Nombre;
-        this.bien_Costo = bien_Costo;
-    }
+
     public Bien(String bien_Nombre, BigDecimal bien_Costo)
     {}
     public Bien() {}

@@ -1,5 +1,6 @@
 package com.Crisalis.demo.model;
 
+import com.Crisalis.demo.model.DTO.BienDTO;
 import lombok.*;
 
 import javax.persistence.*;
@@ -42,24 +43,28 @@ public class Pedido_detalle {
     @Column(name = "CargoSoporte")
     private BigDecimal item_CargoSoporte;
     @ManyToOne(
-            fetch = FetchType.EAGER,
-            optional = false //No puede existir un detalle sin que este en un pedido
+            fetch = FetchType.EAGER
+            //optional = false //No puede existir un detalle sin que este en un pedido
     )
-    @JoinColumn(name = "bien_fk")
-    private Bien bien;
-    @OneToOne
-    @JoinColumn(name = "impuesto_fk")
-    private Pedido_impuesto pedido_impuesto;
-    /*@ManyToOne(
-            fetch = FetchType.LAZY,
+    @JoinColumn(name = "product_fk")
+    private Producto producto;
+    @ManyToOne(
+            fetch = FetchType.EAGER
+            //optional = false //No puede existir un detalle sin que este en un pedido
+    )
+    @JoinColumn(name = "servicio_fk")
+    private Servicio servicio;
+
+    @ManyToOne(
+            fetch = FetchType.EAGER,
             cascade = CascadeType.ALL
     )
     @JoinColumn(name = "pedido_fk")
-    private Pedido pedido;*/
+    private Pedido pedido;
 
-    public Pedido_detalle(BigDecimal item_cant, BigDecimal item_PrecioUnitario, BigDecimal item_PrecioTotal,
+    /*public Pedido_detalle(BigDecimal item_cant, BigDecimal item_PrecioUnitario, BigDecimal item_PrecioTotal,
                           BigDecimal item_Descuento, Integer item_Garantia, Double item_PorcGarantia,
-                          BigDecimal item_CargoSoporte, Bien bien, Pedido_impuesto pedido_impuesto)
+                          BigDecimal item_CargoSoporte)
     {
         this.item_cant = item_cant;
         this.item_PrecioUnitario = item_PrecioUnitario;
@@ -68,10 +73,8 @@ public class Pedido_detalle {
         this.item_Garantia = item_Garantia;
         this.item_PorcGarantia = item_PorcGarantia;
         this.item_CargoSoporte = item_CargoSoporte;
-        this.bien = bien;
-        this.pedido_impuesto = pedido_impuesto;
 
-    }
 
+    }*/
 
 }

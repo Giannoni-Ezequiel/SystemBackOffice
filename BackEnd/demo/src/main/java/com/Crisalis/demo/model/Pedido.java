@@ -39,20 +39,28 @@ public class Pedido {
     private BigDecimal ord_TotalPedido;
     @Column(name = "EmpresaEmisora")
     private String ord_NomEmpEmisora;
+    @Column(name = "ServicioDescuento")
+    private String ord_ServicioDescuento;
     @Column(name = "DescuentoPorcentaje")
-    private Double ord_DescuentoPorcent;
+    private BigDecimal ord_DescuentoPorcent;
     @Column(name = "DescuentoTotal")
     private BigDecimal ord_DescuentoTotal;
     @Column(name = "Estado")
-    private Estado estado;
+    private Boolean estado;
     @ManyToOne(
-            fetch = FetchType.EAGER, /*el eager trae todo por mas que consultes solo 2 datos*/
-            optional = false
+            fetch = FetchType.EAGER /*el eager trae todo por mas que consultes solo 2 datos*/
+            //optional = false
     )
-    @JoinColumn(name = "cliente_fk")
-    private Cliente cliente;
+    @JoinColumn(name = "empresa_fk")
+    private Empresa empresa;
+    @ManyToOne(
+            fetch = FetchType.EAGER /*el eager trae todo por mas que consultes solo 2 datos*/
+            //optional = false
+    )
+    @JoinColumn(name = "persona_fk")
+    private Person persona;
 
-    @OneToMany(
+    /*@OneToMany(
             fetch = FetchType.EAGER,
             cascade = CascadeType.ALL
     )
@@ -72,22 +80,6 @@ public class Pedido {
         this.estado = estado;
         this.pedido_detalle = pedido_detalle;
         this.cliente = cliente;
-    }
-
-    public PedidoDTO toDTO()
-    {
-        return
-                PedidoDTO
-                        .builder()
-                        .ord_comprobante(this.ord_comprobante)
-                        .ord_fecha(this.ord_fecha)
-                        .ord_TotalPedido(this.ord_TotalPedido)
-                        .ord_DescuentoPorcent(this.ord_DescuentoPorcent)
-                        .ord_DescuentoTotal(this.ord_DescuentoTotal)
-                        .estado(this.estado)
-                        .pedido_detalle(this.pedido_detalle)
-                        .cliente(this.cliente)
-                        .build();
-    }
+    }*/
 
 }
