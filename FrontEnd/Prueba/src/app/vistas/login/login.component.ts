@@ -20,7 +20,7 @@ export class LoginComponent implements OnInit {
     password: new FormControl('', Validators.required),
   })*/
 
-  usuario:LoginUsuario;
+  usuario!:LoginUsuario;
   LoginUsuario!: LoginUsuario;
   nombreUsuario!: string;
   password!: string;
@@ -31,11 +31,11 @@ export class LoginComponent implements OnInit {
     private registrationService: RegistrationService,
     private router:Router,
     private usuarioService: UsuarioService){
-      this.usuario = {
+      /*this.usuario = {
         nombreUsuario : '',
         password : '',
         name : '',
-      }
+      }*/
     }
 
   ngOnInit(): void{
@@ -43,6 +43,7 @@ export class LoginComponent implements OnInit {
   }
   login(): void
   {
+    this.router.navigate(["/proyecto"])
     const nombreUsuario = this.nombreUsuario;
     const password = this.password;
     console.log(this.usuario.nombreUsuario,this.usuario.password)

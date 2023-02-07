@@ -1,9 +1,1 @@
-#logo
-  {
-    display: flex;
-    justify-content: flex-start;
-    @media screen and (max-width: 497px)
-    {
-      width: 200px;
-    }
-  }
+

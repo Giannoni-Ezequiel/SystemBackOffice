@@ -17,25 +17,30 @@
       </div>
       <br>
       <div class="card-body">
-          <table class="table">
+          <table class="table table-bordered table-striped">
               <thead class="thead-light">
                 <tr class="text-center">
-                  <th scope="col">#</th>
-                  <th scope="col">Nombre de Usuario</th>
-                  <th scope="col">Contraseña</th>
-                  <th scope="col">Nombre</th>
-                  <th scope="col">ACCION</th>
+                  <th scope="col-1">#</th>
+                  <th scope="col-2">Nombre</th>
+                  <th scope="col-2">Nombre de Usuario</th>
+                  <th scope="col-2">Contraseña</th>
+                  <th scope="col-2">Rol</th>
+                  <th scope="col-3">ACCION</th>
                 </tr>
               </thead>
               <tbody>
-                <tr *ngFor="let usuario of usuarios" class="flight_results">
-                  <td>{{usuario.id}}</td>
+                <tr *ngIf="usuarios">
+                <tr *ngFor="let usuario of usuarios" class="text-center">
+                  <th scope="row">{{usuario.id}}</th>
+                  <td>{{usuario.name | uppercase}}</td>
                   <td>{{usuario.nombreUsuario}}</td>
                   <td>{{usuario.password}}</td>
-                  <td>{{usuario.name}}</td>
+                  <td>{{usuario.rol}}</td>
                   <td>
-                      <button (click)="Editar(usuario)" class="btn btn-warning">Editar</button>
-                      <button (click)="Delete(usuario)" class="btn btn-warning" style="margin-left: 10px">Delete</button>
+                      <button (click)="Editar(usuario)" class="btn btn-warning">
+                        <i id="myicon1" class="fa fa-edit"></i>Editar</button>
+                      <button (click)="Delete(usuario)" class="btn btn-warning" style="margin-left: 10px">
+                        <i id="myicon2" class="fa fa-remove"></i>Delete</button>
                   </td>
                 </tr>
               </tbody>

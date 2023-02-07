@@ -1,14 +1,16 @@
 export class LoginUsuario
 {
     id?: number;
-    nombreUsuario: string;
-    password: string;
     name: string;
+    nombreUsuario: any;
+    password: string;
+    rol: string;
 
-    constructor(nombreUsuario: string, password: string, name: string)
+    constructor(name: string, nombreUsuario: any, password: string,  rol: string)
     {
+        this.name = name;
         this.nombreUsuario = nombreUsuario;
         this.password = password;
-        this.name = name;
+        this.rol = rol;
     }
 }

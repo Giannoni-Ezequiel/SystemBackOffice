@@ -1,21 +1,16 @@
-import { Bien } from "./bien";
-
-export class Impuesto
+export interface Impuesto
 {
   id?: number;
-  porcentaje: number;
   nombre: string;
-  bien: Bien;
+  porcentaje: any;
 
-  constructor(id: number,porcentaje: number, nombre: string, bien: Bien)
+  /*constructor(porcentaje: number, nombre: string)
   {
-    this.id = id;
     this.porcentaje = porcentaje;
     this.nombre = nombre;
-    this.bien = bien;
   }
 
-  /*constructorPlus(id: number,porcentaje: number, nombre: string){
+  constructorPlus(id: number,porcentaje: number, nombre: string){
     this.id = id;
     this.porcentaje = porcentaje;
     this.nombre = nombre;

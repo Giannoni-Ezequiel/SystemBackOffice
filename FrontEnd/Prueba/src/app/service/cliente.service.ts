@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { Cliente } from '../models/cliente';
 //import { environment } from '../enviroments/enviroment';
 
@@ -13,8 +14,8 @@ export class ClienteService {
   //private Url = environment.apiBaseUrl;
   Url = 'http://localhost:8080/clientes';
 
-  getClientes(){
-    return this.http.get<Cliente[]>(this.Url);
+  getClientes(): Observable<any>{
+    return this.http.get(this.Url);
   }
   crearCliente(cliente:Cliente){
     return this.http.post<Cliente>(this.Url+"/add",cliente);

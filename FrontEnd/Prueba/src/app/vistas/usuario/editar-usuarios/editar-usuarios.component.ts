@@ -10,13 +10,13 @@ import { LoginUsuario } from 'src/app/models/loginusuario';
 })
 export class EditarUsuariosComponent implements OnInit{
 
-  usuario:LoginUsuario;
+  usuario!:LoginUsuario;
   constructor(private router:Router, private service:UsuarioService){
-    this.usuario = {
+    /*this.usuario = {
       nombreUsuario : '',
       password : '',
       name : '',
-    }
+    }*/
   }
 
   ngOnInit(){

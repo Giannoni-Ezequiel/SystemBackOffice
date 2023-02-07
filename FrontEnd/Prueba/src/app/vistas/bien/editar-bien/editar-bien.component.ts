@@ -10,18 +10,18 @@ import { Bien } from 'src/app/models/bien';
 })
 export class EditarBienComponent implements OnInit{
 
-  bien:Bien;
+  bien!:Bien;
   constructor(private router:Router, private service:BienService){
-    this.bien = {
+    /*this.bien = {
       nombre: "string",
       costo: 0,
       cargoSoporte: 0,
       esEspecial: false,
       garantia: 0,
-      porcentajeCarg: 0,
+      porcentajeGarantia: 0,
       clientes: [],
       impuestos: []
-    }
+    }*/
   }
 
   ngOnInit(){

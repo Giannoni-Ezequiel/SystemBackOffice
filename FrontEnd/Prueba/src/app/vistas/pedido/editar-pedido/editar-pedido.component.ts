@@ -21,7 +21,7 @@ export class EditarPedidoComponent implements OnInit{
       DescuentoPorcent: 0,
       DescuentoTotal: 0,
       pedido_detalle: [],
-      cliente: new Cliente("","","1","","","","","","", new Date()),
+      cliente: new Cliente("","",1,"","","","","", new Date()),
     }
   }
 

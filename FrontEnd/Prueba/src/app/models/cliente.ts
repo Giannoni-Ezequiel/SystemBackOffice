@@ -5,23 +5,22 @@ export class Cliente
   tipo?: string;
   nombre: string;
   apellido: string;
-  dni: string;
-  razonSocial: string;
+  dni: number;
   email: string;
+  razonSocial: string;
   direccion: string;
   cuit: string;
   telefono: string;
   fechaDeInicio: Date;
-  img: string;
+  persona!: Cliente;
 
-  constructor(nombre: string,apellido: string, dni: string,img: string,
+  constructor(nombre: string,apellido: string, dni: number,
     razonSocial: string,email: string,direccion: string,cuit: string,
-    telefono: string,fechaDeInicio: Date, )
+    telefono: string,fechaDeInicio: Date)
     {
       this.nombre = nombre;
       this.dni = dni;
       this.apellido = apellido;
-      this.img = img;
       this.razonSocial = razonSocial;
       this.email = email;
       this.direccion = direccion;

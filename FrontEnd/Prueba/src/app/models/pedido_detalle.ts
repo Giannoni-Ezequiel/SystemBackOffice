@@ -1,5 +1,4 @@
 import { Bien } from "./bien";
-import { Pedido_Impuesto } from "./pedido_impuesto"
 export class Pedido_Detalle
 {
   id?: number;
@@ -12,11 +11,11 @@ export class Pedido_Detalle
   cargoSoporte: number;
   producto: Bien;
   servicio: Bien;
-  impuestoPedido: Pedido_Impuesto;
+  detalles: Array<Pedido_Detalle>;
 
   constructor(id: number,cant: number, precioUnitario: number,precioTotal: number,descuento: number,
     garantia: number, porcGarantia: number,cargoSoporte: number,
-    producto: Bien, servicio: Bien, impuestoPedido: Pedido_Impuesto)
+    producto: Bien, servicio: Bien, detalles: Array<Pedido_Detalle>)
   {
     this.id = id;
     this.cant = cant;
@@ -28,6 +27,6 @@ export class Pedido_Detalle
     this.cargoSoporte = cargoSoporte;
     this.producto = producto;
     this.servicio = servicio;
-    this.impuestoPedido = impuestoPedido;
+    this.detalles = detalles;
   }
 }

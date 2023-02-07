@@ -1,20 +1,20 @@
 import { Cliente } from "./cliente";
 import { Impuesto } from "./impuesto";
 
-export interface Bien
+export class Bien
 {
   id?: number;
+  tipo?: string;
   nombre: string;
   costo: number;
   cargoSoporte: number;
   esEspecial: boolean;
   garantia: number;
-  porcentajeCarg: number;
-  clientes: Array<Cliente>;
+  porcentajeGarantia: number;
   impuestos: Array<Impuesto>;
 
-  /*constructor(id: number, nombre: string, costo: number,cargoSoporte: number,
-    esEspecial: boolean,garantia: number,porcentajeCarg: number
+  constructor(id: number, nombre: string, costo: number,cargoSoporte: number,
+    esEspecial: boolean,garantia: number,porcentajeGarantia: number, impuestos: Array<Impuesto>
     )
   {
     this.id = id;
@@ -23,7 +23,8 @@ export interface Bien
     this.cargoSoporte = cargoSoporte;
     this.esEspecial = esEspecial;
     this.garantia = garantia;
-    this.porcentajeCarg = porcentajeCarg;
+    this.porcentajeGarantia = porcentajeGarantia;
+    this.impuestos = impuestos;
 
-  }*/
+  }
 }

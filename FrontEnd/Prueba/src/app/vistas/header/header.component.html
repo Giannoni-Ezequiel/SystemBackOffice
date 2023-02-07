@@ -1,10 +1,12 @@
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
   <!--<div class="row">-->
-    <div class="container-fluid">
-      <div class="navbar-nav ms-auto" id="logo">
-        <a class="nav-link active" role="button" href="/proyecto"><app-logo></app-logo></a>
-      </div>
 
+      <div id="logo">
+        <a class="nav-link active" role="button" href="/proyecto">
+          <app-logo></app-logo>
+        </a>
+      </div>
+      <div>
       <button type="button" class="btn btn-secondary dropdown-toggle" mat-button [matMenuTriggerFor]="clientes" (click)="cliente()">Clientes</button>
         <mat-menu #clientes="matMenu">
           <!--mat-menu-item [matMenuTriggerFor]="vertebrates"-->
@@ -43,19 +45,11 @@
         <mat-menu #Usuarios="matMenu">
           <button mat-menu-item (click)="usuario()">Usuarios</button>
         </mat-menu>
+      </div>
 
-        <ng-template matMenuContent let-name="name">
-          <button type="button1" class="btn btn-outline-light" mat-button [matMenuTriggerFor]="Login">INGRESAR</button>
+        <button type="button1" class="btn btn-outline-light text-white" mat-button [matMenuTriggerFor]="Login">INGRESAR</button>
           <mat-menu #Login="matMenu">
             <button mat-menu-item (click)="login()">Entrar</button>
-            <button mat-menu-item id="logout"  href="#">Salir {{name}}</button>
+            <button mat-menu-item id="logout"  (click)="login()">Salir </button>
           </mat-menu>
-        </ng-template>
-
-        <button type="button1" class="btn btn-outline-light" mat-button [matMenuTriggerFor]="Login">INGRESAR</button>
-          <mat-menu #Login="matMenu">
-            <button mat-menu-item (click)="login()">Entrar</button>
-            <button mat-menu-item id="logout"  href="#">Salir </button>
-          </mat-menu>
-    </div>
 </nav>

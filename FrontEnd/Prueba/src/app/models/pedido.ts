@@ -9,11 +9,11 @@ export class Pedido
   nomEmpEmisora: string;
   DescuentoPorcent: number;
   DescuentoTotal: number;
-  pedido_detalle: Array<Pedido_Detalle> = [];
+  pedido_detalle: Array<Pedido_Detalle>;
   cliente: Cliente;
 
   constructor(Ncomprobante:string, fecha: Date,totalPedido: number,nomEmpEmisora: string,
-    DescuentoPorcent: number, DescuentoTotal: number, cliente: Cliente){
+    DescuentoPorcent: number, DescuentoTotal: number, cliente: Cliente, pedido_detalle: Array<Pedido_Detalle>){
       this.Ncomprobante = Ncomprobante;
       this.fecha = fecha;
       this.totalPedido = totalPedido;
@@ -21,6 +21,7 @@ export class Pedido
       this.DescuentoPorcent = DescuentoPorcent;
       this.DescuentoTotal = DescuentoTotal;
       this.cliente = cliente;
+      this.pedido_detalle = pedido_detalle;
     }
 
   /*public calcularTotalPedido(): number {

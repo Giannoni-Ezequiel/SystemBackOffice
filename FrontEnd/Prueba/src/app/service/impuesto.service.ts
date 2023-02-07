@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { environment } from '../enviroments/enviroment';
 import { Impuesto } from '../models/impuesto';
 
@@ -13,8 +14,8 @@ export class ImpuestoService {
   //private Url = environment.apiBaseUrl;
   Url = 'http://localhost:8080/impuestos';
 
-  getImpuesto(){
-    return this.http.get<Impuesto[]>(this.Url);
+  getImpuesto(): Observable<any>{
+    return this.http.get(this.Url);
   }
   crearImpuesto(impuesto:Impuesto){
     return this.http.post<Impuesto>(this.Url,impuesto);

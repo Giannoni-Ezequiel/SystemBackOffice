@@ -13,13 +13,13 @@ import { NgForm } from '@angular/forms';
 export class CrearComponent implements OnInit {
 
   closeResult?: string;
-  cliente:Cliente;
+  cliente!:Cliente;
 
   constructor(
     private router:Router,
     private service:ClienteService,
     private modalService: NgbModal,){
-    this.cliente = {
+    /*this.cliente = {
       nombre : '',
       dni : '',
       apellido : '',
@@ -30,7 +30,7 @@ export class CrearComponent implements OnInit {
       cuit : '',
       telefono : '',
       fechaDeInicio : new Date,
-    }
+    }*/
   }
 
   ngOnInit() {

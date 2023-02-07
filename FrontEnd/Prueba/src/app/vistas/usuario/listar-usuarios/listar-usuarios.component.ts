@@ -11,7 +11,11 @@ import { LoginUsuario } from 'src/app/models/loginusuario';
 export class ListarUsuariosComponent implements OnInit{
 
   usuarios:LoginUsuario[] = [];
-  constructor(private usuario:UsuarioService, private router:Router){}
+
+  constructor(
+    private usuario:UsuarioService,
+    private router:Router)
+    {}
 
   ngOnInit(): void{
     this.usuario.getUsuarios().subscribe(data=>{

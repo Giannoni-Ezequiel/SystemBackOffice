@@ -9,9 +9,9 @@ import { Cliente } from 'src/app/models/cliente';
 })
 export class EditarComponent implements OnInit{
 
-  cliente:Cliente;
+  cliente!:Cliente;
   constructor(private router:Router, private service:ClienteService){
-    this.cliente = {
+    /*this.cliente = {
       nombre : '',
       dni : '',
       apellido : '',
@@ -22,7 +22,7 @@ export class EditarComponent implements OnInit{
       cuit : '',
       telefono : '',
       fechaDeInicio : new Date,
-    }
+    }*/
   }
 
   ngOnInit(){

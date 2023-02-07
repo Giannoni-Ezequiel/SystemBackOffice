@@ -19,9 +19,10 @@ export class ListarPedidoComponent implements OnInit{
   detalle:Pedido_Detalle[] = [];
   columnas: string[] = ['nombre', 'apellido', 'empresa']
   cliente: Cliente[] = [
-    new Cliente('','','','','','','','','', new Date)
+    new Cliente('','',0,'','','','','', new Date)
   ];
-  bien: Bien;
+  bien!: Bien;
+
   constructor(
     private service1:PedidoService,
     private service2:DetalleService,
@@ -29,16 +30,6 @@ export class ListarPedidoComponent implements OnInit{
     private router:Router,
     )
     {
-      this.bien = {
-        nombre: "",
-        costo: 0,
-        cargoSoporte: 0,
-        esEspecial: false,
-        garantia: 0,
-        porcentajeCarg: 0,
-        clientes: [],
-        impuestos: []
-      }
     }
   dataSource: any;
   ngOnInit(){
