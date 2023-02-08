@@ -1,18 +1,12 @@
-export interface Impuesto
+export class Impuesto
 {
-  id?: number;
-  nombre: string;
-  porcentaje: any;
+  imp_ID!: number;
+  imp_Nombre: string;
+  imp_Porcentaje: number;
 
-  /*constructor(porcentaje: number, nombre: string)
+  constructor( imp_Nombre: string, imp_Porcentaje: number)
   {
-    this.porcentaje = porcentaje;
-    this.nombre = nombre;
+    this.imp_Nombre = imp_Nombre;
+    this.imp_Porcentaje = imp_Porcentaje;
   }
-
-  constructorPlus(id: number,porcentaje: number, nombre: string){
-    this.id = id;
-    this.porcentaje = porcentaje;
-    this.nombre = nombre;
-  }*/
 }

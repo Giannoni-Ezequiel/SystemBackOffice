@@ -20,7 +20,7 @@
           <table class="table table-bordered table-striped">
               <thead class="thead-light">
                 <tr class="text-center">
-                  <th scope="col-1">#</th>
+                  <!--<th scope="col-1">#</th>-->
                   <th scope="col-2">Nombre</th>
                   <th scope="col-2">Nombre de Usuario</th>
                   <th scope="col-2">Contraseña</th>
@@ -31,16 +31,16 @@
               <tbody>
                 <tr *ngIf="usuarios">
                 <tr *ngFor="let usuario of usuarios" class="text-center">
-                  <th scope="row">{{usuario.id}}</th>
+                  <!--<th scope="row">{{usuario.id}}</th>-->
                   <td>{{usuario.name | uppercase}}</td>
-                  <td>{{usuario.nombreUsuario}}</td>
+                  <td>{{usuario.username}}</td>
                   <td>{{usuario.password}}</td>
                   <td>{{usuario.rol}}</td>
                   <td>
-                      <button (click)="Editar(usuario)" class="btn btn-warning">
-                        <i id="myicon1" class="fa fa-edit"></i>Editar</button>
-                      <button (click)="Delete(usuario)" class="btn btn-warning" style="margin-left: 10px">
-                        <i id="myicon2" class="fa fa-remove"></i>Delete</button>
+                      <button (click)="Editar(usuario)" class="btn btn-sm btn-warning">
+                        <i id="myicon1" class="fa fa-edit"></i></button>
+                      <button (click)="Delete(usuario)" class="btn btn-sm btn-danger" style="margin-left: 10px">
+                        <i id="myicon2" class="fa fa-remove"></i></button>
                   </td>
                 </tr>
               </tbody>

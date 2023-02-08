@@ -8,6 +8,7 @@ import { Cliente } from 'src/app/models/cliente';
 import { MatTableDataSource } from '@angular/material/table';
 import { BienService } from 'src/app/service/bien.service';
 import { Bien } from 'src/app/models/bien';
+import { ClienteService } from 'src/app/service/cliente.service';
 
 @Component({
   selector: 'app-listar-pedido',
@@ -27,6 +28,7 @@ export class ListarPedidoComponent implements OnInit{
     private service1:PedidoService,
     private service2:DetalleService,
     private service3:BienService,
+    private service4:ClienteService,
     private router:Router,
     )
     {
@@ -49,6 +51,12 @@ export class ListarPedidoComponent implements OnInit{
     })
   }
 
+  /*BuscarCliente(id:any){
+    this.service4.getClienteId(id).subscribe(data=>{
+      this.cliente=data;
+    })
+  }*/
+
   filtrar(event: Event) {
     const filtro = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filtro.trim().toLowerCase();
@@ -60,10 +68,12 @@ export class ListarPedidoComponent implements OnInit{
   }
 
   DeleteDetalle(detalle:Pedido_Detalle){
+    if(window.confirm('¿Estas seguro de querer borrar?')){
     this.service2.deleteDetalle(detalle).subscribe(data=>{
       this.detalle=this.detalle?.filter(d=>d!==detalle);
       alert("PedidoDetalle eliminado!!!")
     })
+  }
   }
 
   CrearDetalle(detalle:Pedido_Detalle){

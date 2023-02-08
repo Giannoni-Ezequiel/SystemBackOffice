@@ -1,15 +1,15 @@
 export class LoginUsuario
 {
-    id?: number;
+    id!: number;
     name: string;
-    nombreUsuario: any;
+    username: string;
     password: string;
     rol: string;
 
-    constructor(name: string, nombreUsuario: any, password: string,  rol: string)
+    constructor(name: string, username: string, password: string,  rol: string)
     {
         this.name = name;
-        this.nombreUsuario = nombreUsuario;
+        this.username = username;
         this.password = password;
         this.rol = rol;
     }

@@ -26,11 +26,11 @@ public class ImpuestoController {
         return this.impuestoService.listar();
     }
     @PostMapping(value = "add", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public Impuesto add(@RequestBody ImpuestoDTO imp)
+    public ImpuestoDTO add(@RequestBody ImpuestoDTO imp)
     {
-        return this.impuestoService.add(imp);
+        return this.impuestoService.add(imp).toDTO();
     }
-    @PutMapping(value = {"{id}"}, consumes = MediaType.APPLICATION_JSON_VALUE)
+    @PutMapping(value = {"/{id}"}, consumes = MediaType.APPLICATION_JSON_VALUE)
     public Impuesto editar(@RequestBody Impuesto imp,@PathVariable("id")Integer id){
         imp.setImp_ID(id);
         return this.impuestoService.edit(id, imp);

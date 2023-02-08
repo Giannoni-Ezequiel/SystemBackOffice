@@ -1,18 +1,15 @@
 package com.Crisalis.demo.service;
 
 import com.Crisalis.demo.exception.custom.NotFoundException;
-import com.Crisalis.demo.model.DTO.BienDTO;
+import com.Crisalis.demo.model.*;
 import com.Crisalis.demo.model.DTO.ClienteDTO;
 import com.Crisalis.demo.model.DTO.DetalleDTO;
 import com.Crisalis.demo.model.DTO.PedidoDTO;
-import com.Crisalis.demo.model.Pedido;
-import com.Crisalis.demo.repository.ClienteRepository;
-import com.Crisalis.demo.repository.PedidoDetalleRepository;
-import com.Crisalis.demo.repository.PedidoRepository;
+import com.Crisalis.demo.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -23,16 +20,36 @@ public class PedidoService {
     private final PedidoRepository pedidoRepository;
     private final PedidoDetalleRepository pedidoDetalleRepository;
     private final ClienteRepository clienteRepository;
+    private final EmpresaRepository empresaRepository;
+    private final PersonRepository personRepository;
+    private final ProductoRepository productoRepository;
+    private final ServicioRepository servicioRepository;
+    private final Calculos calculos;
     @Autowired
     public PedidoService(PedidoRepository pedidoRepository, PedidoDetalleRepository pedidoDetalleRepository,
-                         ClienteRepository clienteRepository)
+                         ClienteRepository clienteRepository, EmpresaRepository empresaRepository, PersonRepository personRepository, ProductoRepository productoRepository, ServicioRepository servicioRepository, Calculos calculos)
     {
         this.pedidoRepository = pedidoRepository;
         this.pedidoDetalleRepository = pedidoDetalleRepository;
         this.clienteRepository = clienteRepository;
+        this.empresaRepository = empresaRepository;
+        this.personRepository = personRepository;
+        this.productoRepository = productoRepository;
+        this.servicioRepository = servicioRepository;
+        this.calculos = calculos;
     }
     //CRUD
-    public List<DetalleDTO> findAll()
+    public List<Pedido> listar(){
+        return this.pedidoRepository.findAll();
+    }
+    public List<PedidoDTO> allPedidos(){
+        return this.pedidoRepository
+                .findAll()
+                .stream()
+                .map(PedidoDTO::toDto)
+                .collect(Collectors.toList());
+    }
+    /*public List<DetalleDTO> findAll()
     {
         List<Pedido> pedidos = pedidoRepository.findAll();
         if(pedidos.isEmpty()){
@@ -43,7 +60,7 @@ public class PedidoService {
                 .map(pedido -> PedidoDTO.pedidoDetalleToDto(pedido, null))
                 .collect(Collectors.toList());
         return pedidoDetalleDtoList;
-    }
+    }*/
     /*public List<PedidoDTO> findByClient(String identification)
     {
         List<PedidoDTO> pedidoDTOLista = new ArrayList<>();
@@ -58,13 +75,50 @@ public class PedidoService {
         return pedidoDTOLista;
     }*/
 
-    public Pedido add(PedidoDTO pedido, List<Integer> pedidoDetalleId, Integer clienteId) {
-        for (Integer iterator : pedidoDetalleId) {
-            pedido.getPedido_detalle().add(this.pedidoDetalleRepository.findById(iterator).orElseThrow(
-
-                    () -> new RuntimeException("Detalle Orden no encontrado")
-            ));
+    public PedidoDTO add(PedidoDTO pedido) {
+        Optional<Empresa> empresa = null;
+        ClienteDTO persona = null;
+        ClienteDTO clienteDTO = null;
+        if (pedido.getEmpresa() != null) {
+            empresa = this.empresaRepository.findById(pedido.getEmpresa().getId());
+        } else if (pedido.getPersona() != null) {
+            Optional<Person> personas = this.personRepository.findById(pedido.getPersona().getId());
+            persona = persona.personaToDto(personas);
         }
+        /*PedidoDTO PedidoCreado = this.pedidoRepository.save
+                (new PedidoDTO(null, null, null, null,
+                        null, null, null, null,
+                        persona, null, null));*/
+
+        for (Pedido_detalle iterator : pedido.getPedido_detalle()) {
+            Optional<Producto> producto = null;
+            Optional<Servicio> servicio = null;
+            //Optional<Pedido_detalle> detalle = null;
+            BigDecimal precioUnitario = BigDecimal.valueOf(0);
+            BigDecimal precioTotal = BigDecimal.valueOf(0);
+            BigDecimal descuento = BigDecimal.valueOf(0);
+            BigDecimal garantia = BigDecimal.valueOf(0);
+            BigDecimal porcentajeGarantia = BigDecimal.valueOf(0);
+            if (iterator.getProducto() != null) {
+                producto = this.productoRepository.findById(iterator.getProducto().getBien_ID());
+                precioUnitario = this.calculos.calcularPrecioUnitario(producto.get(), null);
+                porcentajeGarantia = producto.get().getProd_PorcentajeGarantia();
+            } else if (iterator.getServicio() != null) {
+                servicio = this.servicioRepository.findById(iterator.getServicio().getBien_ID());
+                precioUnitario = this.calculos.calcularPrecioUnitario(null, servicio.get());
+                porcentajeGarantia = null;
+            }
+
+           /* DetalleDTO detalles = this.pedidoDetalleRepository.save
+                    (new DetalleDTO(null, iterator.getItem_cant(),
+                            precioUnitario, null, null, null, porcentajeGarantia, PedidoCreado));*/
+        }
+        //precioTotal = this.calculos.calcularSubTotal(detalle.get());
+        //descuento = this.calculos.calcularDescuentoTotal(detalle.get());
+        //garantia = this.calculos.calcularGarantiaTotal(detalle.get());
+        ;/*pedido.getPedido_detalle().add(this.pedidoDetalleRepository.findById(iterator).orElseThrow(
+                    () -> new RuntimeException("Detalle Orden no encontrado")*/
+
         return null;
     }
         /*pedido.setCliente(this.clienteRepository.findByIdenficationNumber(clienteId).orElseThrow(

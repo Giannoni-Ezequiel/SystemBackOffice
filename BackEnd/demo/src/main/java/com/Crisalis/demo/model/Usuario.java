@@ -36,6 +36,9 @@ public class Usuario {
         this.rol = userDTO.getRol();
     }
 
+    public Usuario(String name, String username, String password, UserRol rol) {
+    }
+
     public UserDTO toDTO(){
         return
                 UserDTO

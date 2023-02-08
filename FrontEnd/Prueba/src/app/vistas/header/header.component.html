@@ -7,11 +7,11 @@
         </a>
       </div>
       <div>
-      <button type="button" class="btn btn-secondary dropdown-toggle" mat-button [matMenuTriggerFor]="clientes" (click)="cliente()">Clientes</button>
+      <button type="button" class="btn btn-secondary dropdown-toggle" mat-button [matMenuTriggerFor]="clientes">Clientes</button>
         <mat-menu #clientes="matMenu">
           <!--mat-menu-item [matMenuTriggerFor]="vertebrates"-->
-          <button mat-menu-item (click)="cliente()">Clientes</button>
-          <button mat-menu-item>Empresa</button>
+          <button mat-menu-item (click)="cliente()">Listar</button>
+
         </mat-menu>
 
         <!--<mat-menu #vertebrates="matMenu">
@@ -26,14 +26,14 @@
 
         <button type="button" class="btn btn-secondary dropdown-toggle" mat-button [matMenuTriggerFor]="Bienes">Bienes</button>
         <mat-menu #Bienes="matMenu">
-          <button mat-menu-item  (click)="bien()">Producto</button>
-          <button mat-menu-item >Servicio</button>
+          <button mat-menu-item  (click)="bien()">Listar</button>
+          <!--<button mat-menu-item >Servicio</button>-->
         </mat-menu>
 
         <button type="button" class="btn btn-secondary dropdown-toggle" mat-button [matMenuTriggerFor]="Pedidos">Pedidos</button>
         <mat-menu #Pedidos="matMenu">
           <button mat-menu-item (click)="pedido()">Pedidos</button>
-          <button mat-menu-item (click)="detalle()">Detalles</button>
+          <!--<button mat-menu-item (click)="detalle()">Detalles</button>-->
         </mat-menu>
 
         <button type="button" class="btn btn-secondary dropdown-toggle" mat-button [matMenuTriggerFor]="Impuestos">Impuestos</button>

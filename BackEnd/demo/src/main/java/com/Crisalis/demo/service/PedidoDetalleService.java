@@ -31,14 +31,15 @@ public class PedidoDetalleService {
     }
     /*public Pedido_detalle add(DetalleDTO detalle, BienDTO bien)
     {
+
         return this.pedidoDetalleRepository.save(detalle.toDetalleEntity(bien));
-    }
+    }*/
     public void edit(DetalleDTO detalle, BienDTO bien) {
         this.pedidoDetalleRepository.save(detalle.toDetalleEntity(bien));
     }
     public void delete(int id) {
         this.pedidoDetalleRepository.deleteById(id);
-    }*/
+    }
     //Calculos en DTO para que no guarde en base de datos. Para que cuando se cancele por x razon, no persista.
     public Pedido_detalle calcularSubTotal(){
         DetalleDTO PDetalle = new DetalleDTO();

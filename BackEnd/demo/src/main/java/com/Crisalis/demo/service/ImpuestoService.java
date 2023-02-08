@@ -37,7 +37,7 @@ public class ImpuestoService {
 
     public Impuesto add(ImpuestoDTO imp)
     {
-        return this.impuestoRepository.save(imp.toImpuestoEntity());
+        return this.impuestoRepository.save(new Impuesto(imp));
     }
     public Impuesto edit(Integer id, Impuesto imp)
     {

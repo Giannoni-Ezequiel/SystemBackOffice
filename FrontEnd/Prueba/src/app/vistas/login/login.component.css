@@ -19,14 +19,14 @@ section {
         top: -350px;
         width: 600px;
         height: 600px;
-        background: #0d070e6e;
+        background: #0d070e4b;
     }
 
 .colour:nth-child(2) {
         left: 100px;
         width: 500px;
         height: 500px;
-        bottom: -150px;
+        bottom: 150px;
         background: #7cd1f57c;
     }
 
@@ -35,7 +35,7 @@ section {
         bottom: 50px;
         width: 300px;
         height: 300px;
-        background: #195bf5c0;
+        background: #195bf58d;
     }
 
 .container {
@@ -81,7 +81,7 @@ section {
     }
 
 .form .btn:hover {
-        color:#f32b67;
+        color:#0e0809;
     }
 
 .form .btn::before {

@@ -29,10 +29,12 @@ export class ListarDetalleComponent implements OnInit{
   }
 
   Delete(detalle:Pedido_Detalle){
+    if(window.confirm('¿Estas seguro de querer borrar?')){
     this.service.deleteDetalle(detalle).subscribe(data=>{
       this.detalle=this.detalle?.filter(d=>d!==detalle);
       alert("PedidoDetalle eliminado!!!")
     })
+  }
   }
 
   Volver(){

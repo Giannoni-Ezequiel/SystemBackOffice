@@ -6,11 +6,14 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
 
 import java.time.LocalDate;
+import java.util.Optional;
 
 @Getter
 @Setter
+@ToString
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 public class ClienteDTO {
 
     @JsonProperty("id")
@@ -38,12 +41,52 @@ public class ClienteDTO {
     private LocalDate fechadeinicio;
     private Person persona;
 
+    public ClienteDTO personaToDto (Optional<Person> persona) {
+        return ClienteDTO.builder()
+                .id(persona.get().getId())
+                .nombre(persona.get().getNombre())
+                .apellido(persona.get().getApellido())
+                .DNI(persona.get().getDNI())
+                .direccion(persona.get().getDireccion())
+                .telefono(persona.get().getTelefono())
+                .email(persona.get().getEmail())
+                .tipo("Persona")
+                .build();
+    }
+    public ClienteDTO personaToDtos (Person persona) {
+        return ClienteDTO.builder()
+                .id(persona.getId())
+                .nombre(persona.getNombre())
+                .apellido(persona.getApellido())
+                .DNI(persona.getDNI())
+                .direccion(persona.getDireccion())
+                .telefono(persona.getTelefono())
+                .email(persona.getEmail())
+                .tipo("Persona")
+                .build();
+    }
     public Person toPersonEntity(){
         return new Person(this.nombre, this.apellido, this.DNI ,this.email,this.direccion, this.telefono  );
     }
-    public Empresa toEmpresaEntity(){
+
+    public ClienteDTO empresaToDto (Empresa empresa){
+        return ClienteDTO.builder()
+                .id(empresa.getId())
+                .nombre(empresa.getRazonSocial())
+                .fechadeinicio(empresa.getFechadeinicio())
+                .CUIT(empresa.getCUIT())
+                .direccion(empresa.getDireccion())
+                .telefono(empresa.getTelefono())
+                .email(empresa.getEmail())
+                .tipo("Empresa")
+                .nombre(empresa.getPersona().getNombre())
+                .apellido(empresa.getPersona().getApellido())
+                .DNI(empresa.getPersona().getDNI())
+                .build();
+    }
+    public Empresa toEmpresaEntity(Person p){
         return new Empresa(this.razonSocial, this.CUIT,  this.fechadeinicio, this.email, this.direccion,
-                this.telefono, this.persona);
+                this.telefono, p);
     }
 
 }

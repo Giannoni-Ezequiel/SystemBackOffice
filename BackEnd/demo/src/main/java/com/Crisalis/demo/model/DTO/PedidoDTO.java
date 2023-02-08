@@ -7,9 +7,8 @@ import lombok.*;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
+import java.util.Optional;
 
 @Getter
 @Setter
@@ -20,7 +19,7 @@ public class PedidoDTO {
 
     @JsonProperty("id")
     private Integer id;
-    /*@JsonProperty("ord_comprobante")
+    @JsonProperty("ord_comprobante")
     private Integer ord_comprobante;
     @JsonProperty("ord_fecha")
     private LocalDate ord_fecha;
@@ -29,37 +28,44 @@ public class PedidoDTO {
     @JsonProperty("ord_NomEmpEmisora")
     private String ord_NomEmpEmisora;
     @JsonProperty("ord_DescuentoPorcent")
-    private Double ord_DescuentoPorcent;
+    private BigDecimal ord_DescuentoPorcent;
     @JsonProperty("ord_DescuentoTotal")
     private BigDecimal ord_DescuentoTotal;
     @JsonProperty("estado")
-    private Estado estado;
+    private Boolean estado;
     @JsonProperty("persona")
     private Person persona;
     @JsonProperty("empresa")
-    private Empresa empresa;*/
-    @JsonProperty("id_cliente")
-    private Integer idCliente;
+    private Empresa empresa;
     @JsonProperty("detalle")
     private List<Pedido_detalle> pedido_detalle = new ArrayList();
+    
 
     /*public Pedido toPedidosEntity(){
         return new Pedido(this.ord_comprobante, this.ord_fecha, this.ord_TotalPedido, this.ord_NomEmpEmisora
         ,this.ord_DescuentoPorcent, this.ord_DescuentoTotal, this.estado, this.cliente);
-    }
+    }*/
 
     public Pedido toPedidoEntity(){
         return new Pedido(this.ord_comprobante, this.ord_fecha, this.ord_TotalPedido, this.ord_NomEmpEmisora
-                ,this.ord_DescuentoPorcent, this.ord_DescuentoTotal, this.estado, (Set<Pedido_detalle>) this.cliente,
-                (Cliente) this.pedido_detalle);
-    }*/
-    public PedidoDTO toDto(Pedido pedido)
+                ,this.ord_DescuentoPorcent, this.ord_DescuentoTotal, this.estado, this.pedido_detalle, this.empresa,this.persona );
+    }
+    public static PedidoDTO toDto(Pedido pedido)
     {
         return
                 PedidoDTO
                         .builder()
                         .id(pedido.getId())
-                        .idCliente(pedido.getEmpresa() != null ? pedido.getEmpresa().getId() : pedido.getPersona().getId())
+                        .ord_comprobante(pedido.getOrd_comprobante())
+                        .ord_fecha(pedido.getOrd_fecha())
+                        .ord_TotalPedido(pedido.getOrd_TotalPedido())
+                        .ord_NomEmpEmisora(pedido.getOrd_NomEmpEmisora())
+                        .ord_DescuentoPorcent(pedido.getOrd_DescuentoPorcent())
+                        .ord_DescuentoTotal(pedido.getOrd_DescuentoTotal())
+                        .estado(pedido.getEstado())
+                        .empresa(pedido.getEmpresa())
+                        .persona(pedido.getPersona())
+                        .pedido_detalle(pedido.getPedido_detalle())
                         .build();
     }
     public Pedido toEntity(PedidoDTO pedidoDTO, Empresa empresa, Person persona) {
@@ -81,4 +87,6 @@ public class PedidoDTO {
                 //.person()
                 .build();
     }
+
+
 }

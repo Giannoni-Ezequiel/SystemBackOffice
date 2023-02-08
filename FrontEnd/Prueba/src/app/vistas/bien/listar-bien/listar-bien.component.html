@@ -5,11 +5,11 @@
         <div class="card-header">
           <div class="container-fluid">
             <div class="row">
-              <div class="col-2">
-                <h2 class="text-justify">Productos</h2>
+              <div class="col-3">
+                <h2 class="text-justify">Productos/Servicios</h2>
               </div>
-              <div class="col-8"></div>
-              <div class="col-2">
+              <div class="col-6"></div>
+              <div class="col-3">
                 <button (click)="Crear()" mat-mini-fab matTooltip="Primary" color="primary">+
                 </button>
               </div>
@@ -18,29 +18,37 @@
         </div>
         <br>
         <div class="card-body">
-            <table class="table">
+            <table class="table table-bordered table-striped">
                 <thead class="thead-light">
                   <tr class="text-center">
-                    <th scope="col">#</th>
+                    <!--<th scope="col">#</th>
+                    <th scope="col">Tipo</th>-->
                     <th scope="col">Nombre</th>
                     <th scope="col">Costo</th>
                     <th scope="col">Garantia</th>
                     <th scope="col">Porcentaje De Garantia</th>
+                    <th scope="col">Cargo de Soporte</th>
+                    <th scope="col">¿Es Especial?</th>
                     <th scope="col">ACCION</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr *ngFor="let bien of bien" class="text-center">
+                  <tr *ngFor="let bien of producto" class="text-center">
                     <td>{{bien.id}}</td>
+                    <td>{{bien.tipo}}</td>
                     <td>{{bien.nombre}}</td>
                     <td>{{bien.costo | currency}}</td>
                     <td>{{bien.garantia}}</td>
                     <!--<td>{{bien.clientes}}</td>
                     <td>{{bien.impuestos}}</td>-->
                     <td>{{bien.porcentajeGarantia | percent}}</td>
+                    <td>{{bien.costo | currency}}</td>
+                    <td>{{bien.cargoSoporte | currency}}</td>
                     <td>
-                        <button (click)="Editar(bien)" class="btn btn-warning">Editar</button>
-                        <button (click)="Delete(bien)" class="btn btn-warning" style="margin-left: 10px">Delete</button>
+                        <button (click)="Editar(bien)" class="btn btn-sm btn-warning">
+                          <i id="myicon1" class="fa fa-edit"></i></button>
+                        <button (click)="Delete(bien)" class="btn btn-sm btn-danger" style="margin-left: 10px">
+                          <i id="myicon2" class="fa fa-remove"></i></button>
                     </td>
                   </tr>
                 </tbody>
@@ -54,7 +62,7 @@
     </div>
   </div>
 </mat-grid-tile>
-<mat-grid-tile>
+<!--<mat-grid-tile>
   <div class="container">
     <div class="card">
         <div class="card-header">
@@ -73,10 +81,11 @@
         </div>
         <br>
         <div class="card-body">
-            <table class="table">
+            <table class="table table-bordered table-striped">
                 <thead class="thead-light">
                   <tr class="text-center">
                     <th scope="col">#</th>
+                    <th scope="col">Tipo</th>
                     <th scope="col">Nombre</th>
                     <th scope="col">Costo</th>
                     <th scope="col">Cargo de Soporte</th>
@@ -85,15 +94,20 @@
                   </tr>
                 </thead>
                 <tbody>
+
                   <tr *ngFor="let bien of bien" class="text-center">
                     <td>{{bien.id}}</td>
+                    <td>{{bien.tipo}}</td>
                     <td>{{bien.nombre}}</td>
                     <td>{{bien.costo | currency}}</td>
                     <td>{{bien.cargoSoporte | currency}}</td>
                     <td>{{bien.esEspecial}}</td>
                     <td>
-                        <button (click)="Editar(bien)" class="btn btn-warning">Editar</button>
-                        <button (click)="Delete(bien)" class="btn btn-warning" style="margin-left: 10px">Delete</button>
+
+                        <button (click)="Editar(bien)" class="btn btn-sm btn-warning">
+                          <i id="myicon1" class="fa fa-edit"></i></button>
+                        <button (click)="Delete(bien)" class="btn btn-sm btn-danger" style="margin-left: 10px">
+                          <i id="myicon2" class="fa fa-remove"></i></button>
                     </td>
                   </tr>
                 </tbody>
@@ -106,5 +120,5 @@
         </div>
     </div>
   </div>
-</mat-grid-tile>
+</mat-grid-tile>-->
 </mat-grid-list>

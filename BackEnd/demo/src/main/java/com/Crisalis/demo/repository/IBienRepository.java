@@ -12,7 +12,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface IBienRepository extends JpaRepository<Servicio, Integer> {
+public interface IBienRepository extends JpaRepository<Bien, Integer> {
 
     Bien save(Bien bien);
     void delete(Bien bien);

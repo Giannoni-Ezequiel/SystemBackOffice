@@ -89,9 +89,11 @@ public abstract class Bien {
     }
 
     public Bien(String bien_Nombre, BigDecimal bien_Costo)
-    {}
+    {this.bien_Nombre = bien_Nombre;
+        this.bien_Costo = bien_Costo;}
     public Bien() {}
 
     //public abstract BienDTO toDTO();
     public abstract BigDecimal calcularCosto();
+
 }

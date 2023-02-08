@@ -10,7 +10,7 @@ import { environment } from '../enviroments/enviroment';
 export class PedidoService {
 
   //private Url = environment.apiBaseUrl;
-  Url = 'http://localhost:8080/pedidos';
+  Url = 'http://localhost:8080/pedido';
 
   constructor(private http:HttpClient) { }
 

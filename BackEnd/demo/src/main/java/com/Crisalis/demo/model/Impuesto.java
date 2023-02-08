@@ -1,10 +1,7 @@
 package com.Crisalis.demo.model;
 
 import com.Crisalis.demo.model.DTO.ImpuestoDTO;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
@@ -13,7 +10,9 @@ import java.util.List;
 
 @Entity
 @Table(name = "Impuesto")
-@Data
+@Getter
+@Setter
+@ToString
 @AllArgsConstructor
 @NoArgsConstructor
 public class Impuesto {
@@ -37,6 +36,12 @@ public class Impuesto {
         this.imp_Porcentaje = imp_Porcentaje;
 
     }
+
+    public Impuesto(ImpuestoDTO imp) {
+        this.imp_Nombre = imp.getImp_Nombre();
+        this.imp_Porcentaje = imp.getImp_Porcentaje();
+    }
+
     public ImpuestoDTO toDTO(){
         return
                 ImpuestoDTO

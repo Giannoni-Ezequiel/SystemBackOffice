@@ -33,12 +33,13 @@ export class ListarComponent implements OnInit{
     this.router.navigate(["editar"]);
   }
 
-  Delete(cliente:Cliente): void{
+  Delete(cliente:Cliente){
+    if(window.confirm('¿Estas seguro de querer borrar?')){
     this.service.deleteCliente(cliente).subscribe(data=>{
       this.clientes=this.clientes?.filter(c=>c!==cliente);
       alert("Cliente eliminado!!!")
-
     })
+  }
   }
 
   Volver(): void{

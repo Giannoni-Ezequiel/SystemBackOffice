@@ -22,19 +22,19 @@ public class BienController {
         this.bienService = bienService;
     }
 
-    /*@GetMapping("")
-    public List<Bien> listar(){
+    @GetMapping("")
+    public List<BienDTO> listar(){
         return this.bienService.listar();
-    }
+    }/*
     @GetMapping(value = "get_by_id", produces = MediaType.APPLICATION_JSON_VALUE)
     public BienDTO findById(@RequestParam int id)
     {
         return this.bienService.findById(id);
     }*/
     @PostMapping(value = "add", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public Bien add(@RequestBody BienDTO bien)/*, @RequestParam List<Integer> imp_ID*/
+    public BienDTO add(@RequestBody BienDTO bien, @RequestParam List<Integer> imp_ID)/*, */
     {
-        return this.bienService.add(bien);
+        return this.bienService.add(bien, imp_ID);
     }
     @GetMapping("/producto")
     public List<Producto>listarProducto()
@@ -46,11 +46,11 @@ public class BienController {
     {
         return this.bienService.listarServicio();
     }
-    /*@PutMapping(value = "{id}", consumes = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(value = "/{id}", consumes = MediaType.APPLICATION_JSON_VALUE)
     public void editar(@RequestBody BienDTO bien,@PathVariable("id")Integer id){
         bien.setId(id);
-        //this.bienService.edit(bien);
-    }*/
+        this.bienService.edit(bien);
+    }
     /*@PutMapping
     public ResponseEntity<BienDTO> editar(int id, BienDTO bien){
         BienDTO editar = bienService.findById(id);

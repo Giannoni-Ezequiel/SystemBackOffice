@@ -10,29 +10,31 @@ import { Impuesto } from 'src/app/models/impuesto';
 })
 export class ListarImpuestoComponent implements OnInit{
 
-  impuestos:Impuesto[] = [];
+  impuesto:Impuesto[] = [];
 
   constructor(
-    private service:ImpuestoService,
+    private impuestos:ImpuestoService,
     private router:Router)
     {}
 
   ngOnInit(): void{
-    this.service.getImpuesto().subscribe(data=>{
-      this.impuestos=data;
+    this.impuestos.getImpuesto().subscribe(data=>{
+      this.impuesto=data;
     })
   }
 
   Editar(impuesto:Impuesto):void{
-    localStorage.setItem("id",impuesto.id!.toString());
+    localStorage.setItem("id",impuesto.imp_ID!.toString());
     this.router.navigate(["editar-impuesto"]);
   }
 
   Delete(impuesto:Impuesto){
-    this.service.deleteImpuesto(impuesto).subscribe(data=>{
-      this.impuestos=this.impuestos?.filter(i=>i!==impuesto);
+    if(window.confirm('¿Estas seguro de querer borrar?')){
+    this.impuestos.deleteImpuesto(impuesto).subscribe(data=>{
+      this.impuesto=this.impuesto?.filter(i=>i!==impuesto);
       alert("Impuesto eliminado!!!")
     })
+  }
   }
 
   Volver(){

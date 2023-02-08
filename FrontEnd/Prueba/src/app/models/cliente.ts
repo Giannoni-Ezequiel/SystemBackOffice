@@ -1,8 +1,8 @@
 
 export class Cliente
 {
-  id?: number;
-  tipo?: string;
+  id!: number;
+  tipo!: string;
   nombre: string;
   apellido: string;
   dni: number;
@@ -11,13 +11,14 @@ export class Cliente
   direccion: string;
   cuit: string;
   telefono: string;
-  fechaDeInicio: Date;
+  fechadeinicio: Date;
   persona!: Cliente;
 
   constructor(nombre: string,apellido: string, dni: number,
     razonSocial: string,email: string,direccion: string,cuit: string,
-    telefono: string,fechaDeInicio: Date)
+    telefono: string,fechadeinicio: Date)
     {
+
       this.nombre = nombre;
       this.dni = dni;
       this.apellido = apellido;
@@ -26,7 +27,7 @@ export class Cliente
       this.direccion = direccion;
       this.cuit = cuit;
       this.telefono = telefono;
-      this.fechaDeInicio = fechaDeInicio;
+      this.fechadeinicio = fechadeinicio;
     }
 
   /*PersonaFisica(nombre: string, dni: number,apellido: string,img: string,

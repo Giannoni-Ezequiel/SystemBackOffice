@@ -44,7 +44,7 @@ public class ClienteController {
         return clienteService.listarId(id);
     }
     @PostMapping(value = "add", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public Cliente add(@RequestBody ClienteDTO cliente)
+    public ClienteDTO add(@RequestBody ClienteDTO cliente)
     {
       return this.clienteService.add(cliente);
     }

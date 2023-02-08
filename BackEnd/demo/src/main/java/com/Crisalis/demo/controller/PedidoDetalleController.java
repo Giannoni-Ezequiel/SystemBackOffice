@@ -31,10 +31,10 @@ public class PedidoDetalleController {
         return this.pedidoDetalleService.listarId(id);
     }
     /*@PostMapping(value = "add", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public Pedido_detalle add(@RequestBody DetalleDTO detalle, @RequestParam BienDTO bien)
+    public Pedido_detalle add(@RequestBody DetalleDTO detalle)
     {
-        return this.pedidoDetalleService.add(detalle, bien);
-    }
+        return this.pedidoDetalleService.add(detalle);
+    }*/
     @PutMapping(value = {"{id}"}, consumes = MediaType.APPLICATION_JSON_VALUE)
     public void editar(@RequestBody DetalleDTO detalle, @RequestParam BienDTO bien, @PathVariable("id")Integer id){
         detalle.setId(id);
@@ -45,7 +45,7 @@ public class PedidoDetalleController {
     {
          this.pedidoDetalleService.delete(id);
     }
-
+    /*
     @PutMapping(value = {"{id}/calcular"}, consumes = MediaType.APPLICATION_JSON_VALUE)
     public Pedido_detalle calcular(@RequestBody DetalleDTO detalle, @RequestParam BienDTO bien,@PathVariable("id")Integer id){
         detalle.setId(id);

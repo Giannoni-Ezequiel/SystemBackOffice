@@ -22,7 +22,7 @@ export class LoginComponent implements OnInit {
 
   usuario!:LoginUsuario;
   LoginUsuario!: LoginUsuario;
-  nombreUsuario!: string;
+  username!: string;
   password!: string;
   name!: string;
   getData!: boolean;
@@ -44,10 +44,10 @@ export class LoginComponent implements OnInit {
   login(): void
   {
     this.router.navigate(["/proyecto"])
-    const nombreUsuario = this.nombreUsuario;
+    const username = this.username;
     const password = this.password;
-    console.log(this.usuario.nombreUsuario,this.usuario.password)
-    this.usuarioService.getUserData(nombreUsuario, password).subscribe(data => {
+    console.log(this.usuario.username,this.usuario.password)
+    this.usuarioService.getUserData(username, password).subscribe(data => {
       this.LoginUsuario = data;
 
       if(data != null){

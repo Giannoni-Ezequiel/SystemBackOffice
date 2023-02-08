@@ -5,8 +5,7 @@ import lombok.*;
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDate;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 @Entity
 @Table(name = "Pedido")
@@ -60,17 +59,23 @@ public class Pedido {
     @JoinColumn(name = "persona_fk")
     private Person persona;
 
-    /*@OneToMany(
+    public Pedido(Integer id, Integer ord_comprobante, LocalDate now, BigDecimal ord_totalPedido,
+                  String ord_nomEmpEmisora, String ord_servicioDescuento,
+                  BigDecimal ord_descuentoPorcent, BigDecimal ord_descuentoTotal, boolean estado,
+                  Optional<Empresa> empresa, Object persona) {
+    }
+
+    @OneToMany(
             fetch = FetchType.EAGER,
             cascade = CascadeType.ALL
     )
     @JoinColumn(name = "pedido_fk")
-    private Set<Pedido_detalle> pedido_detalle = new HashSet<>();
-    //List<Pedido_detalle> lista = new ArrayList<Pedido_detalle> ();
+    //private Set<Pedido_detalle> pedido_detalle = new HashSet<>();
+    private List<Pedido_detalle> pedido_detalle = new ArrayList<Pedido_detalle>();
 
     public Pedido(Integer ord_comprobante, LocalDate ord_fecha, BigDecimal ord_TotalPedido, String ord_NomEmpEmisora,
-                  Double ord_DescuentoPorcent, BigDecimal ord_DescuentoTotal, Estado estado,
-                  Set<Pedido_detalle> pedido_detalle, Cliente cliente) {
+                  BigDecimal ord_DescuentoPorcent, BigDecimal ord_DescuentoTotal, Boolean estado,
+                  List<Pedido_detalle> pedido_detalle, Empresa empresa, Person persona) {
         this.ord_comprobante = ord_comprobante;
         this.ord_fecha = ord_fecha;
         this.ord_TotalPedido = ord_TotalPedido;
@@ -79,7 +84,8 @@ public class Pedido {
         this.ord_DescuentoTotal = ord_DescuentoTotal;
         this.estado = estado;
         this.pedido_detalle = pedido_detalle;
-        this.cliente = cliente;
-    }*/
+        this.empresa = empresa;
+        this.persona = persona;
+    }
 
 }

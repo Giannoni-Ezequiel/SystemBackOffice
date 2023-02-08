@@ -5,13 +5,16 @@ import com.Crisalis.demo.model.DTO.UserDTO;
 import com.Crisalis.demo.model.Usuario;
 import com.Crisalis.demo.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
 @RequestMapping("usuario")
+@CrossOrigin(origins = "http://localhost:4200")
 public class UsuarioController {
 
     private final UsuarioService usuarioService;
@@ -48,11 +51,13 @@ public class UsuarioController {
     public Usuario listarId(@PathVariable("id")Integer id){
         return this.usuarioService.listarId(id);
     }
-    @PostMapping(value = "add", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public Usuario add(@RequestBody UserDTO user)
+    @PostMapping(value = "/add", consumes = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<?> add(@RequestBody UserDTO userDTO)
     {
-        return this.usuarioService.add(user);
-    }
+            Usuario usuario = new Usuario(userDTO.getName(), userDTO.getUsername(), userDTO.getPassword(), userDTO.getRol());
+            usuarioService.saveUser(usuario.toDTO());
+            return ResponseEntity.status(HttpStatus.OK).body("Usuario Agregado");
+        }
     @PutMapping(value = "{id}", consumes = MediaType.APPLICATION_JSON_VALUE)
     public void editar(@RequestBody UserDTO user, @PathVariable("id")Integer id){
         user.setId(id);

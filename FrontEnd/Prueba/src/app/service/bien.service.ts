@@ -16,6 +16,12 @@ export class BienService {
   getBien(): Observable<any> {
     return this.http.get(this.Url);//<Bien[]>
   }
+  getProducto(): Observable<any> {
+    return this.http.get(this.Url+"/producto");
+  }
+  getServicio(): Observable<any> {
+    return this.http.get(this.Url+"/servicio");
+  }
   crearBien(bien:Bien){
     return this.http.post<Bien>(this.Url,bien);
   }

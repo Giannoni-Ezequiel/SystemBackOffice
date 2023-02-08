@@ -14,19 +14,19 @@ export class ImpuestoService {
   //private Url = environment.apiBaseUrl;
   Url = 'http://localhost:8080/impuestos';
 
-  getImpuesto(): Observable<any>{
+  getImpuesto(): Observable<any> {
     return this.http.get(this.Url);
   }
-  crearImpuesto(impuesto:Impuesto){
-    return this.http.post<Impuesto>(this.Url,impuesto);
+  crearImpuesto(impuesto:Impuesto): Observable<any>{
+    return this.http.post<any>(this.Url+"/add",impuesto);
   }
   getImpuestoId(id:any){
     return this.http.get<Impuesto>(this.Url+"/"+id);
   }
   updateImpuesto(impuesto:Impuesto){
-    return this.http.put<Impuesto>(this.Url+"/"+impuesto.id,impuesto);
+    return this.http.put<Impuesto>(this.Url+"/"+impuesto.imp_ID,impuesto);
   }
   deleteImpuesto(impuesto:Impuesto){
-    return this.http.delete<Impuesto>(this.Url+"/"+impuesto.id);
+    return this.http.delete<Impuesto>(this.Url+"/"+impuesto.imp_ID);
   }
 }

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { UsuarioService } from 'src/app/service/usuario.service';
 import { LoginUsuario } from 'src/app/models/loginusuario';
 
@@ -10,8 +10,10 @@ import { LoginUsuario } from 'src/app/models/loginusuario';
 })
 export class EditarUsuariosComponent implements OnInit{
 
-  usuario!:LoginUsuario;
-  constructor(private router:Router, private service:UsuarioService){
+  usuario!: LoginUsuario;
+  constructor(private router:Router,
+     private activatedRouter: ActivatedRoute,
+     private service:UsuarioService){
     /*this.usuario = {
       nombreUsuario : '',
       password : '',
@@ -20,7 +22,7 @@ export class EditarUsuariosComponent implements OnInit{
   }
 
   ngOnInit(){
-    this.Editar();
+    const id = this.activatedRouter.snapshot.params['id'];
   }
 
   Editar(){
@@ -30,8 +32,9 @@ export class EditarUsuariosComponent implements OnInit{
     })
   }
 
-  Actualizar(usuario:LoginUsuario){
-    this.service.updateUsuarios(usuario).subscribe(data=>{
+  Actualizar(){
+    const id = this.activatedRouter.snapshot.params['id'];
+    this.service.updateUsuarios(id, this.usuario).subscribe(data=>{
       this.usuario = data;
       alert("Se actualizo correctamente!!!");
       this.router.navigate(["listar-usuarios"])

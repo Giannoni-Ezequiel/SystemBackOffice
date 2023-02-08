@@ -37,9 +37,9 @@ public class Pedido_detalle {
     @Column(name = "Descuento")
     private BigDecimal item_Descuento;
     @Column(name = "Garantia")
-    private Integer item_Garantia;
+    private BigDecimal item_Garantia;
     @Column(name = "PorcentajeDeGarantia")
-    private Double item_PorcGarantia;
+    private BigDecimal item_PorcGarantia;
     @Column(name = "CargoSoporte")
     private BigDecimal item_CargoSoporte;
     @ManyToOne(
@@ -61,6 +61,11 @@ public class Pedido_detalle {
     )
     @JoinColumn(name = "pedido_fk")
     private Pedido pedido;
+
+    public Pedido_detalle(Integer item_ID, BigDecimal item_cant, BigDecimal precioUnitario,
+                          BigDecimal precioTotal, BigDecimal descuento, BigDecimal garantia,
+                          BigDecimal porcentajeGarantia, Pedido pedidoCreado) {
+    }
 
     /*public Pedido_detalle(BigDecimal item_cant, BigDecimal item_PrecioUnitario, BigDecimal item_PrecioTotal,
                           BigDecimal item_Descuento, Integer item_Garantia, Double item_PorcGarantia,

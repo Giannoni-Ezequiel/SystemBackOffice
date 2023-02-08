@@ -29,10 +29,12 @@ export class ListarUsuariosComponent implements OnInit{
   }
 
   Delete(usuarios:LoginUsuario){
+    if(window.confirm('¿Estas seguro de querer borrar?')){
     this.usuario.deleteUsuarios(usuarios).subscribe(data=>{
       this.usuarios=this.usuarios?.filter(u=>u!==usuarios);
       alert("Usuario eliminado!!!")
     })
+  }
   }
 
   Volver(){

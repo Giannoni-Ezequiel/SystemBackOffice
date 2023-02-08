@@ -17,14 +17,13 @@ export class UsuarioService {
   getUsuarios(): Observable<any> {
     return this.http.get(this.Url);//<LoginUsuario[]>
   }
-  crearUsuarios(usuario:LoginUsuario){
-    console.log(usuario)
-    return this.http.post<LoginUsuario>(this.Url,usuario);
+  crearUsuarios(usuario:LoginUsuario): Observable<any>{
+    return this.http.post<any>(this.Url + '/add',usuario);//<LoginUsuario>
   }
   getUsuariosId(id:any){
     return this.http.get<LoginUsuario>(this.Url+"/"+id);
   }
-  updateUsuarios(usuario:LoginUsuario){
+  updateUsuarios(id: number, usuario:LoginUsuario){
     return this.http.put<LoginUsuario>(this.Url+"/"+usuario.id,usuario);
   }
   deleteUsuarios(usuario:LoginUsuario){

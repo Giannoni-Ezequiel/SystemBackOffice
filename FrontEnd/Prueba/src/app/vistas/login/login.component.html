@@ -14,7 +14,7 @@
         <form action=""><!-- Email input -->
           <!-- Email input -->
           <div class="form-outline mb-4">
-            <input type="nombreUsuario" id="login" class="form-control" placeholder="login" formControlName="nombreUsuario" [(ngModel)]="usuario.nombreUsuario" required/>
+            <input type="nombreUsuario" id="login" class="form-control" placeholder="Nombre de Usuario" formControlName="nombreUsuario" [(ngModel)]="usuario.username" required/>
           </div>
             <!-- Password input -->
           <div class="form-outline mb-4">
@@ -28,13 +28,10 @@
                 <label class="form-check-label" for="form2Example31"> Recordar</label>
               </div>
             </div>
-            <div class="col">
-                    <!-- Simple link -->
-              <a href="#!">Recuperar Contraseña</a>
-            </div>
+
           </div>
             <!-- Submit button -->
-          <button type="button" class="btn btn-primary btn-block mb-4" (click)="login()">Ingresar</button>
+          <button type="button" class="btn btn-secondary btn-block mb-4" (click)="login()">Ingresar</button>
 
         </form>
       </form>

@@ -10,7 +10,10 @@ import { LoginUsuario } from 'src/app/models/loginusuario';
 })
 export class CrearUsuariosComponent implements OnInit{
 
-  usuario!:LoginUsuario;
+  name!: string;
+  username!: string;
+  password!: string;
+  rol!: string;
   constructor(private router:Router, private service:UsuarioService){
     /*this.usuario = {
       nombreUsuario : '',
@@ -19,12 +22,16 @@ export class CrearUsuariosComponent implements OnInit{
     }*/
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
   }
 
-  Crear(usuario:LoginUsuario){
-    this.service.crearUsuarios(usuario).subscribe(data=>{
+  Crear(): void {
+    const service = new LoginUsuario(this.name, this.username, this.password, this.rol);
+    this.service.crearUsuarios(service).subscribe(data=>{
       alert("Se agrego con exito!!!");
+      this.router.navigate(["listar-usuarios"]);
+    }, err =>{
+      alert("Fallo al agregar usuario");
       this.router.navigate(["listar-usuarios"]);
     })
   }

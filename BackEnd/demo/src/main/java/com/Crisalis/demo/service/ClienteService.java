@@ -1,5 +1,6 @@
 package com.Crisalis.demo.service;
 
+import com.Crisalis.demo.exception.custom.EmptyElementException;
 import com.Crisalis.demo.model.Cliente;
 import com.Crisalis.demo.model.DTO.ClienteDTO;
 import com.Crisalis.demo.model.Empresa;
@@ -48,13 +49,17 @@ public class ClienteService {
         return Retornar;
     }
 
-    public Cliente add(ClienteDTO c) {
+    public ClienteDTO add(ClienteDTO c) {
         if(c.getTipo().equals("Persona")){
-           return this.personRepository.save(c.toPersonEntity());
+            Person persona = this.personRepository.save(c.toPersonEntity());
+           return (c.personaToDtos(persona));
         } else if(c.getTipo().equals("Empresa")){
-           return this.empresaRepository.save(c.toEmpresaEntity());
+            Person person = new Person(c.getNombre(), c.getApellido(), c.getDNI());
+            Person newPerson = personRepository.save(person);
+            Empresa empresa = this.empresaRepository.save(c.toEmpresaEntity(newPerson));
+            return (c.empresaToDto(empresa));
             }
-            return null;
+        throw new EmptyElementException("Tipo de cliente incorrecto o no especificado");
         }
 
 
@@ -63,7 +68,9 @@ public class ClienteService {
         if(c.getTipo().equals("Persona")){
              this.personRepository.save(c.toPersonEntity());
         } else {
-            this.empresaRepository.save(c.toEmpresaEntity());
+            Person person = new Person(c.getNombre(), c.getApellido(), c.getDNI());
+            Person newPerson = personRepository.save(person);
+            this.empresaRepository.save(c.toEmpresaEntity(newPerson));
         }
     }
     public void delete(int id)

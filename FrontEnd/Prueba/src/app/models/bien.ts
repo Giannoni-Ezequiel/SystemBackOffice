@@ -3,8 +3,8 @@ import { Impuesto } from "./impuesto";
 
 export class Bien
 {
-  id?: number;
-  tipo?: string;
+  id!: number;
+  tipo!: string;
   nombre: string;
   costo: number;
   cargoSoporte: number;
@@ -13,11 +13,12 @@ export class Bien
   porcentajeGarantia: number;
   impuestos: Array<Impuesto>;
 
-  constructor(id: number, nombre: string, costo: number,cargoSoporte: number,
+  constructor(id: number, tipo:string, nombre: string, costo: number,cargoSoporte: number,
     esEspecial: boolean,garantia: number,porcentajeGarantia: number, impuestos: Array<Impuesto>
     )
   {
     this.id = id;
+    this.tipo = tipo;
     this.nombre = nombre;
     this.costo = costo;
     this.cargoSoporte = cargoSoporte;

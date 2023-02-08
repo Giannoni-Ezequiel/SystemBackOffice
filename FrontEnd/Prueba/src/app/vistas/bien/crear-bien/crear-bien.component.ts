@@ -18,9 +18,10 @@ export class CrearBienComponent implements OnInit{
     private service:BienService)
     {
   }
-
+  
   ngOnInit(): void {
   }
+
 
   Crear(bien:Bien): void
   {
